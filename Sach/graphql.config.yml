@@ -1,0 +1,5 @@
+﻿schema:
+  - https://api.stratz.com/graphql:
+      headers:
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJodHRwczovL3N0ZWFtY29tbXVuaXR5LmNvbS9vcGVuaWQvaWQvNzY1NjExOTg5ODUxODc3ODkiLCJ1bmlxdWVfbmFtZSI6IkwnZW5mZXIgYydlc3QgbGVzIGF1dHJlcyIsIlN1YmplY3QiOiJiYjhjMDVlNS01YjVlLTQxMmUtYmQxNy1iYTIwZjg5NTdmYmUiLCJTdGVhbUlkIjoiMTAyNDkyMjA2MSIsIm5iZiI6MTY4MjU3NzIxNCwiZXhwIjoxNzE0MTEzMjE0LCJpYXQiOjE2ODI1NzcyMTQsImlzcyI6Imh0dHBzOi8vYXBpLnN0cmF0ei5jb20ifQ.C28zroRLVnRixxggNgSCbTwqqyAvFJ5yiMaZlUiP8YY"
+documents: '**/*.graphql'
