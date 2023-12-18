@@ -11,7 +11,7 @@
                 Content="BTN">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source=""
+                    <Image Source="avares://Sach/Assets/HeroIcons/antimage_vert.webp"
                            Width="30"
                            Height="50"/>
                 </ControlTemplate>

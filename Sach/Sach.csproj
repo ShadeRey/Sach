@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="HeroIcons\" />
+        <Folder Include="Assets\HeroIcons\" />
         <Folder Include="Models\"/>
         <AvaloniaResource Include="Assets\**"/>
         <None Remove="HeroIcons\antimage.png" />

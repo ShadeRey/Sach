@@ -14,12 +14,15 @@
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
-
+<Window.Styles>
+    <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel">
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+    </Style>
+</Window.Styles>
     <TabControl>
         <TabItem Width="80"
                  Height="50"
-                 Padding="0 -50 0 0"
-                 Margin="140 0 0 0">
+                 Padding="0 -50 0 0">
             <TabItem.HeaderTemplate>
                 <DataTemplate>
                     <Canvas>

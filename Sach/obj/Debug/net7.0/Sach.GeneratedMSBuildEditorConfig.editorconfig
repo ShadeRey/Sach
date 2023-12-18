@@ -13,13 +13,13 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Sach
-build_property.ProjectDir = C:\Users\andre\RiderProjects\Sach\Sach\
+build_property.ProjectDir = /home/student/RiderProjects/Sach/Sach/
 
-[C:/Users/andre/RiderProjects/Sach/Sach/App.axaml]
+[/home/student/RiderProjects/Sach/Sach/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/andre/RiderProjects/Sach/Sach/Views/HeroesView.axaml]
+[/home/student/RiderProjects/Sach/Sach/Views/HeroesView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/andre/RiderProjects/Sach/Sach/Views/MainWindow.axaml]
+[/home/student/RiderProjects/Sach/Sach/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
