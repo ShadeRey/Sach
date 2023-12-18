@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Folder Include="Assets\Fonts\" />
         <Folder Include="Assets\HeroIcons\" />
         <Folder Include="Models\"/>
         <AvaloniaResource Include="Assets\**"/>
@@ -17,13 +18,13 @@
 
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.2"/>
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.2"/>
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.2"/>
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.2"/>
+        <PackageReference Include="Avalonia" Version="11.0.6" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.6" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.6" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.6" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.2"/>
-        <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.2"/>
-        <PackageReference Include="StrawberryShake.Server" Version="14.0.0-p.18" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.6" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.6" />
+        <PackageReference Include="StrawberryShake.Server" Version="14.0.0-p.20" />
     </ItemGroup>
 </Project>

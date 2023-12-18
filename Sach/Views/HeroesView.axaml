@@ -4,19 +4,1666 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Sach.Views.HeroesView">
-    
-    <Grid>
-        <Button Width="30"
-                Height="50"
-                Content="BTN">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="avares://Sach/Assets/HeroIcons/antimage_vert.webp"
-                           Width="30"
-                           Height="50"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-    </Grid>
-    
+
+    <Panel>
+
+        <Panel>
+            
+            <WrapPanel Background="Yellow"
+                       Width="385"
+                       Height="135"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="100 100 0 0"
+                       x:Name="StrengthHeroes">
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="AlchemistButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/alchemist_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="AxeButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/axe_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="BristlebackButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/bristleback_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="CentaurButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/centaur_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="ChaosKnightButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/chaos_knight_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="DawnbreakerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/dawnbreaker_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="DoomButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/doom_bringer_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="DragonKnightButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/dragon_knight_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="EarthSpiritButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/earth_spirit_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="EarthShakerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/earthshaker_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 0 0"
+                        x:Name="ElderTitanButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/elder_titan_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="HuskarButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/huskar_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="KunnkaButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/kunkka_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="LegionCommanderButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/legion_commander_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="LifestealerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/life_stealer_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="MarsButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/mars_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="NightStalkerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/night_stalker_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="OgreMagiButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/ogre_magi_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="OmniknightButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/omniknight_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="PrimalBeastButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/primal_beast_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="PudgeButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/pudge_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 0 0"
+                        x:Name="SlardarButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/slardar_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="SpiritBreakerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/spirit_breaker_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="SvenButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/sven_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="TideHunterButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/tidehunter_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="TinyButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/tiny_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="TreantProtectorButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/treant_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="TuskButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/tusk_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="UnderlordButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/abyssal_underlord_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="UndyingButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/undying_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 0 0"
+                        x:Name="WraithKingButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/skeleton_king_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </WrapPanel>
+
+            <WrapPanel Background="Yellow"
+                       Width="385"
+                       Height="135"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top"
+                       Margin="0 100 100 0"
+                       x:Name="AgilityHeroes">
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="AntiMageButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/antimage_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="ArcWardenButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/arc_warden_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="BloodseekerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/bloodseeker_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="BountyHunterButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/bounty_hunter_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="ClinkzButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/clinkz_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="DrowRangerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/drow_ranger_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="EmberSpiritButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/ember_spirit_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="FacelessVoidButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/faceless_void_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="GyrocopterButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/gyrocopter_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="HoodwinkButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/hoodwink_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 0 0"
+                        x:Name="JuggernautButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/juggernaut_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="LunaButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/luna_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="MedusaButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/medusa_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="MeepoButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/meepo_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="MonkeyKingButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/monkey_king_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="MorphlingButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/morphling_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="NagaSirenButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/naga_siren_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="PhantomAssassinButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/phantom_assassin_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="PhantomLancerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/phantom_lancer_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="RazorButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/razor_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="RikiButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/riki_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 0 0"
+                        x:Name="ShadowFiendButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/nevermore_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="SlarkButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/slark_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="SniperButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/sniper_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="SpectreButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/spectre_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="TemplarAssassinButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/templar_assassin_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="TerrorbladeButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/terrorblade_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="TrollWarlordButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/troll_warlord_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="UrsaButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/ursa_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="ViperButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/viper_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 0 0"
+                        x:Name="WeaverButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/weaver_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </WrapPanel>
+        </Panel>
+
+        <Panel Margin="0 20 0 0">
+
+            <WrapPanel Background="Yellow"
+                       Width="385"
+                       Height="135"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Margin="100 0 0 100"
+                       x:Name="IntelligenceHeroes">
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="AncientApparitionButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/ancient_apparition_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="CrystalMaidenButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/crystal_maiden_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="DeathProphetButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/death_prophet_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="DisruptorButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/disruptor_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="EnchantressButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/enchantress_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="GrimstrokeButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/grimstroke_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="JakiroButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/jakiro_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="KeeperOfTheLightButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/keeper_of_the_light_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="LeshracButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/leshrac_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="LichButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/lich_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 0 0"
+                        x:Name="LinaButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/lina_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="Lion">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/lion_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="MuertaButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/muerta_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="NaturesProphetButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/furion_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="NecrophosButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/necrolyte_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="OracleButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/oracle_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="OutworldDestroyerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/obsidian_destroyer_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="PuckButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/puck_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="PugnaButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/pugna_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="QueenOfPainButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/queenofpain_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="RubickButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/rubick_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 0 0"
+                        x:Name="ShadowDemonButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/shadow_demon_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="ShadowShamanButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/shadow_shaman_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="SilencerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/silencer_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="SkywrathMageButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/skywrath_mage_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="StormSpiritButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/storm_spirit_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="TinkerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/tinker_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="WarlockButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/warlock_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="WitchDoctorButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/witch_doctor_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="ZeusButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/zuus_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </WrapPanel>
+
+            <WrapPanel Background="Yellow"
+                       Width="385"
+                       Height="135"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       Margin="0 0 100 100"
+                       x:Name="UniversalHeroes">
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="AbaddonButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/abaddon_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="BaneButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/bane_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="BatriderButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/batrider_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="BeastMasterButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/beastmaster_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="BrewmasterButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/brewmaster_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="BroodmotherButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/broodmother_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="ChenButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/chen_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="ClockwerkButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/rattletrap_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="DarkSeerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/dark_seer_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 5 0"
+                        x:Name="DarkWillowButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/dark_willow_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -5 0 0"
+                        x:Name="DazzleButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/dazzle_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="EnigmaButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/enigma_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="InvokerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/invoker_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="IoButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/wisp_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="LoneDruidButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/lone_druid_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="LycanButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/lycan_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="MagnusButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/magnataur_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="MarciButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/marci_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="MiranaButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/mirana_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="NyxAssassinButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/nyx_assassin_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="PangolierButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/pangolier_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 0 0"
+                        x:Name="PhoenixButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/phoenix_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="SandKingButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/sand_king_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="SnapfireButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/snapfire_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="TechiesButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/techies_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="TimbersawButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/shredder_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="VengefulSpiritButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/vengefulspirit_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="VenomancerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/venomancer_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="VisageButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/visage_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="VoidSpiritButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/void_spirit_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="WindrangerButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/windrunner_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Width="30"
+                        Height="55"
+                        Margin="0 -10 5 0"
+                        x:Name="WinterWyvernButton">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="avares://Sach/Assets/HeroIcons/winter_wyvern_vert.webp"
+                                   Width="30"
+                                   Height="55" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </WrapPanel>
+        </Panel>
+        <WrapPanel Orientation="Vertical">
+            <TextBlock Text="Test" FontFamily="{StaticResource RadianceBlackFont}"></TextBlock>
+            <TextBlock Text="Test" FontFamily="{StaticResource RadianceBoldFont}"></TextBlock>
+            <TextBlock Text="Test" FontFamily="{StaticResource RadianceLightFont}"></TextBlock>
+            <TextBlock Text="Test" FontFamily="{StaticResource RadianceRegularFont}"></TextBlock>
+            <TextBlock Text="Test" FontFamily="{StaticResource RadianceSemiBoldFont}"></TextBlock>
+            <TextBlock Text="Test" FontFamily="{StaticResource RadianceUltraLightFont}"></TextBlock>
+        </WrapPanel>
+    </Panel>
 </UserControl>

@@ -11,5 +11,18 @@
   
     <Application.Styles>
         <FluentTheme />
+        <!-- <Style Selector="TextBlock"> -->
+        <!--     <Setter Property="FontFamily" Value="avares://Sach/Assets/Fonts/radiance-bold.otf"/> -->
+        <!-- </Style> -->
     </Application.Styles>
+             
+    <Application.Resources>
+        <FontFamily x:Key="RadianceBlackFont">avares://Sach/Assets/Fonts/radiance-black.ttf#Radiance Black</FontFamily>
+        <FontFamily x:Key="RadianceBoldFont">avares://Sach/Assets/Fonts/radiance-bold.ttf#Radiance</FontFamily>
+        <FontFamily x:Key="RadianceLightFont">avares://Sach/Assets/Fonts/radiance-light.ttf#Radiance</FontFamily>
+        <FontFamily x:Key="RadianceRegularFont">avares://Sach/Assets/Fonts/radiance-regular.ttf#Radiance</FontFamily>
+        <FontFamily x:Key="RadianceSemiBoldFont">avares://Sach/Assets/Fonts/radiance-semibold.ttf#Radiance Semibold</FontFamily>
+        <FontFamily x:Key="RadianceUltraLightFont">avares://Sach/Assets/Fonts/radiance-ultralight.ttf#Radiance UltraLight</FontFamily>
+    </Application.Resources>
+             
 </Application>

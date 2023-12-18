@@ -14,11 +14,11 @@
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
-<Window.Styles>
-    <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel">
-        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-    </Style>
-</Window.Styles>
+    <Window.Styles>
+        <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </Window.Styles>
     <TabControl>
         <TabItem Width="80"
                  Height="50"
@@ -40,7 +40,7 @@
                     </Canvas>
                 </DataTemplate>
             </TabItem.HeaderTemplate>
-            <views:HeroesView/>
+            <views:HeroesView />
         </TabItem>
         <TabItem Width="80"
                  Height="50"

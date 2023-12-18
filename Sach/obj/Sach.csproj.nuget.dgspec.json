@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/student/RiderProjects/Sach/Sach/Sach.csproj": {}
+    "C:\\Users\\andre\\RiderProjects\\Sach\\Sach\\Sach.csproj": {}
   },
   "projects": {
-    "/home/student/RiderProjects/Sach/Sach/Sach.csproj": {
+    "C:\\Users\\andre\\RiderProjects\\Sach\\Sach\\Sach.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/student/RiderProjects/Sach/Sach/Sach.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\RiderProjects\\Sach\\Sach\\Sach.csproj",
         "projectName": "Sach",
-        "projectPath": "/home/student/RiderProjects/Sach/Sach/Sach.csproj",
-        "packagesPath": "/home/student/.nuget/packages/",
-        "outputPath": "/home/student/RiderProjects/Sach/Sach/obj/",
+        "projectPath": "C:\\Users\\andre\\RiderProjects\\Sach\\Sach\\Sach.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andre\\RiderProjects\\Sach\\Sach\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/student/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,31 +42,31 @@
           "dependencies": {
             "Avalonia": {
               "target": "Package",
-              "version": "[11.0.2, )"
+              "version": "[11.0.6, )"
             },
             "Avalonia.Desktop": {
               "target": "Package",
-              "version": "[11.0.2, )"
+              "version": "[11.0.6, )"
             },
             "Avalonia.Diagnostics": {
               "target": "Package",
-              "version": "[11.0.2, )"
+              "version": "[11.0.6, )"
             },
             "Avalonia.Fonts.Inter": {
               "target": "Package",
-              "version": "[11.0.2, )"
+              "version": "[11.0.6, )"
             },
             "Avalonia.ReactiveUI": {
               "target": "Package",
-              "version": "[11.0.2, )"
+              "version": "[11.0.6, )"
             },
             "Avalonia.Themes.Fluent": {
               "target": "Package",
-              "version": "[11.0.2, )"
+              "version": "[11.0.6, )"
             },
             "StrawberryShake.Server": {
               "target": "Package",
-              "version": "[14.0.0-p.18, )"
+              "version": "[14.0.0-p.20, )"
             }
           },
           "imports": [
@@ -83,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
