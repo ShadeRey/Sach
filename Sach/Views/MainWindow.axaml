@@ -16,230 +16,258 @@
     </Design.DataContext>
     <Window.Styles>
         <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel">
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
     </Window.Styles>
-    <TabControl>
-        <TabItem Width="80"
-                 Height="50"
-                 Padding="0 -50 0 0">
-            <TabItem.HeaderTemplate>
-                <DataTemplate>
-                    <Canvas>
-                        <Path Fill="Red">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure StartPoint="10,50" IsClosed="True">
-                                        <LineSegment Point="80, 50" />
-                                        <LineSegment Point="70, 0" />
-                                        <LineSegment Point="0, 0" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </DataTemplate>
-            </TabItem.HeaderTemplate>
-            <views:HeroesView />
-        </TabItem>
-        <TabItem Width="80"
-                 Height="50"
-                 Padding="0 -50 0 0"
-                 Margin="15 0 0 0">
-            <TabItem.HeaderTemplate>
-                <DataTemplate>
-                    <Canvas>
-                        <Path Fill="Red">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure StartPoint="10,50" IsClosed="True">
-                                        <LineSegment Point="80, 50" />
-                                        <LineSegment Point="70, 0" />
-                                        <LineSegment Point="0, 0" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </DataTemplate>
-            </TabItem.HeaderTemplate>
-        </TabItem>
-        <TabItem Width="80"
-                 Height="50"
-                 Padding="0 -50 0 0"
-                 Margin="15 0 0 0">
-            <TabItem.HeaderTemplate>
-                <DataTemplate>
-                    <Canvas>
-                        <Path Fill="Red">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure StartPoint="10,50" IsClosed="True">
-                                        <LineSegment Point="80, 50" />
-                                        <LineSegment Point="70, 0" />
-                                        <LineSegment Point="0, 0" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </DataTemplate>
-            </TabItem.HeaderTemplate>
-        </TabItem>
-        <TabItem Width="80"
-                 Height="50"
-                 Padding="0 -50 0 0"
-                 Margin="15 0 0 0">
-            <TabItem.HeaderTemplate>
-                <DataTemplate>
-                    <Canvas>
-                        <Path Fill="Red">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure StartPoint="10,50" IsClosed="True">
-                                        <LineSegment Point="80, 50" />
-                                        <LineSegment Point="70, 0" />
-                                        <LineSegment Point="0, 0" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </DataTemplate>
-            </TabItem.HeaderTemplate>
-        </TabItem>
-        <TabItem Width="80"
-                 Height="50"
-                 Padding="0 -50 0 0"
-                 Margin="15 0 0 0">
-            <TabItem.HeaderTemplate>
-                <DataTemplate>
-                    <Canvas>
-                        <Path Fill="Red">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure StartPoint="10,50" IsClosed="True">
-                                        <LineSegment Point="80, 50" />
-                                        <LineSegment Point="70, 0" />
-                                        <LineSegment Point="0, 0" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </DataTemplate>
-            </TabItem.HeaderTemplate>
-        </TabItem>
-        <TabItem Width="80"
-                 Height="50"
-                 Padding="0 -50 0 0"
-                 Margin="180 0 0 0">
-            <TabItem.HeaderTemplate>
-                <DataTemplate>
-                    <Canvas>
-                        <Path Fill="Red">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure StartPoint="0,50" IsClosed="True">
-                                        <LineSegment Point="70, 50" />
-                                        <LineSegment Point="80, 0" />
-                                        <LineSegment Point="10, 0" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </DataTemplate>
-            </TabItem.HeaderTemplate>
-        </TabItem>
-        <TabItem Width="80"
-                 Height="50"
-                 Padding="0 -50 0 0"
-                 Margin="15 0 0 0">
-            <TabItem.HeaderTemplate>
-                <DataTemplate>
-                    <Canvas>
-                        <Path Fill="Red">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure StartPoint="0,50" IsClosed="True">
-                                        <LineSegment Point="70, 50" />
-                                        <LineSegment Point="80, 0" />
-                                        <LineSegment Point="10, 0" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </DataTemplate>
-            </TabItem.HeaderTemplate>
-        </TabItem>
-        <TabItem Width="80"
-                 Height="50"
-                 Padding="0 -50 0 0"
-                 Margin="15 0 0 0">
-            <TabItem.HeaderTemplate>
-                <DataTemplate>
-                    <Canvas>
-                        <Path Fill="Red">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure StartPoint="0,50" IsClosed="True">
-                                        <LineSegment Point="70, 50" />
-                                        <LineSegment Point="80, 0" />
-                                        <LineSegment Point="10, 0" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </DataTemplate>
-            </TabItem.HeaderTemplate>
-        </TabItem>
-        <TabItem Width="80"
-                 Height="50"
-                 Padding="0 -50 0 0"
-                 Margin="15 0 0 0">
-            <TabItem.HeaderTemplate>
-                <DataTemplate>
-                    <Canvas>
-                        <Path Fill="Red">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure StartPoint="0,50" IsClosed="True">
-                                        <LineSegment Point="70, 50" />
-                                        <LineSegment Point="80, 0" />
-                                        <LineSegment Point="10, 0" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </DataTemplate>
-            </TabItem.HeaderTemplate>
-        </TabItem>
-        <TabItem Width="80"
-                 Height="50"
-                 Padding="0 -50 0 0"
-                 Margin="15 0 0 0">
-            <TabItem.HeaderTemplate>
-                <DataTemplate>
-                    <Canvas>
-                        <Path Fill="Red">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure StartPoint="0,50" IsClosed="True">
-                                        <LineSegment Point="70, 50" />
-                                        <LineSegment Point="80, 0" />
-                                        <LineSegment Point="10, 0" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </DataTemplate>
-            </TabItem.HeaderTemplate>
-        </TabItem>
-    </TabControl>
-
+    <Grid>
+        <Border>
+            <Border.Background>
+                <RadialGradientBrush Center="50%, 57%">
+                    <GradientStop Color="#465867" Offset="0" />
+                    <GradientStop Color="#1d2229" Offset="1" />
+                </RadialGradientBrush>
+            </Border.Background>
+            <TabControl>
+                <TabItem Width="80"
+                         Height="50"
+                         Padding="0 -50 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="10,50" 
+                                                        IsClosed="True">
+                                                <LineSegment Point="80, 50" />
+                                                <LineSegment Point="70, 0" />
+                                                <LineSegment Point="0, 0" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+                <TabItem Width="80"
+                         Height="50"
+                         Padding="0 -50 0 0"
+                         Margin="15 0 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="10,50" 
+                                                        IsClosed="True">
+                                                <LineSegment Point="80, 50" />
+                                                <LineSegment Point="70, 0" />
+                                                <LineSegment Point="0, 0" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+                <TabItem Width="80"
+                         Height="50"
+                         Padding="0 -50 0 0"
+                         Margin="15 0 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="10,50" 
+                                                        IsClosed="True">
+                                                <LineSegment Point="80, 50" />
+                                                <LineSegment Point="70, 0" />
+                                                <LineSegment Point="0, 0" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+                <TabItem Width="80"
+                         Height="50"
+                         Padding="0 -50 0 0"
+                         Margin="15 0 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="10,50" 
+                                                        IsClosed="True">
+                                                <LineSegment Point="80, 50" />
+                                                <LineSegment Point="70, 0" />
+                                                <LineSegment Point="0, 0" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+                <TabItem Width="80"
+                         Height="50"
+                         Padding="0 -50 0 0"
+                         Margin="15 0 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="10,50" 
+                                                        IsClosed="True">
+                                                <LineSegment Point="80, 50" />
+                                                <LineSegment Point="70, 0" />
+                                                <LineSegment Point="0, 0" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+                <TabItem Width="80"
+                         Height="50"
+                         Padding="0 -50 0 0"
+                         Margin="180 0 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="0,50" 
+                                                        IsClosed="True">
+                                                <LineSegment Point="70, 50" />
+                                                <LineSegment Point="80, 0" />
+                                                <LineSegment Point="10, 0" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+                <TabItem Width="80"
+                         Height="50"
+                         Padding="0 -50 0 0"
+                         Margin="15 0 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="0,50" 
+                                                        IsClosed="True">
+                                                <LineSegment Point="70, 50" />
+                                                <LineSegment Point="80, 0" />
+                                                <LineSegment Point="10, 0" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+                <TabItem Width="80"
+                         Height="50"
+                         Padding="0 -50 0 0"
+                         Margin="15 0 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="0,50" 
+                                                        IsClosed="True">
+                                                <LineSegment Point="70, 50" />
+                                                <LineSegment Point="80, 0" />
+                                                <LineSegment Point="10, 0" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+                <TabItem Width="80"
+                         Height="50"
+                         Padding="0 -50 0 0"
+                         Margin="15 0 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="0,50" 
+                                                        IsClosed="True">
+                                                <LineSegment Point="70, 50" />
+                                                <LineSegment Point="80, 0" />
+                                                <LineSegment Point="10, 0" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+                <TabItem Width="80"
+                         Height="50"
+                         Padding="0 -50 0 0"
+                         Margin="15 0 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="0,50" 
+                                                        IsClosed="True">
+                                                <LineSegment Point="70, 50" />
+                                                <LineSegment Point="80, 0" />
+                                                <LineSegment Point="10, 0" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+            </TabControl>
+        </Border>
+    </Grid>
 </Window>
