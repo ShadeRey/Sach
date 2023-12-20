@@ -1,0 +1,18 @@
+﻿query HeroStatistics($heroId: Short = 6){
+    heroStats{
+        heroVsHeroMatchup(heroId: $heroId){
+            advantage{
+                with{
+                    heroId2
+                    winsAverage
+                    synergy
+                }
+                vs{
+                    heroId2
+                    winsAverage
+                    synergy
+                }
+            }
+        }
+    }
+}

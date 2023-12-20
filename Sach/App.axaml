@@ -11,9 +11,7 @@
 
     <Application.Styles>
         <FluentTheme />
-        <!-- <Style Selector="TextBlock"> -->
-        <!--     <Setter Property="FontFamily" Value="avares://Sach/Assets/Fonts/radiance-bold.otf"/> -->
-        <!-- </Style> -->
+        <StyleInclude Source="avares://Sach/Views/HeroButtonView.axaml"/>
     </Application.Styles>
 
     <Application.Resources>

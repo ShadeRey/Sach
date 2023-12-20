@@ -18,8 +18,14 @@ build_property.ProjectDir = C:\Users\andre\RiderProjects\Sach\Sach\
 [C:/Users/andre/RiderProjects/Sach/Sach/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/andre/RiderProjects/Sach/Sach/Views/HeroButtonView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/andre/RiderProjects/Sach/Sach/Views/HeroesView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [C:/Users/andre/RiderProjects/Sach/Sach/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/andre/RiderProjects/Sach/Sach/Views/PlayerTabItemView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

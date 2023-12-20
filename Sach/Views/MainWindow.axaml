@@ -14,6 +14,7 @@
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
+    
     <Window.Styles>
         <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel">
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -34,7 +35,8 @@
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
-                                <Path Fill="{StaticResource GradientBorder}">
+                                <Path Name="FirstPlayerHero"
+                                      Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
                                             <PathFigure StartPoint="10,50" 

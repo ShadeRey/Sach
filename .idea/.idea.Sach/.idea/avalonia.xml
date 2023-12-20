@@ -4,8 +4,10 @@
     <option name="projectPerEditor">
       <map>
         <entry key="Sach/App.axaml" value="Sach/Sach.csproj" />
+        <entry key="Sach/Views/HeroButtonView.axaml" value="Sach/Sach.csproj" />
         <entry key="Sach/Views/HeroesView.axaml" value="Sach/Sach.csproj" />
         <entry key="Sach/Views/MainWindow.axaml" value="Sach/Sach.csproj" />
+        <entry key="Sach/Views/PlayerTabItemView.axaml" value="Sach/Sach.csproj" />
       </map>
     </option>
   </component>
