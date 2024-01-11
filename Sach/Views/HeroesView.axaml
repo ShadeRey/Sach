@@ -17,6 +17,11 @@
         <Style Selector="views|HeroButtonView">
             <Setter Property="HeroButtonCommand" Value="{Binding OnHeroButtonClickCommand}"/>
         </Style>
+        <Style Selector="views|HeroButtonView:pointerover">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="120"/>
+            <Setter Property="ZIndex" Value="1"/>
+        </Style>
     </UserControl.Styles>
 
     <Border>
