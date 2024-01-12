@@ -6,8 +6,7 @@
     </Design.PreviewWith>
 
     <Style Selector="controls|HeroButtonView">
-        <!-- Set Defaults -->
-        <Setter Property="Width" Value="40"/>
+        <Setter Property="Width" Value="40" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Button x:Name="AlchemistButton"
@@ -15,7 +14,15 @@
                         CommandParameter="{TemplateBinding HeroId}">
                     <Button.Template>
                         <ControlTemplate>
-                            <Image Source="{Binding $parent[controls:HeroButtonView].HeroIcon}" />
+                            <WrapPanel>
+                                <Image Source="{Binding $parent[controls:HeroButtonView].HeroIcon}" />
+                                <TextBlock Text="{Binding $parent[controls:HeroButtonView].HeroName}" 
+                                           IsVisible="False" 
+                                           Background="#C8000000"
+                                           Margin="0 -18 0 0"
+                                           Width="91"
+                                           TextAlignment="Center"/>
+                            </WrapPanel>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>

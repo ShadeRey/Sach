@@ -32,4 +32,12 @@ public class HeroButtonView : TemplatedControl
         get => GetValue(HeroIconProperty);
         set => SetValue(HeroIconProperty, value);
     }
+
+    public static readonly StyledProperty<string> HeroNameProperty =
+        AvaloniaProperty.Register<HeroButtonView, string>(nameof(HeroName));
+
+    public string HeroName {
+        get => GetValue(HeroNameProperty);
+        set => SetValue(HeroNameProperty, value);
+    }
 }

@@ -4,25 +4,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:Sach.ViewModels"
              xmlns:views="clr-namespace:Sach.Views"
+             xmlns:sach="clr-namespace:Sach"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Sach.Views.HeroesView"
              Background="#465867"
              x:DataType="viewModels:MainWindowViewModel">
-    
+
     <Design.DataContext>
-        <viewModels:MainWindowViewModel/>
+        <viewModels:MainWindowViewModel />
     </Design.DataContext>
-    
     <UserControl.Styles>
         <Style Selector="views|HeroButtonView">
-            <Setter Property="HeroButtonCommand" Value="{Binding OnHeroButtonClickCommand}"/>
+            <Setter Property="HeroButtonCommand" Value="{Binding OnHeroButtonClickCommand}" />
         </Style>
         <Style Selector="views|HeroButtonView:pointerover">
-            <Setter Property="Width" Value="120"/>
-            <Setter Property="Height" Value="120"/>
-            <Setter Property="ZIndex" Value="1"/>
+            <Setter Property="Width" Value="120" />
+            <Setter Property="Height" Value="120" />
+            <Setter Property="ZIndex" Value="1" />
+            <!-- TODO: set isvisible property textblock on herobuttonview -->
         </Style>
     </UserControl.Styles>
+
 
     <Border>
         <Border.Background>
@@ -52,37 +54,99 @@
                                HorizontalAlignment="Left"
                                VerticalAlignment="Top"
                                x:Name="StrengthHeroes">
-                        <views:HeroButtonView HeroId="73" HeroIcon="avares://Sach/Assets/HeroIcons/alchemist_vert.webp" />
-                        <views:HeroButtonView HeroId="2" HeroIcon="avares://Sach/Assets/HeroIcons/axe_vert.webp" />
-                        <views:HeroButtonView HeroId="99" HeroIcon="avares://Sach/Assets/HeroIcons/bristleback_vert.webp" />
-                        <views:HeroButtonView HeroId="96" HeroIcon="avares://Sach/Assets/HeroIcons/centaur_vert.webp" />
-                        <views:HeroButtonView HeroId="81" HeroIcon="avares://Sach/Assets/HeroIcons/chaos_knight_vert.webp" />
-                        <views:HeroButtonView HeroId="135" HeroIcon="avares://Sach/Assets/HeroIcons/dawnbreaker_vert.webp" />
-                        <views:HeroButtonView HeroId="69" HeroIcon="avares://Sach/Assets/HeroIcons/doom_bringer_vert.webp" />
-                        <views:HeroButtonView HeroId="49" HeroIcon="avares://Sach/Assets/HeroIcons/dragon_knight_vert.webp" />
-                        <views:HeroButtonView HeroId="107" HeroIcon="avares://Sach/Assets/HeroIcons/earth_spirit_vert.webp" />
-                        <views:HeroButtonView HeroId="7" HeroIcon="avares://Sach/Assets/HeroIcons/earthshaker_vert.webp" />
-                        <views:HeroButtonView HeroId="103" HeroIcon="avares://Sach/Assets/HeroIcons/elder_titan_vert.webp" />
-                        <views:HeroButtonView HeroId="59" HeroIcon="avares://Sach/Assets/HeroIcons/huskar_vert.webp" />
-                        <views:HeroButtonView HeroId="23" HeroIcon="avares://Sach/Assets/HeroIcons/kunkka_vert.webp" />
-                        <views:HeroButtonView HeroId="104" HeroIcon="avares://Sach/Assets/HeroIcons/legion_commander_vert.webp" />
-                        <views:HeroButtonView HeroId="54" HeroIcon="avares://Sach/Assets/HeroIcons/life_stealer_vert.webp" />
-                        <views:HeroButtonView HeroId="129" HeroIcon="avares://Sach/Assets/HeroIcons/mars_vert.webp" />
-                        <views:HeroButtonView HeroId="60" HeroIcon="avares://Sach/Assets/HeroIcons/night_stalker_vert.webp" />
-                        <views:HeroButtonView HeroId="84" HeroIcon="avares://Sach/Assets/HeroIcons/ogre_magi_vert.webp" />
-                        <views:HeroButtonView HeroId="57" HeroIcon="avares://Sach/Assets/HeroIcons/omniknight_vert.webp" />
-                        <views:HeroButtonView HeroId="137" HeroIcon="avares://Sach/Assets/HeroIcons/primal_beast_vert.webp" />
-                        <views:HeroButtonView HeroId="14" HeroIcon="avares://Sach/Assets/HeroIcons/pudge_vert.webp" />
-                        <views:HeroButtonView HeroId="28" HeroIcon="avares://Sach/Assets/HeroIcons/slardar_vert.webp" />
-                        <views:HeroButtonView HeroId="71" HeroIcon="avares://Sach/Assets/HeroIcons/spirit_breaker_vert.webp" />
-                        <views:HeroButtonView HeroId="18" HeroIcon="avares://Sach/Assets/HeroIcons/sven_vert.webp" />
-                        <views:HeroButtonView HeroId="29" HeroIcon="avares://Sach/Assets/HeroIcons/tidehunter_vert.webp" />
-                        <views:HeroButtonView HeroId="19" HeroIcon="avares://Sach/Assets/HeroIcons/tiny_vert.webp" />
-                        <views:HeroButtonView HeroId="83" HeroIcon="avares://Sach/Assets/HeroIcons/treant_vert.webp" />
-                        <views:HeroButtonView HeroId="100" HeroIcon="avares://Sach/Assets/HeroIcons/tusk_vert.webp" />
-                        <views:HeroButtonView HeroId="108" HeroIcon="avares://Sach/Assets/HeroIcons/abyssal_underlord_vert.webp" />
-                        <views:HeroButtonView HeroId="85" HeroIcon="avares://Sach/Assets/HeroIcons/undying_vert.webp" />
-                        <views:HeroButtonView HeroId="42" HeroIcon="avares://Sach/Assets/HeroIcons/skeleton_king_vert.webp" />
+                        <views:HeroButtonView HeroId="73"
+                                              HeroName="Alchemist"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/alchemist_vert.webp" />
+                        <views:HeroButtonView HeroId="2"
+                                              HeroName="Axe"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/axe_vert.webp" />
+                        <views:HeroButtonView HeroId="99"
+                                              HeroName="Bristleback"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/bristleback_vert.webp" />
+                        <views:HeroButtonView HeroId="96"
+                                              HeroName="Centaur Warrunner"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/centaur_vert.webp" />
+                        <views:HeroButtonView HeroId="81"
+                                              HeroName="Chaos Knight"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/chaos_knight_vert.webp" />
+                        <views:HeroButtonView HeroId="135"
+                                              HeroName="Dawnbreaker"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/dawnbreaker_vert.webp" />
+                        <views:HeroButtonView HeroId="69"
+                                              HeroName="Doom"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/doom_bringer_vert.webp" />
+                        <views:HeroButtonView HeroId="49"
+                                              HeroName="Dragon Knight"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/dragon_knight_vert.webp" />
+                        <views:HeroButtonView HeroId="107"
+                                              HeroName="Earth Spirit"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/earth_spirit_vert.webp" />
+                        <views:HeroButtonView HeroId="7"
+                                              HeroName="Earthshaker"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/earthshaker_vert.webp" />
+                        <views:HeroButtonView HeroId="103"
+                                              HeroName="Elder Titan"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/elder_titan_vert.webp" />
+                        <views:HeroButtonView HeroId="59"
+                                              HeroName="Huskar"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/huskar_vert.webp" />
+                        <views:HeroButtonView HeroId="23"
+                                              HeroName="Kunnka"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/kunkka_vert.webp" />
+                        <views:HeroButtonView HeroId="104"
+                                              HeroName="Legion Commander"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/legion_commander_vert.webp" />
+                        <views:HeroButtonView HeroId="54"
+                                              HeroName="Lifestealer"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/life_stealer_vert.webp" />
+                        <views:HeroButtonView HeroId="129"
+                                              HeroName="Mars"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/mars_vert.webp" />
+                        <views:HeroButtonView HeroId="60"
+                                              HeroName="Night Stalker"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/night_stalker_vert.webp" />
+                        <views:HeroButtonView HeroId="84"
+                                              HeroName="Ogre Magi"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/ogre_magi_vert.webp" />
+                        <views:HeroButtonView HeroId="57"
+                                              HeroName="Omniknight"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/omniknight_vert.webp" />
+                        <views:HeroButtonView HeroId="137"
+                                              HeroName="Primal Beast"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/primal_beast_vert.webp" />
+                        <views:HeroButtonView HeroId="14"
+                                              HeroName="Pudge"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/pudge_vert.webp" />
+                        <views:HeroButtonView HeroId="28"
+                                              HeroName="Slardar"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/slardar_vert.webp" />
+                        <views:HeroButtonView HeroId="71"
+                                              HeroName="Spirit Breaker"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/spirit_breaker_vert.webp" />
+                        <views:HeroButtonView HeroId="18"
+                                              HeroName="Sven"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/sven_vert.webp" />
+                        <views:HeroButtonView HeroId="29"
+                                              HeroName="Tidehunter"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/tidehunter_vert.webp" />
+                        <views:HeroButtonView HeroId="19"
+                                              HeroName="Tiny"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/tiny_vert.webp" />
+                        <views:HeroButtonView HeroId="83"
+                                              HeroName="Treant Protector"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/treant_vert.webp" />
+                        <views:HeroButtonView HeroId="100"
+                                              HeroName="Tusk"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/tusk_vert.webp" />
+                        <views:HeroButtonView HeroId="108"
+                                              HeroName="Underlord"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/abyssal_underlord_vert.webp" />
+                        <views:HeroButtonView HeroId="85"
+                                              HeroName="Undying"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/undying_vert.webp" />
+                        <views:HeroButtonView HeroId="42"
+                                              HeroName="Wraith King"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/skeleton_king_vert.webp" />
                     </WrapPanel>
                 </StackPanel>
                 <StackPanel>
@@ -100,37 +164,99 @@
                                HorizontalAlignment="Right"
                                VerticalAlignment="Top"
                                x:Name="AgilityHeroes">
-                        <views:HeroButtonView HeroId="1" HeroIcon="avares://Sach/Assets/HeroIcons/antimage_vert.webp" />
-                        <views:HeroButtonView HeroId="113" HeroIcon="avares://Sach/Assets/HeroIcons/arc_warden_vert.webp" />
-                        <views:HeroButtonView HeroId="4" HeroIcon="avares://Sach/Assets/HeroIcons/bloodseeker_vert.webp" />
-                        <views:HeroButtonView HeroId="62" HeroIcon="avares://Sach/Assets/HeroIcons/bounty_hunter_vert.webp" />
-                        <views:HeroButtonView HeroId="56" HeroIcon="avares://Sach/Assets/HeroIcons/clinkz_vert.webp" />
-                        <views:HeroButtonView HeroId="6" HeroIcon="avares://Sach/Assets/HeroIcons/drow_ranger_vert.webp" />
-                        <views:HeroButtonView HeroId="106" HeroIcon="avares://Sach/Assets/HeroIcons/ember_spirit_vert.webp" />
-                        <views:HeroButtonView HeroId="41" HeroIcon="avares://Sach/Assets/HeroIcons/faceless_void_vert.webp" />
-                        <views:HeroButtonView HeroId="72" HeroIcon="avares://Sach/Assets/HeroIcons/gyrocopter_vert.webp" />
-                        <views:HeroButtonView HeroId="123" HeroIcon="avares://Sach/Assets/HeroIcons/hoodwink_vert.webp" />
-                        <views:HeroButtonView HeroId="8" HeroIcon="avares://Sach/Assets/HeroIcons/juggernaut_vert.webp" />
-                        <views:HeroButtonView HeroId="48" HeroIcon="avares://Sach/Assets/HeroIcons/luna_vert.webp" />
-                        <views:HeroButtonView HeroId="94" HeroIcon="avares://Sach/Assets/HeroIcons/medusa_vert.webp" />
-                        <views:HeroButtonView HeroId="82" HeroIcon="avares://Sach/Assets/HeroIcons/meepo_vert.webp" />
-                        <views:HeroButtonView HeroId="114" HeroIcon="avares://Sach/Assets/HeroIcons/monkey_king_vert.webp" />
-                        <views:HeroButtonView HeroId="10" HeroIcon="avares://Sach/Assets/HeroIcons/morphling_vert.webp" />
-                        <views:HeroButtonView HeroId="89" HeroIcon="avares://Sach/Assets/HeroIcons/naga_siren_vert.webp" />
-                        <views:HeroButtonView HeroId="44" HeroIcon="avares://Sach/Assets/HeroIcons/phantom_assassin_vert.webp" />
-                        <views:HeroButtonView HeroId="12" HeroIcon="avares://Sach/Assets/HeroIcons/phantom_lancer_vert.webp" />
-                        <views:HeroButtonView HeroId="15" HeroIcon="avares://Sach/Assets/HeroIcons/razor_vert.webp" />
-                        <views:HeroButtonView HeroId="32" HeroIcon="avares://Sach/Assets/HeroIcons/riki_vert.webp" />
-                        <views:HeroButtonView HeroId="11" HeroIcon="avares://Sach/Assets/HeroIcons/nevermore_vert.webp" />
-                        <views:HeroButtonView HeroId="93" HeroIcon="avares://Sach/Assets/HeroIcons/slark_vert.webp" />
-                        <views:HeroButtonView HeroId="35" HeroIcon="avares://Sach/Assets/HeroIcons/sniper_vert.webp" />
-                        <views:HeroButtonView HeroId="67" HeroIcon="avares://Sach/Assets/HeroIcons/spectre_vert.webp" />
-                        <views:HeroButtonView HeroId="46" HeroIcon="avares://Sach/Assets/HeroIcons/templar_assassin_vert.webp" />
-                        <views:HeroButtonView HeroId="109" HeroIcon="avares://Sach/Assets/HeroIcons/terrorblade_vert.webp" />
-                        <views:HeroButtonView HeroId="95" HeroIcon="avares://Sach/Assets/HeroIcons/troll_warlord_vert.webp" />
-                        <views:HeroButtonView HeroId="70" HeroIcon="avares://Sach/Assets/HeroIcons/ursa_vert.webp" />
-                        <views:HeroButtonView HeroId="47" HeroIcon="avares://Sach/Assets/HeroIcons/viper_vert.webp" />
-                        <views:HeroButtonView HeroId="63" HeroIcon="avares://Sach/Assets/HeroIcons/weaver_vert.webp" />
+                        <views:HeroButtonView HeroId="1"
+                                              HeroName="Anti-Mage"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/antimage_vert.webp" />
+                        <views:HeroButtonView HeroId="113"
+                                              HeroName="Arc Warden"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/arc_warden_vert.webp" />
+                        <views:HeroButtonView HeroId="4"
+                                              HeroName="Bloodseeker"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/bloodseeker_vert.webp" />
+                        <views:HeroButtonView HeroId="62"
+                                              HeroName="Bounty Hunter"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/bounty_hunter_vert.webp" />
+                        <views:HeroButtonView HeroId="56"
+                                              HeroName="Clinkz"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/clinkz_vert.webp" />
+                        <views:HeroButtonView HeroId="6"
+                                              HeroName="Drow Ranger"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/drow_ranger_vert.webp" />
+                        <views:HeroButtonView HeroId="106"
+                                              HeroName="Ember Spirit"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/ember_spirit_vert.webp" />
+                        <views:HeroButtonView HeroId="41"
+                                              HeroName="Faceless Void"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/faceless_void_vert.webp" />
+                        <views:HeroButtonView HeroId="72"
+                                              HeroName="Gyrocopter"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/gyrocopter_vert.webp" />
+                        <views:HeroButtonView HeroId="123"
+                                              HeroName="Hoodwink"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/hoodwink_vert.webp" />
+                        <views:HeroButtonView HeroId="8"
+                                              HeroName="Juggernaut"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/juggernaut_vert.webp" />
+                        <views:HeroButtonView HeroId="48"
+                                              HeroName="Luna"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/luna_vert.webp" />
+                        <views:HeroButtonView HeroId="94"
+                                              HeroName="Medusa"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/medusa_vert.webp" />
+                        <views:HeroButtonView HeroId="82"
+                                              HeroName="Meepo"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/meepo_vert.webp" />
+                        <views:HeroButtonView HeroId="114"
+                                              HeroName="Monkey King"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/monkey_king_vert.webp" />
+                        <views:HeroButtonView HeroId="10"
+                                              HeroName="Moprphling"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/morphling_vert.webp" />
+                        <views:HeroButtonView HeroId="89"
+                                              HeroName="Naga Siren"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/naga_siren_vert.webp" />
+                        <views:HeroButtonView HeroId="44"
+                                              HeroName="Phantom Assassin"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/phantom_assassin_vert.webp" />
+                        <views:HeroButtonView HeroId="12"
+                                              HeroName="Phantom Lancer"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/phantom_lancer_vert.webp" />
+                        <views:HeroButtonView HeroId="15"
+                                              HeroName="Razor"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/razor_vert.webp" />
+                        <views:HeroButtonView HeroId="32"
+                                              HeroName="Riki"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/riki_vert.webp" />
+                        <views:HeroButtonView HeroId="11"
+                                              HeroName="Shadow Fiend"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/nevermore_vert.webp" />
+                        <views:HeroButtonView HeroId="93"
+                                              HeroName="Slark"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/slark_vert.webp" />
+                        <views:HeroButtonView HeroId="35"
+                                              HeroName="Sniper"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/sniper_vert.webp" />
+                        <views:HeroButtonView HeroId="67"
+                                              HeroName="Spectre"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/spectre_vert.webp" />
+                        <views:HeroButtonView HeroId="46"
+                                              HeroName="Templar Assassin"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/templar_assassin_vert.webp" />
+                        <views:HeroButtonView HeroId="109"
+                                              HeroName="Terrorblade"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/terrorblade_vert.webp" />
+                        <views:HeroButtonView HeroId="95"
+                                              HeroName="Troll Warlord"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/troll_warlord_vert.webp" />
+                        <views:HeroButtonView HeroId="70"
+                                              HeroName="Ursa"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/ursa_vert.webp" />
+                        <views:HeroButtonView HeroId="47"
+                                              HeroName="Viper"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/viper_vert.webp" />
+                        <views:HeroButtonView HeroId="63"
+                                              HeroName="Weaver"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/weaver_vert.webp" />
                     </WrapPanel>
                 </StackPanel>
             </StackPanel>
@@ -154,36 +280,96 @@
                                HorizontalAlignment="Left"
                                VerticalAlignment="Bottom"
                                x:Name="IntelligenceHeroes">
-                        <views:HeroButtonView HeroId="68" HeroIcon="avares://Sach/Assets/HeroIcons/ancient_apparition_vert.webp" />
-                        <views:HeroButtonView HeroId="5" HeroIcon="avares://Sach/Assets/HeroIcons/crystal_maiden_vert.webp" />
-                        <views:HeroButtonView HeroId="43" HeroIcon="avares://Sach/Assets/HeroIcons/death_prophet_vert.webp" />
-                        <views:HeroButtonView HeroId="87" HeroIcon="avares://Sach/Assets/HeroIcons/disruptor_vert.webp" />
-                        <views:HeroButtonView HeroId="58" HeroIcon="avares://Sach/Assets/HeroIcons/enchantress_vert.webp" />
-                        <views:HeroButtonView HeroId="121" HeroIcon="avares://Sach/Assets/HeroIcons/grimstroke_vert.webp" />
-                        <views:HeroButtonView HeroId="64" HeroIcon="avares://Sach/Assets/HeroIcons/jakiro_vert.webp" />
-                        <views:HeroButtonView HeroId="90" HeroIcon="avares://Sach/Assets/HeroIcons/keeper_of_the_light_vert.webp" />
-                        <views:HeroButtonView HeroId="52" HeroIcon="avares://Sach/Assets/HeroIcons/leshrac_vert.webp" />
-                        <views:HeroButtonView HeroId="31" HeroIcon="avares://Sach/Assets/HeroIcons/lich_vert.webp" />
-                        <views:HeroButtonView HeroId="25" HeroIcon="avares://Sach/Assets/HeroIcons/lina_vert.webp" />
-                        <views:HeroButtonView HeroId="26" HeroIcon="avares://Sach/Assets/HeroIcons/lion_vert.webp" />
-                        <views:HeroButtonView HeroId="138" HeroIcon="avares://Sach/Assets/HeroIcons/muerta_vert.webp" />
-                        <views:HeroButtonView HeroId="53" HeroIcon="avares://Sach/Assets/HeroIcons/furion_vert.webp" />
-                        <views:HeroButtonView HeroId="36" HeroIcon="avares://Sach/Assets/HeroIcons/necrolyte_vert.webp" />
-                        <views:HeroButtonView HeroId="111" HeroIcon="avares://Sach/Assets/HeroIcons/oracle_vert.webp" />
-                        <views:HeroButtonView HeroId="76" HeroIcon="avares://Sach/Assets/HeroIcons/obsidian_destroyer_vert.webp" />
-                        <views:HeroButtonView HeroId="13" HeroIcon="avares://Sach/Assets/HeroIcons/puck_vert.webp" />
-                        <views:HeroButtonView HeroId="45" HeroIcon="avares://Sach/Assets/HeroIcons/pugna_vert.webp" />
-                        <views:HeroButtonView HeroId="39" HeroIcon="avares://Sach/Assets/HeroIcons/queenofpain_vert.webp" />
-                        <views:HeroButtonView HeroId="86" HeroIcon="avares://Sach/Assets/HeroIcons/rubick_vert.webp" />
-                        <views:HeroButtonView HeroId="79" HeroIcon="avares://Sach/Assets/HeroIcons/shadow_demon_vert.webp" />
-                        <views:HeroButtonView HeroId="27" HeroIcon="avares://Sach/Assets/HeroIcons/shadow_shaman_vert.webp" />
-                        <views:HeroButtonView HeroId="75" HeroIcon="avares://Sach/Assets/HeroIcons/silencer_vert.webp" />
-                        <views:HeroButtonView HeroId="101" HeroIcon="avares://Sach/Assets/HeroIcons/skywrath_mage_vert.webp" />
-                        <views:HeroButtonView HeroId="17" HeroIcon="avares://Sach/Assets/HeroIcons/storm_spirit_vert.webp" />
-                        <views:HeroButtonView HeroId="34" HeroIcon="avares://Sach/Assets/HeroIcons/tinker_vert.webp" />
-                        <views:HeroButtonView HeroId="37" HeroIcon="avares://Sach/Assets/HeroIcons/warlock_vert.webp" />
-                        <views:HeroButtonView HeroId="30" HeroIcon="avares://Sach/Assets/HeroIcons/witch_doctor_vert.webp" />
-                        <views:HeroButtonView HeroId="22" HeroIcon="avares://Sach/Assets/HeroIcons/zuus_vert.webp" />
+                        <views:HeroButtonView HeroId="68"
+                                              HeroName="Ancient Apparition"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/ancient_apparition_vert.webp" />
+                        <views:HeroButtonView HeroId="5"
+                                              HeroName="Crystal Maiden"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/crystal_maiden_vert.webp" />
+                        <views:HeroButtonView HeroId="43"
+                                              HeroName="Death Prophet"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/death_prophet_vert.webp" />
+                        <views:HeroButtonView HeroId="87"
+                                              HeroName="Disruptor"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/disruptor_vert.webp" />
+                        <views:HeroButtonView HeroId="58"
+                                              HeroName="Enchantress"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/enchantress_vert.webp" />
+                        <views:HeroButtonView HeroId="121"
+                                              HeroName="Grimstroke"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/grimstroke_vert.webp" />
+                        <views:HeroButtonView HeroId="64"
+                                              HeroName="Jakiro"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/jakiro_vert.webp" />
+                        <views:HeroButtonView HeroId="90"
+                                              HeroName="Keeper of the Light"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/keeper_of_the_light_vert.webp" />
+                        <views:HeroButtonView HeroId="52"
+                                              HeroName="Leshrac"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/leshrac_vert.webp" />
+                        <views:HeroButtonView HeroId="31"
+                                              HeroName="Lich"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/lich_vert.webp" />
+                        <views:HeroButtonView HeroId="25"
+                                              HeroName="Lina"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/lina_vert.webp" />
+                        <views:HeroButtonView HeroId="26"
+                                              HeroName="Lion"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/lion_vert.webp" />
+                        <views:HeroButtonView HeroId="138"
+                                              HeroName="Muerta"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/muerta_vert.webp" />
+                        <views:HeroButtonView HeroId="53"
+                                              HeroName="Nature's Prophet"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/furion_vert.webp" />
+                        <views:HeroButtonView HeroId="36"
+                                              HeroName="Necrophos"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/necrolyte_vert.webp" />
+                        <views:HeroButtonView HeroId="111"
+                                              HeroName="Oracle"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/oracle_vert.webp" />
+                        <views:HeroButtonView HeroId="76"
+                                              HeroName="Outworld Destroyer"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/obsidian_destroyer_vert.webp" />
+                        <views:HeroButtonView HeroId="13"
+                                              HeroName="Puck"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/puck_vert.webp" />
+                        <views:HeroButtonView HeroId="45"
+                                              HeroName="Pugna"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/pugna_vert.webp" />
+                        <views:HeroButtonView HeroId="39"
+                                              HeroName="Queen of Pain"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/queenofpain_vert.webp" />
+                        <views:HeroButtonView HeroId="86"
+                                              HeroName="Rubick"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/rubick_vert.webp" />
+                        <views:HeroButtonView HeroId="79"
+                                              HeroName="Shadow Demon"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/shadow_demon_vert.webp" />
+                        <views:HeroButtonView HeroId="27"
+                                              HeroName="Shadow Shaman"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/shadow_shaman_vert.webp" />
+                        <views:HeroButtonView HeroId="75"
+                                              HeroName="Silencer"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/silencer_vert.webp" />
+                        <views:HeroButtonView HeroId="101"
+                                              HeroName="Skywrath Mage"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/skywrath_mage_vert.webp" />
+                        <views:HeroButtonView HeroId="17"
+                                              HeroName="Storm Spirit"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/storm_spirit_vert.webp" />
+                        <views:HeroButtonView HeroId="34"
+                                              HeroName="Tinker"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/tinker_vert.webp" />
+                        <views:HeroButtonView HeroId="37"
+                                              HeroName="Warlock"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/warlock_vert.webp" />
+                        <views:HeroButtonView HeroId="30"
+                                              HeroName="Witch Doctor"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/witch_doctor_vert.webp" />
+                        <views:HeroButtonView HeroId="22"
+                                              HeroName="Zeus"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/zuus_vert.webp" />
                     </WrapPanel>
                 </StackPanel>
                 <StackPanel>
@@ -201,38 +387,102 @@
                                HorizontalAlignment="Right"
                                VerticalAlignment="Bottom"
                                x:Name="UniversalHeroes">
-                        <views:HeroButtonView HeroId="102" HeroIcon="avares://Sach/Assets/HeroIcons/abaddon_vert.webp" />
-                        <views:HeroButtonView HeroId="3" HeroIcon="avares://Sach/Assets/HeroIcons/bane_vert.webp" />
-                        <views:HeroButtonView HeroId="65" HeroIcon="avares://Sach/Assets/HeroIcons/batrider_vert.webp" />
-                        <views:HeroButtonView HeroId="38" HeroIcon="avares://Sach/Assets/HeroIcons/beastmaster_vert.webp" />
-                        <views:HeroButtonView HeroId="78" HeroIcon="avares://Sach/Assets/HeroIcons/brewmaster_vert.webp" />
-                        <views:HeroButtonView HeroId="61" HeroIcon="avares://Sach/Assets/HeroIcons/broodmother_vert.webp" />
-                        <views:HeroButtonView HeroId="66" HeroIcon="avares://Sach/Assets/HeroIcons/chen_vert.webp" />
-                        <views:HeroButtonView HeroId="51" HeroIcon="avares://Sach/Assets/HeroIcons/rattletrap_vert.webp" />
-                        <views:HeroButtonView HeroId="55" HeroIcon="avares://Sach/Assets/HeroIcons/dark_seer_vert.webp" />
-                        <views:HeroButtonView HeroId="119" HeroIcon="avares://Sach/Assets/HeroIcons/dark_willow_vert.webp" />
-                        <views:HeroButtonView HeroId="50" HeroIcon="avares://Sach/Assets/HeroIcons/dazzle_vert.webp" />
-                        <views:HeroButtonView HeroId="33" HeroIcon="avares://Sach/Assets/HeroIcons/enigma_vert.webp" />
-                        <views:HeroButtonView HeroId="74" HeroIcon="avares://Sach/Assets/HeroIcons/invoker_vert.webp" />
-                        <views:HeroButtonView HeroId="91" HeroIcon="avares://Sach/Assets/HeroIcons/wisp_vert.webp" />
-                        <views:HeroButtonView HeroId="80" HeroIcon="avares://Sach/Assets/HeroIcons/lone_druid_vert.webp" />
-                        <views:HeroButtonView HeroId="77" HeroIcon="avares://Sach/Assets/HeroIcons/lycan_vert.webp" />
-                        <views:HeroButtonView HeroId="97" HeroIcon="avares://Sach/Assets/HeroIcons/magnataur_vert.webp" />
-                        <views:HeroButtonView HeroId="136" HeroIcon="avares://Sach/Assets/HeroIcons/marci_vert.webp" />
-                        <views:HeroButtonView HeroId="9" HeroIcon="avares://Sach/Assets/HeroIcons/mirana_vert.webp" />
-                        <views:HeroButtonView HeroId="88" HeroIcon="avares://Sach/Assets/HeroIcons/nyx_assassin_vert.webp" />
-                        <views:HeroButtonView HeroId="120" HeroIcon="avares://Sach/Assets/HeroIcons/pangolier_vert.webp" />
-                        <views:HeroButtonView HeroId="110" HeroIcon="avares://Sach/Assets/HeroIcons/phoenix_vert.webp" />
-                        <views:HeroButtonView HeroId="16" HeroIcon="avares://Sach/Assets/HeroIcons/sand_king_vert.webp" />
-                        <views:HeroButtonView HeroId="128" HeroIcon="avares://Sach/Assets/HeroIcons/snapfire_vert.webp" />
-                        <views:HeroButtonView HeroId="105" HeroIcon="avares://Sach/Assets/HeroIcons/techies_vert.webp" />
-                        <views:HeroButtonView HeroId="98" HeroIcon="avares://Sach/Assets/HeroIcons/shredder_vert.webp" />
-                        <views:HeroButtonView HeroId="20" HeroIcon="avares://Sach/Assets/HeroIcons/vengefulspirit_vert.webp" />
-                        <views:HeroButtonView HeroId="40" HeroIcon="avares://Sach/Assets/HeroIcons/venomancer_vert.webp" />
-                        <views:HeroButtonView HeroId="92" HeroIcon="avares://Sach/Assets/HeroIcons/visage_vert.webp" />
-                        <views:HeroButtonView HeroId="126" HeroIcon="avares://Sach/Assets/HeroIcons/void_spirit_vert.webp" />
-                        <views:HeroButtonView HeroId="21" HeroIcon="avares://Sach/Assets/HeroIcons/windrunner_vert.webp" />
-                        <views:HeroButtonView HeroId="112" HeroIcon="avares://Sach/Assets/HeroIcons/winter_wyvern_vert.webp" />
+                        <views:HeroButtonView HeroId="102"
+                                              HeroName="Abbadon"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/abaddon_vert.webp" />
+                        <views:HeroButtonView HeroId="3"
+                                              HeroName="Bane"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/bane_vert.webp" />
+                        <views:HeroButtonView HeroId="65"
+                                              HeroName="Batrider"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/batrider_vert.webp" />
+                        <views:HeroButtonView HeroId="38"
+                                              HeroName="Beastmaster"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/beastmaster_vert.webp" />
+                        <views:HeroButtonView HeroId="78"
+                                              HeroName="Brewmaster"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/brewmaster_vert.webp" />
+                        <views:HeroButtonView HeroId="61"
+                                              HeroName="Broodmother"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/broodmother_vert.webp" />
+                        <views:HeroButtonView HeroId="66"
+                                              HeroName="Chen"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/chen_vert.webp" />
+                        <views:HeroButtonView HeroId="51"
+                                              HeroName="Clockwerk"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/rattletrap_vert.webp" />
+                        <views:HeroButtonView HeroId="55"
+                                              HeroName="Dark Seer"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/dark_seer_vert.webp" />
+                        <views:HeroButtonView HeroId="119"
+                                              HeroName="Dark Willow"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/dark_willow_vert.webp" />
+                        <views:HeroButtonView HeroId="50"
+                                              HeroName="Dazzle"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/dazzle_vert.webp" />
+                        <views:HeroButtonView HeroId="33"
+                                              HeroName="Enigma"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/enigma_vert.webp" />
+                        <views:HeroButtonView HeroId="74"
+                                              HeroName="Invoker"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/invoker_vert.webp" />
+                        <views:HeroButtonView HeroId="91"
+                                              HeroName="IO"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/wisp_vert.webp" />
+                        <views:HeroButtonView HeroId="80"
+                                              HeroName="Lone Druid"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/lone_druid_vert.webp" />
+                        <views:HeroButtonView HeroId="77"
+                                              HeroName="Lycan"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/lycan_vert.webp" />
+                        <views:HeroButtonView HeroId="97"
+                                              HeroName="Magnus"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/magnataur_vert.webp" />
+                        <views:HeroButtonView HeroId="136"
+                                              HeroName="Marci"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/marci_vert.webp" />
+                        <views:HeroButtonView HeroId="9"
+                                              HeroName="Mirana"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/mirana_vert.webp" />
+                        <views:HeroButtonView HeroId="88"
+                                              HeroName="Nyx Assassin"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/nyx_assassin_vert.webp" />
+                        <views:HeroButtonView HeroId="120"
+                                              HeroName="Pangolier"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/pangolier_vert.webp" />
+                        <views:HeroButtonView HeroId="110"
+                                              HeroName="Phoenix"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/phoenix_vert.webp" />
+                        <views:HeroButtonView HeroId="16"
+                                              HeroName="Sand King"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/sand_king_vert.webp" />
+                        <views:HeroButtonView HeroId="128"
+                                              HeroName="Snapfire"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/snapfire_vert.webp" />
+                        <views:HeroButtonView HeroId="105"
+                                              HeroName="Techies"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/techies_vert.webp" />
+                        <views:HeroButtonView HeroId="98"
+                                              HeroName="Timbersaw"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/shredder_vert.webp" />
+                        <views:HeroButtonView HeroId="20"
+                                              HeroName="Vengeful Spirit"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/vengefulspirit_vert.webp" />
+                        <views:HeroButtonView HeroId="40"
+                                              HeroName="Venomancer"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/venomancer_vert.webp" />
+                        <views:HeroButtonView HeroId="92"
+                                              HeroName="Visage"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/visage_vert.webp" />
+                        <views:HeroButtonView HeroId="126"
+                                              HeroName="Void Spirit"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/void_spirit_vert.webp" />
+                        <views:HeroButtonView HeroId="21"
+                                              HeroName="Wind Ranger"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/windrunner_vert.webp" />
+                        <views:HeroButtonView HeroId="112"
+                                              HeroName="Winter Wyvern"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/winter_wyvern_vert.webp" />
                     </WrapPanel>
                 </StackPanel>
             </StackPanel>
