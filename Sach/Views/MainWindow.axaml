@@ -14,10 +14,10 @@
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
-    
+
     <Window.Styles>
         <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
     </Window.Styles>
     <Grid>
@@ -29,7 +29,8 @@
                 </RadialGradientBrush>
             </Border.Background>
             <TabControl>
-                <TabItem Width="80"
+                <TabItem x:Name="FirstPlayer"
+                         Width="80"
                          Height="50"
                          Padding="0 -50 0 0">
                     <TabItem.HeaderTemplate>
@@ -39,7 +40,7 @@
                                       Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
-                                            <PathFigure StartPoint="10,50" 
+                                            <PathFigure StartPoint="10,50"
                                                         IsClosed="True">
                                                 <LineSegment Point="80, 50" />
                                                 <LineSegment Point="70, 0" />
@@ -63,7 +64,7 @@
                                 <Path Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
-                                            <PathFigure StartPoint="10,50" 
+                                            <PathFigure StartPoint="10,50"
                                                         IsClosed="True">
                                                 <LineSegment Point="80, 50" />
                                                 <LineSegment Point="70, 0" />
@@ -87,7 +88,7 @@
                                 <Path Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
-                                            <PathFigure StartPoint="10,50" 
+                                            <PathFigure StartPoint="10,50"
                                                         IsClosed="True">
                                                 <LineSegment Point="80, 50" />
                                                 <LineSegment Point="70, 0" />
@@ -111,7 +112,7 @@
                                 <Path Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
-                                            <PathFigure StartPoint="10,50" 
+                                            <PathFigure StartPoint="10,50"
                                                         IsClosed="True">
                                                 <LineSegment Point="80, 50" />
                                                 <LineSegment Point="70, 0" />
@@ -135,7 +136,7 @@
                                 <Path Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
-                                            <PathFigure StartPoint="10,50" 
+                                            <PathFigure StartPoint="10,50"
                                                         IsClosed="True">
                                                 <LineSegment Point="80, 50" />
                                                 <LineSegment Point="70, 0" />
@@ -159,7 +160,7 @@
                                 <Path Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
-                                            <PathFigure StartPoint="0,50" 
+                                            <PathFigure StartPoint="0,50"
                                                         IsClosed="True">
                                                 <LineSegment Point="70, 50" />
                                                 <LineSegment Point="80, 0" />
@@ -183,7 +184,7 @@
                                 <Path Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
-                                            <PathFigure StartPoint="0,50" 
+                                            <PathFigure StartPoint="0,50"
                                                         IsClosed="True">
                                                 <LineSegment Point="70, 50" />
                                                 <LineSegment Point="80, 0" />
@@ -207,7 +208,7 @@
                                 <Path Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
-                                            <PathFigure StartPoint="0,50" 
+                                            <PathFigure StartPoint="0,50"
                                                         IsClosed="True">
                                                 <LineSegment Point="70, 50" />
                                                 <LineSegment Point="80, 0" />
@@ -231,7 +232,7 @@
                                 <Path Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
-                                            <PathFigure StartPoint="0,50" 
+                                            <PathFigure StartPoint="0,50"
                                                         IsClosed="True">
                                                 <LineSegment Point="70, 50" />
                                                 <LineSegment Point="80, 0" />
@@ -255,7 +256,7 @@
                                 <Path Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
-                                            <PathFigure StartPoint="0,50" 
+                                            <PathFigure StartPoint="0,50"
                                                         IsClosed="True">
                                                 <LineSegment Point="70, 50" />
                                                 <LineSegment Point="80, 0" />

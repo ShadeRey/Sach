@@ -9,19 +9,24 @@
         <Setter Property="Width" Value="40" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Button x:Name="AlchemistButton"
+                <Button x:Name="HeroButton"
                         Command="{TemplateBinding HeroButtonCommand}"
                         CommandParameter="{TemplateBinding HeroId}">
                     <Button.Template>
                         <ControlTemplate>
                             <WrapPanel>
                                 <Image Source="{Binding $parent[controls:HeroButtonView].HeroIcon}" />
-                                <TextBlock Text="{Binding $parent[controls:HeroButtonView].HeroName}" 
-                                           IsVisible="False" 
-                                           Background="#C8000000"
-                                           Margin="0 -18 0 0"
-                                           Width="91"
-                                           TextAlignment="Center"/>
+                                    <TextBlock Text="{Binding $parent[controls:HeroButtonView].HeroName}"
+                                               Foreground="#ebe4e7"
+                                               FontFamily="{StaticResource RadianceUltraLightFont}"
+                                               IsVisible="False"
+                                               Background="#94000000"
+                                               FontSize="13"
+                                               Margin="0 -32 0 0"
+                                               Padding="0 5 0 0"
+                                               TextWrapping="Wrap"
+                                               Width="106"
+                                               TextAlignment="Center" />
                             </WrapPanel>
                         </ControlTemplate>
                     </Button.Template>
