@@ -18,14 +18,13 @@
             <Setter Property="HeroButtonCommand" Value="{Binding OnHeroButtonClickCommand}" />
         </Style>
         <Style Selector="views|HeroButtonView:pointerover">
-            <Setter Property="Width" Value="120" />
+            <Setter Property="Width" Value="130" />
             <Setter Property="Height" Value="140" />
             <Setter Property="ZIndex" Value="1"/>
-            <Setter Property="Margin" Value="12 0 0 0"></Setter>
+            <Setter Property="Margin" Value="20 0 0 0"></Setter>
             <Style Selector="^ TextBlock">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
-            <!-- TODO: set isvisible property textblock on herobuttonview -->
         </Style>
     </UserControl.Styles>
 
@@ -38,10 +37,10 @@
             </RadialGradientBrush>
         </Border.Background>
         <DockPanel LastChildFill="True"
-                   Margin="0 30 0 0">
+                   Margin="0 60 0 0">
             <StackPanel HorizontalAlignment="Center"
                         Orientation="Horizontal"
-                        Spacing="15"
+                        Spacing="30"
                         DockPanel.Dock="Top">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -52,9 +51,9 @@
                                    FontFamily="{StaticResource RadianceBlackFont}"
                                    Foreground="#878e97" />
                     </StackPanel>
-                    <WrapPanel Width="506"
-                               ItemWidth="46"
-                               ItemHeight="58"
+                    <WrapPanel Width="605"
+                               ItemWidth="55"
+                               ItemHeight="70"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Top"
                                x:Name="StrengthHeroes">
@@ -162,9 +161,9 @@
                                    FontFamily="{StaticResource RadianceBlackFont}"
                                    Foreground="#878e97" />
                     </StackPanel>
-                    <WrapPanel Width="506"
-                               ItemWidth="46"
-                               ItemHeight="58"
+                    <WrapPanel Width="605"
+                               ItemWidth="55"
+                               ItemHeight="70"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Top"
                                x:Name="AgilityHeroes">
@@ -267,7 +266,7 @@
             <StackPanel Margin="0 35 0 50"
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
-                        Spacing="15"
+                        Spacing="30"
                         DockPanel.Dock="Top">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -278,9 +277,9 @@
                                    FontFamily="{StaticResource RadianceBlackFont}"
                                    Foreground="#878e97" />
                     </StackPanel>
-                    <WrapPanel Width="506"
-                               ItemWidth="46"
-                               ItemHeight="58"
+                    <WrapPanel Width="605"
+                               ItemWidth="55"
+                               ItemHeight="70"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Bottom"
                                x:Name="IntelligenceHeroes">
@@ -385,9 +384,9 @@
                                    FontFamily="{StaticResource RadianceBlackFont}"
                                    Foreground="#878e97" />
                     </StackPanel>
-                    <WrapPanel Width="506"
-                               ItemWidth="46"
-                               ItemHeight="58"
+                    <WrapPanel Width="605"
+                               ItemWidth="55"
+                               ItemHeight="70"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Bottom"
                                x:Name="UniversalHeroes">
@@ -491,12 +490,12 @@
                 </StackPanel>
             </StackPanel>
             <WrapPanel Orientation="Vertical">
-                <TextBlock Text="Test" FontFamily="{StaticResource RadianceBlackFont}"></TextBlock>
-                <TextBlock Text="Test" FontFamily="{StaticResource RadianceBoldFont}"></TextBlock>
-                <TextBlock Text="Test" FontFamily="{StaticResource RadianceLightFont}"></TextBlock>
-                <TextBlock Text="Test" FontFamily="{StaticResource RadianceRegularFont}"></TextBlock>
-                <TextBlock Text="Test" FontFamily="{StaticResource RadianceSemiBoldFont}"></TextBlock>
-                <TextBlock Text="Test" FontFamily="{StaticResource RadianceUltraLightFont}"></TextBlock>
+                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceBlackFont}"></TextBlock>
+                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceBoldFont}"></TextBlock>
+                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceLightFont}"></TextBlock>
+                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceRegularFont}"></TextBlock>
+                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceSemiBoldFont}"></TextBlock>
+                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceUltraLightFont}"></TextBlock>
             </WrapPanel>
         </DockPanel>
     </Border>
