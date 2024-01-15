@@ -16,17 +16,50 @@
     </Design.DataContext>
 
     <Window.Styles>
+        <Style Selector="TabItem.ally /template/ Panel">
+            <Setter Property="Height" Value="100"/>
+        </Style>
         <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel">
             <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
-        <Style Selector="TabItem.chart /template/ Border#PART_SelectedPipe">
-            <Setter Property="Background" Value="Chartreuse" />
+        <Style Selector="TabItem.ally /template/ Border#PART_SelectedPipe">
+            <Setter Property="Background" Value="#2eb41c" />
+            <Setter Property="Height" Value="4"/>
+            <Setter Property="Width" Value="80"/>
             <Setter Property="ZIndex" Value="1" />
-            <Setter Property="BoxShadow" Value="0 10 1 0 Red"/>
+            <Setter Property="CornerRadius" Value="0 2 0 2"/>
+            <Setter Property="Margin" Value="0 0 7 0"/>
+            <Setter Property="BoxShadow" Value="1 1 -1 -1 #2eb41c"/>
             <Style.Animations>
-                <Animation Duration="0:0:1" IterationCount="INFINITE">
+                <Animation Duration="0:0:1.7"
+                           IterationCount="INFINITE"
+                           PlaybackDirection="Reverse">
                     <KeyFrame>
-
+                        <Setter Property="BoxShadow" Value="1 20 15 -1 #2eb41c"/>
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="TabItem.enemy /template/ Panel">
+            <Setter Property="Height" Value="100"/>
+        </Style>
+        <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="TabItem.enemy /template/ Border#PART_SelectedPipe">
+            <Setter Property="Background" Value="#9a220e" />
+            <Setter Property="Height" Value="4"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="ZIndex" Value="1" />
+            <Setter Property="CornerRadius" Value="2 0 2 0"/>
+            <Setter Property="Margin" Value="0 0 24 0"/>
+            <Setter Property="BoxShadow" Value="1 1 -1 -1 #9a220e"/>
+            <Style.Animations>
+                <Animation Duration="0:0:1.7"
+                           IterationCount="INFINITE"
+                           PlaybackDirection="Reverse">
+                    <KeyFrame>
+                        <Setter Property="BoxShadow" Value="1 20 15 -1 #9a220e"/>
                     </KeyFrame>
                 </Animation>
             </Style.Animations>
@@ -35,16 +68,17 @@
     <Grid>
         <Border>
             <Border.Background>
-                <RadialGradientBrush Center="50%, 57%">
+                <RadialGradientBrush Center="50%, 62%">
                     <GradientStop Color="#465867" Offset="0" />
                     <GradientStop Color="#1d2229" Offset="1" />
                 </RadialGradientBrush>
             </Border.Background>
             <TabControl>
-                <TabItem Classes="chart"
-                         Width="80"
-                         Height="50"
-                         Padding="0 -50 0 0">
+                <TabItem Classes="ally"
+                         Width="105"
+                         Height="120"
+                         Padding="0 -50 0 0"
+                         Margin="0 -25 0 0">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -53,9 +87,9 @@
                                         <PathGeometry>
                                             <PathFigure StartPoint="10,50"
                                                         IsClosed="True">
-                                                <LineSegment Point="80, 50" />
-                                                <LineSegment Point="70, 0" />
-                                                <LineSegment Point="0, 0" />
+                                                <LineSegment Point="90, 50" />
+                                                <LineSegment Point="80, -10" />
+                                                <LineSegment Point="0, -10" />
                                             </PathFigure>
                                         </PathGeometry>
                                     </Path.Data>
@@ -65,11 +99,11 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Classes="chart"
-                         Width="80"
-                         Height="50"
+                <TabItem Classes="ally"
+                         Width="105"
+                         Height="120"
                          Padding="0 -50 0 0"
-                         Margin="15 0 0 0">
+                         Margin="0 -25 0 0">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -78,9 +112,9 @@
                                         <PathGeometry>
                                             <PathFigure StartPoint="10,50"
                                                         IsClosed="True">
-                                                <LineSegment Point="80, 50" />
-                                                <LineSegment Point="70, 0" />
-                                                <LineSegment Point="0, 0" />
+                                                <LineSegment Point="90, 50" />
+                                                <LineSegment Point="80, -10" />
+                                                <LineSegment Point="0, -10" />
                                             </PathFigure>
                                         </PathGeometry>
                                     </Path.Data>
@@ -90,11 +124,11 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Classes="chart"
-                         Width="80"
-                         Height="50"
+                <TabItem Classes="ally"
+                         Width="105"
+                         Height="120"
                          Padding="0 -50 0 0"
-                         Margin="15 0 0 0">
+                         Margin="0 -25 0 0">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -103,9 +137,9 @@
                                         <PathGeometry>
                                             <PathFigure StartPoint="10,50"
                                                         IsClosed="True">
-                                                <LineSegment Point="80, 50" />
-                                                <LineSegment Point="70, 0" />
-                                                <LineSegment Point="0, 0" />
+                                                <LineSegment Point="90, 50" />
+                                                <LineSegment Point="80, -10" />
+                                                <LineSegment Point="0, -10" />
                                             </PathFigure>
                                         </PathGeometry>
                                     </Path.Data>
@@ -115,11 +149,11 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Classes="chart"
-                         Width="80"
-                         Height="50"
+                <TabItem Classes="ally"
+                         Width="105"
+                         Height="120"
                          Padding="0 -50 0 0"
-                         Margin="15 0 0 0">
+                         Margin="0 -25 0 0">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -128,9 +162,9 @@
                                         <PathGeometry>
                                             <PathFigure StartPoint="10,50"
                                                         IsClosed="True">
-                                                <LineSegment Point="80, 50" />
-                                                <LineSegment Point="70, 0" />
-                                                <LineSegment Point="0, 0" />
+                                                <LineSegment Point="90, 50" />
+                                                <LineSegment Point="80, -10" />
+                                                <LineSegment Point="0, -10" />
                                             </PathFigure>
                                         </PathGeometry>
                                     </Path.Data>
@@ -140,11 +174,11 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Classes="chart"
-                         Width="80"
-                         Height="50"
+                <TabItem Classes="ally"
+                         Width="105"
+                         Height="120"
                          Padding="0 -50 0 0"
-                         Margin="15 0 0 0">
+                         Margin="0 -25 0 0">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -153,9 +187,34 @@
                                         <PathGeometry>
                                             <PathFigure StartPoint="10,50"
                                                         IsClosed="True">
+                                                <LineSegment Point="90, 50" />
+                                                <LineSegment Point="80, -10" />
+                                                <LineSegment Point="0, -10" />
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <views:HeroesView />
+                </TabItem>
+                <TabItem Classes="enemy"
+                         Width="105"
+                         Height="120"
+                         Padding="0 -50 0 0"
+                         Margin="100 -25 0 0">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Canvas>
+                                <Path Fill="{StaticResource GradientBorder}">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="0,50"
+                                                        IsClosed="True">
                                                 <LineSegment Point="80, 50" />
-                                                <LineSegment Point="70, 0" />
-                                                <LineSegment Point="0, 0" />
+                                                <LineSegment Point="90, -10" />
+                                                <LineSegment Point="10, -10" />
                                             </PathFigure>
                                         </PathGeometry>
                                     </Path.Data>
@@ -165,11 +224,11 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Classes="chart"
-                         Width="80"
-                         Height="50"
+                <TabItem Classes="enemy"
+                         Width="105"
+                         Height="120"
                          Padding="0 -50 0 0"
-                         Margin="180 0 0 0">
+                         Margin="0 -25 0 0">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -178,9 +237,9 @@
                                         <PathGeometry>
                                             <PathFigure StartPoint="0,50"
                                                         IsClosed="True">
-                                                <LineSegment Point="70, 50" />
-                                                <LineSegment Point="80, 0" />
-                                                <LineSegment Point="10, 0" />
+                                                <LineSegment Point="80, 50" />
+                                                <LineSegment Point="90, -10" />
+                                                <LineSegment Point="10, -10" />
                                             </PathFigure>
                                         </PathGeometry>
                                     </Path.Data>
@@ -190,11 +249,11 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Classes="chart"
-                         Width="80"
-                         Height="50"
+                <TabItem Classes="enemy"
+                         Width="105"
+                         Height="120"
                          Padding="0 -50 0 0"
-                         Margin="15 0 0 0">
+                         Margin="0 -25 0 0">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -203,9 +262,9 @@
                                         <PathGeometry>
                                             <PathFigure StartPoint="0,50"
                                                         IsClosed="True">
-                                                <LineSegment Point="70, 50" />
-                                                <LineSegment Point="80, 0" />
-                                                <LineSegment Point="10, 0" />
+                                                <LineSegment Point="80, 50" />
+                                                <LineSegment Point="90, -10" />
+                                                <LineSegment Point="10, -10" />
                                             </PathFigure>
                                         </PathGeometry>
                                     </Path.Data>
@@ -215,11 +274,11 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Classes="chart"
-                         Width="80"
-                         Height="50"
+                <TabItem Classes="enemy"
+                         Width="105"
+                         Height="120"
                          Padding="0 -50 0 0"
-                         Margin="15 0 0 0">
+                         Margin="0 -25 0 0">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -228,9 +287,9 @@
                                         <PathGeometry>
                                             <PathFigure StartPoint="0,50"
                                                         IsClosed="True">
-                                                <LineSegment Point="70, 50" />
-                                                <LineSegment Point="80, 0" />
-                                                <LineSegment Point="10, 0" />
+                                                <LineSegment Point="80, 50" />
+                                                <LineSegment Point="90, -10" />
+                                                <LineSegment Point="10, -10" />
                                             </PathFigure>
                                         </PathGeometry>
                                     </Path.Data>
@@ -240,11 +299,11 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Classes="chart"
-                         Width="80"
-                         Height="50"
+                <TabItem Classes="enemy"
+                         Width="105"
+                         Height="120"
                          Padding="0 -50 0 0"
-                         Margin="15 0 0 0">
+                         Margin="0 -25 0 0">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
@@ -253,34 +312,9 @@
                                         <PathGeometry>
                                             <PathFigure StartPoint="0,50"
                                                         IsClosed="True">
-                                                <LineSegment Point="70, 50" />
-                                                <LineSegment Point="80, 0" />
-                                                <LineSegment Point="10, 0" />
-                                            </PathFigure>
-                                        </PathGeometry>
-                                    </Path.Data>
-                                </Path>
-                            </Canvas>
-                        </DataTemplate>
-                    </TabItem.HeaderTemplate>
-                    <views:HeroesView />
-                </TabItem>
-                <TabItem Classes="chart"
-                         Width="80"
-                         Height="50"
-                         Padding="0 -50 0 0"
-                         Margin="15 0 0 0">
-                    <TabItem.HeaderTemplate>
-                        <DataTemplate>
-                            <Canvas>
-                                <Path Fill="{StaticResource GradientBorder}">
-                                    <Path.Data>
-                                        <PathGeometry>
-                                            <PathFigure StartPoint="0,50"
-                                                        IsClosed="True">
-                                                <LineSegment Point="70, 50" />
-                                                <LineSegment Point="80, 0" />
-                                                <LineSegment Point="10, 0" />
+                                                <LineSegment Point="80, 50" />
+                                                <LineSegment Point="90, -10" />
+                                                <LineSegment Point="10, -10" />
                                             </PathFigure>
                                         </PathGeometry>
                                     </Path.Data>
