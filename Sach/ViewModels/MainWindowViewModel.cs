@@ -44,10 +44,10 @@ public class MainWindowViewModel : ViewModelBase
     
     public ReactiveCommand<short, Unit> OnHeroButtonClickCommand { get; set; }
     
-    public void SetSelectedHeroId(short id)
+    public async void SetSelectedHeroId(short id)
     {
         SelectedHero = id;
-        GetHeroStats();
+        await GetHeroStats();
     }
 
     private AvaloniaList<TabItem> _playersList;
