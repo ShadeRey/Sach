@@ -19,6 +19,18 @@
         <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel">
             <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
+        <Style Selector="TabItem.chart /template/ Border#PART_SelectedPipe">
+            <Setter Property="Background" Value="Chartreuse" />
+            <Setter Property="ZIndex" Value="1" />
+            <Setter Property="BoxShadow" Value="0 10 1 0 Red"/>
+            <Style.Animations>
+                <Animation Duration="0:0:1" IterationCount="INFINITE">
+                    <KeyFrame>
+
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
     </Window.Styles>
     <Grid>
         <Border>
@@ -29,15 +41,14 @@
                 </RadialGradientBrush>
             </Border.Background>
             <TabControl>
-                <TabItem x:Name="FirstPlayer"
+                <TabItem Classes="chart"
                          Width="80"
                          Height="50"
                          Padding="0 -50 0 0">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Canvas>
-                                <Path Name="FirstPlayerHero"
-                                      Fill="{StaticResource GradientBorder}">
+                                <Path Fill="{StaticResource GradientBorder}">
                                     <Path.Data>
                                         <PathGeometry>
                                             <PathFigure StartPoint="10,50"
@@ -54,7 +65,8 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Width="80"
+                <TabItem Classes="chart"
+                         Width="80"
                          Height="50"
                          Padding="0 -50 0 0"
                          Margin="15 0 0 0">
@@ -78,7 +90,8 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Width="80"
+                <TabItem Classes="chart"
+                         Width="80"
                          Height="50"
                          Padding="0 -50 0 0"
                          Margin="15 0 0 0">
@@ -102,7 +115,8 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Width="80"
+                <TabItem Classes="chart"
+                         Width="80"
                          Height="50"
                          Padding="0 -50 0 0"
                          Margin="15 0 0 0">
@@ -126,7 +140,8 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Width="80"
+                <TabItem Classes="chart"
+                         Width="80"
                          Height="50"
                          Padding="0 -50 0 0"
                          Margin="15 0 0 0">
@@ -150,7 +165,8 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Width="80"
+                <TabItem Classes="chart"
+                         Width="80"
                          Height="50"
                          Padding="0 -50 0 0"
                          Margin="180 0 0 0">
@@ -174,7 +190,8 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Width="80"
+                <TabItem Classes="chart"
+                         Width="80"
                          Height="50"
                          Padding="0 -50 0 0"
                          Margin="15 0 0 0">
@@ -198,7 +215,8 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Width="80"
+                <TabItem Classes="chart"
+                         Width="80"
                          Height="50"
                          Padding="0 -50 0 0"
                          Margin="15 0 0 0">
@@ -222,7 +240,8 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Width="80"
+                <TabItem Classes="chart"
+                         Width="80"
                          Height="50"
                          Padding="0 -50 0 0"
                          Margin="15 0 0 0">
@@ -246,7 +265,8 @@
                     </TabItem.HeaderTemplate>
                     <views:HeroesView />
                 </TabItem>
-                <TabItem Width="80"
+                <TabItem Classes="chart"
+                         Width="80"
                          Height="50"
                          Padding="0 -50 0 0"
                          Margin="15 0 0 0">
