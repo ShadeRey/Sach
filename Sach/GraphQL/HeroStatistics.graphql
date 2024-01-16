@@ -4,12 +4,10 @@
             advantage{
                 with{
                     heroId2
-                    winsAverage
                     synergy
                 }
                 vs{
                     heroId2
-                    winsAverage
                     synergy
                 }
             }

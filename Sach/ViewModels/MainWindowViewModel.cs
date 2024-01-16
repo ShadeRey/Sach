@@ -8,6 +8,7 @@ using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using ReactiveUI;
 using Image = Avalonia.Controls.Image;
 
@@ -30,8 +31,15 @@ public class MainWindowViewModel : ViewModelBase
             return;
         }
         
-        var serialize = System.Text.Json.JsonSerializer.Serialize(operationResult.Data);
-        Console.WriteLine(serialize);
+        var output = JsonConvert.SerializeObject(operationResult.Data);
+        JsonSerializer serializer = new JsonSerializer();
+        serializer.NullValueHandling = NullValueHandling.Ignore;
+
+        using (StreamWriter sw = new StreamWriter("herostatsjson.txt"))
+        using (JsonWriter writer = new JsonTextWriter(sw))
+        {
+            serializer.Serialize(writer, output);
+        }
     }
 
     private short _selectedHero;
