@@ -27,6 +27,9 @@
             <GradientStop Color="#3d444f" Offset="0"/>
             <GradientStop Color="#11151f" Offset="1"/>
         </RadialGradientBrush>
+        <ImageBrush x:Key="AlchemistImage" 
+                    Source="avares://Sach/Assets/HeroIcons/alchemist_icon.png"
+                    TileMode="Tile"
+                    Stretch="UniformToFill"/>
     </Application.Resources>
-
 </Application>

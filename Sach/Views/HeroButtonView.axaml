@@ -2,11 +2,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:Sach.Views">
     <Design.PreviewWith>
-        <controls:HeroButtonView HeroIcon="avares://Sach/Assets/HeroIcons/abaddon_vert.webp" />
+        <controls:HeroButtonView HeroIcon="avares://Sach/Assets/HeroIcons/alchemist_icon.png" />
     </Design.PreviewWith>
 
     <Style Selector="controls|HeroButtonView">
         <Setter Property="Width" Value="50" />
+        <Setter Property="Height" Value="70"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Button x:Name="HeroButton"
@@ -15,7 +16,8 @@
                     <Button.Template>
                         <ControlTemplate>
                             <WrapPanel>
-                                <Image Source="{Binding $parent[controls:HeroButtonView].HeroIcon}" />
+                                <Image Source="{Binding $parent[controls:HeroButtonView].HeroIcon}" 
+                                       Stretch="Fill"/>
                                     <TextBlock Text="{Binding $parent[controls:HeroButtonView].HeroName}"
                                                Foreground="#ebe4e7"
                                                FontFamily="{StaticResource RadianceUltraLightFont}"
