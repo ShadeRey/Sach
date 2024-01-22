@@ -11,12 +11,11 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Button x:Name="HeroButton"
-                        Command="{TemplateBinding HeroButtonCommand}"
-                        CommandParameter="{TemplateBinding HeroId}">
+                        Command="{TemplateBinding HeroButtonCommand}" CommandParameter="{TemplateBinding Hero}">
                     <Button.Template>
                         <ControlTemplate>
                             <WrapPanel>
-                                <Image Source="{Binding $parent[controls:HeroButtonView].HeroIcon}" 
+                                <Image Source="{Binding $parent[controls:HeroButtonView].Image}" 
                                        Stretch="Fill"/>
                                     <TextBlock Text="{Binding $parent[controls:HeroButtonView].HeroName}"
                                                Foreground="#ebe4e7"

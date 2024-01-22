@@ -3,26 +3,59 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reactive;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Media;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using ReactiveUI;
 using Sach.Models;
+using Sach.Views;
 using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Sach.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
+    private Dictionary<short, IBrush> _heroBrushRegistry = new Dictionary<short, IBrush>();
+
+    public AvaloniaList<Hero> Heroes
+    {
+        get => _heroes;
+        set => this.RaiseAndSetIfChanged(ref _heroes, value);
+    }
+
     public MainWindowViewModel()
     {
-        OnHeroButtonClickCommand = ReactiveCommand.Create<short>(SetSelectedHeroId);
-        PlayerHero = Application.Current.Resources["GradientBorder"] as IBrush;
+        OnHeroButtonClickCommand = ReactiveCommand.Create<Hero>(SetSelectedHeroId);
+        this.WhenAnyValue(x => x.SelectedHero)
+            .DistinctUntilChanged()
+            .Subscribe(hero =>
+            {
+                if (hero is null)
+                {
+                    PlayerHero = EmptyHero;
+                    return;
+                }
+
+                if (!_heroBrushRegistry.ContainsKey(hero.HeroId))
+                {
+                    var stream = AssetLoader.Open(new Uri(hero.HeroIcon));
+                    _heroBrushRegistry[hero.HeroId] = new ImageBrush(new Bitmap(stream))
+                    {
+                        Stretch = Stretch.UniformToFill
+                    };
+                }
+
+                PlayerHero = _heroBrushRegistry[hero.HeroId];
+            });
+        // PlayerHero = Brush;
     }
 
     private IStratzAPI _stratzApi = App.Services.GetRequiredService<IStratzAPI>();
@@ -31,7 +64,7 @@ public class MainWindowViewModel : ViewModelBase
 
     public async Task GetHeroStats()
     {
-        var operationResult = await _stratzApi.HeroStatistics.ExecuteAsync(SelectedHero);
+        var operationResult = await _stratzApi.HeroStatistics.ExecuteAsync(SelectedHero.HeroId);
         if (operationResult.Data is null)
         {
             return;
@@ -39,7 +72,7 @@ public class MainWindowViewModel : ViewModelBase
 
         var data = new
         {
-            HeroId = SelectedHero,
+            HeroId = SelectedHero.HeroId,
             Advantage = operationResult.Data.HeroStats?.HeroVsHeroMatchup?.Advantage?[0]
         };
 
@@ -88,19 +121,19 @@ public class MainWindowViewModel : ViewModelBase
             }).OrderByDescending(x => x.Avg).Take(5);
     }
 
-    private short _selectedHero;
+    private Hero? _selectedHero;
 
-    public short SelectedHero
+    public Hero? SelectedHero
     {
         get => _selectedHero;
         set => this.RaiseAndSetIfChanged(ref _selectedHero, value);
     }
 
-    public ReactiveCommand<short, Unit> OnHeroButtonClickCommand { get; set; }
+    public ReactiveCommand<Hero, Unit> OnHeroButtonClickCommand { get; set; }
 
-    public async void SetSelectedHeroId(short id)
+    public async void SetSelectedHeroId(Hero hero)
     {
-        SelectedHero = id;
+        SelectedHero = hero;
         await GetHeroStats();
     }
 
@@ -112,8 +145,34 @@ public class MainWindowViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _playerHero, value);
     }
 
+    IBrush EmptyHero = App.Current.Resources["GradientBorder"] as IBrush;
+
+
     private string _fish =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+    private AvaloniaList<Hero> _heroes = ListInit();
+
+    private static AvaloniaList<Hero> ListInit()
+    {
+        var list = new AvaloniaList<Hero>();
+        for (int i = 0; i < 5; i++)
+        {
+            list.Add(new Hero()
+            {
+                CurrentTeam = Hero.Team.Ally
+            });
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            list.Add(new Hero()
+            {
+                CurrentTeam = Hero.Team.Enemy
+            });
+        }
+        return list;
+    }
 
     public string Fish
     {
