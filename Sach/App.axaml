@@ -31,5 +31,20 @@
                     Source="avares://Sach/Assets/HeroIcons/alchemist_icon.png"
                     TileMode="Tile"
                     Stretch="UniformToFill"/>
+        
+        <ControlTheme x:Key="{x:Type SelectingItemsControl}" TargetType="SelectingItemsControl">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </ControlTheme>
     </Application.Resources>
 </Application>

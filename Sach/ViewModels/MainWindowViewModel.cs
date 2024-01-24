@@ -46,7 +46,7 @@ public class MainWindowViewModel : ViewModelBase
 
                 if (!_heroBrushRegistry.ContainsKey(hero.HeroId))
                 {
-                    var stream = AssetLoader.Open(new Uri(hero.HeroIcon));
+                    var stream = AssetLoader.Open(new Uri(hero.HeroIconPath));
                     _heroBrushRegistry[hero.HeroId] = new ImageBrush(new Bitmap(stream))
                     {
                         Stretch = Stretch.UniformToFill
@@ -160,7 +160,9 @@ public class MainWindowViewModel : ViewModelBase
         {
             list.Add(new Hero()
             {
-                CurrentTeam = Hero.Team.Ally
+                CurrentTeam = Hero.Team.Ally,
+                HeroName = "Abadaun",
+                HeroIconPath = "avares://Sach/Assets/HeroIcons/abaddon_icon.png"
             });
         }
 
@@ -168,7 +170,9 @@ public class MainWindowViewModel : ViewModelBase
         {
             list.Add(new Hero()
             {
-                CurrentTeam = Hero.Team.Enemy
+                CurrentTeam = Hero.Team.Enemy,
+                HeroName = "Abadaun",
+                HeroIconPath = "avares://Sach/Assets/HeroIcons/abaddon_icon.png"
             });
         }
         return list;
