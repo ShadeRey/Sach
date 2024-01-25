@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:Sach.Views"
+        xmlns:models="clr-namespace:Sach.Models"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Sach.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -14,61 +15,10 @@
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
-
     <Window.Styles>
-        <!-- <Style Selector="Panel.ally"> -->
-        <!--     <Style Selector="^ /template/ Panel"> -->
-        <!--         <Setter Property="Height" Value="100" /> -->
-        <!--     </Style> -->
-        <!--     <Style Selector="^ /template/ Border#PART_SelectedPipe"> -->
-        <!--         <Setter Property="Background" Value="#2eb41c" /> -->
-        <!--         <Setter Property="Height" Value="4" /> -->
-        <!--         <Setter Property="Width" Value="80" /> -->
-        <!--         <Setter Property="ZIndex" Value="1" /> -->
-        <!--         <Setter Property="CornerRadius" Value="0 2 0 2" /> -->
-        <!--         <Setter Property="Margin" Value="0 0 7 0" /> -->
-        <!--         <Setter Property="BoxShadow" Value="1 1 -1 -1 #2eb41c" /> -->
-        <!--         <Style.Animations> -->
-        <!--             <Animation Duration="0:0:1.7" -->
-        <!--                        IterationCount="INFINITE" -->
-        <!--                        PlaybackDirection="Reverse"> -->
-        <!--                 <KeyFrame> -->
-        <!--                     <Setter Property="BoxShadow" Value="1 20 15 -1 #2eb41c" /> -->
-        <!--                 </KeyFrame> -->
-        <!--             </Animation> -->
-        <!--         </Style.Animations> -->
-        <!--     </Style> -->
-        <!-- </Style> -->
-        <!-- <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel"> -->
-        <!--     <Setter Property="HorizontalAlignment" Value="Center" /> -->
-        <!-- </Style> -->
-        <!-- <Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter WrapPanel"> -->
-        <!--     <Setter Property="HorizontalAlignment" Value="Center" /> -->
-        <!-- </Style> -->
-        <!-- <Style Selector="Panel.enemy"> -->
-        <!--     <Setter Property="HeaderTemplate" Value="{DynamicResource EnemyTemplate}" /> -->
-        <!--     <Style Selector="^ /template/ Panel"> -->
-        <!--         <Setter Property="Height" Value="100" /> -->
-        <!--     </Style> -->
-        <!--     <Style Selector="^ /template/ Border#PART_SelectedPipe"> -->
-        <!--         <Setter Property="Background" Value="#9a220e" /> -->
-        <!--         <Setter Property="Height" Value="4" /> -->
-        <!--         <Setter Property="Width" Value="80" /> -->
-        <!--         <Setter Property="ZIndex" Value="1" /> -->
-        <!--         <Setter Property="CornerRadius" Value="2 0 2 0" /> -->
-        <!--         <Setter Property="Margin" Value="0 0 24 0" /> -->
-        <!--         <Setter Property="BoxShadow" Value="1 1 -1 -1 #9a220e" /> -->
-        <!--         <Style.Animations> -->
-        <!--             <Animation Duration="0:0:1.7" -->
-        <!--                        IterationCount="INFINITE" -->
-        <!--                        PlaybackDirection="Reverse"> -->
-        <!--                 <KeyFrame> -->
-        <!--                     <Setter Property="BoxShadow" Value="1 20 15 -1 #9a220e" /> -->
-        <!--                 </KeyFrame> -->
-        <!--             </Animation> -->
-        <!--         </Style.Animations> -->
-        <!--     </Style> -->
-        <!-- </Style> -->
+        <Style Selector="ContentPresenter:nth-child(5)">
+            <Setter Property="Margin" Value="0 0 100 0"/>
+        </Style>
         <Style Selector="Panel.ally">
             <Style Selector="^ Canvas">
                 <Setter Property="Width" Value="90" />
@@ -91,26 +41,25 @@
                 <Setter Property="Margin" Value="0 0 0 0" />
             </Style>
             <Setter Property="Margin" Value="0 0 0 0" />
-            <Style Selector="^ Border#PART_SelectedPipe">
-                <Setter Property="Background" Value="#2eb41c" />
-                <Setter Property="Height" Value="4" />
-                <Setter Property="Width" Value="80" />
-                <Setter Property="ZIndex" Value="1" />
-                <Setter Property="CornerRadius" Value="0 2 0 2" />
-                <Setter Property="Margin" Value="0 0 7 0" />
-                <Setter Property="BoxShadow" Value="1 1 -1 -1 #2eb41c" />
-                <Style.Animations>
-                    <Animation Duration="0:0:1.7"
-                               IterationCount="INFINITE"
-                               PlaybackDirection="Reverse">
-                        <KeyFrame>
-                            <Setter Property="BoxShadow" Value="1 20 15 -1 #2eb41c" />
-                        </KeyFrame>
-                    </Animation>
-                </Style.Animations>
-            </Style>
             <Style Selector="^.selected">
-                <Setter Property="Background" Value="Aqua"/>
+                <Style Selector="^ Border#PART_SelectedPipe">
+                    <Setter Property="Background" Value="#2eb41c" />
+                    <Setter Property="Height" Value="4" />
+                    <Setter Property="Width" Value="80" />
+                    <Setter Property="ZIndex" Value="1" />
+                    <Setter Property="CornerRadius" Value="0 2 0 2" />
+                    <Setter Property="Margin" Value="10 32 0 0" />
+                    <Setter Property="BoxShadow" Value="1 1 -1 -1 #2eb41c" />
+                    <Style.Animations>
+                        <Animation Duration="0:0:1.7"
+                                   IterationCount="INFINITE"
+                                   PlaybackDirection="Reverse">
+                            <KeyFrame>
+                                <Setter Property="BoxShadow" Value="1 20 15 -1 #2eb41c" />
+                            </KeyFrame>
+                        </Animation>
+                    </Style.Animations>
+                </Style>
             </Style>
         </Style>
         <Style Selector="Panel.enemy">
@@ -135,33 +84,30 @@
                 <Setter Property="Margin" Value="0 0 0 0" />
             </Style>
             <Setter Property="Margin" Value="0 0 0 0" />
-            <Style Selector="^ Border#PART_SelectedPipe">
-                <Setter Property="Background" Value="#9a220e" />
-                <Setter Property="Height" Value="4" />
-                <Setter Property="Width" Value="80" />
-                <Setter Property="ZIndex" Value="1" />
-                <Setter Property="CornerRadius" Value="2 0 2 0" />
-                <Setter Property="Margin" Value="0 0 24 0" />
-                <Setter Property="BoxShadow" Value="1 1 -1 -1 #9a220e" />
-                <Style.Animations>
-                    <Animation Duration="0:0:1.7"
-                               IterationCount="INFINITE"
-                               PlaybackDirection="Reverse">
-                        <KeyFrame>
-                            <Setter Property="BoxShadow" Value="1 20 15 -1 #9a220e" />
-                        </KeyFrame>
-                    </Animation>
-                </Style.Animations>
-            </Style>
             <Style Selector="^.selected">
-                <Setter Property="Background" Value="Aqua"/>
+                <Style Selector="^ Border#PART_SelectedPipe">
+                    <Setter Property="Background" Value="#9a220e" />
+                    <Setter Property="Height" Value="4" />
+                    <Setter Property="Width" Value="80" />
+                    <Setter Property="ZIndex" Value="1" />
+                    <Setter Property="CornerRadius" Value="2 0 2 0" />
+                    <Setter Property="Margin" Value="0 32 10 0" />
+                    <Setter Property="BoxShadow" Value="1 1 -1 -1 #9a220e" />
+                    <Style.Animations>
+                        <Animation Duration="0:0:1.7"
+                                   IterationCount="INFINITE"
+                                   PlaybackDirection="Reverse">
+                            <KeyFrame>
+                                <Setter Property="BoxShadow" Value="1 20 15 -1 #9a220e" />
+                            </KeyFrame>
+                        </Animation>
+                    </Style.Animations>
+                </Style>
             </Style>
         </Style>
     </Window.Styles>
-
     <Window.Resources>
-
-        <DataTemplate x:Key="HeroSelectorTemplate" DataType="views:Hero">
+        <DataTemplate x:Key="HeroSelectorTemplate" DataType="models:Hero">
             <Panel Classes.ally="{Binding IsAlly}"
                    Width="90"
                    Height="90"
@@ -169,7 +115,6 @@
                    Classes.enemy="{Binding IsEnemy}">
                 <Border Name="PART_SelectedPipe" />
                 <Canvas Tapped="InputElement_OnTapped">
-                    <!-- TODO: Передавать и заменять предмет в коллекции -->
                     <Path Fill="{Binding HeroBrush}" />
                 </Canvas>
             </Panel>
@@ -183,295 +128,19 @@
             </RadialGradientBrush>
         </DockPanel.Background>
         <SelectingItemsControl Height="100" DockPanel.Dock="Top"
+                               SelectedItem="{Binding SelectedHero}"
                                SelectedIndex="1"
                                ItemsSource="{Binding Heroes}"
                                ItemTemplate="{StaticResource HeroSelectorTemplate}">
             <SelectingItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" Spacing="25" HorizontalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal" 
+                                Spacing="5" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"/>
                 </ItemsPanelTemplate>
             </SelectingItemsControl.ItemsPanel>
         </SelectingItemsControl>
-
         <views:HeroesView DataContext="{Binding $parent.DataContext}" />
     </DockPanel>
 </Window>
-<!-- <TabItem Classes="ally" -->
-<!--          Width="105" -->
-<!--          Height="120" -->
-<!--          Padding="0 -50 0 0" -->
-<!--          Margin="0 -25 0 0"> -->
-<!--     <TabItem.HeaderTemplate> -->
-<!--         <DataTemplate DataType="vm:MainWindowViewModel"> -->
-<!--             <Canvas> -->
-<!--                 <Path Fill="{Binding PlayerHero}" -->
-<!--                       Stretch="UniformToFill" -->
-<!--                       Width="90" -->
-<!--                       Margin="0 -10 0 0"> -->
-<!--                     <Path.Data> -->
-<!--                         <PathGeometry> -->
-<!--                             <PathFigure StartPoint="10,50" -->
-<!--                                         IsClosed="True"> -->
-<!--                                 <LineSegment Point="90, 50" /> -->
-<!--                                 <LineSegment Point="80, -10" /> -->
-<!--                                 <LineSegment Point="0, -10" /> -->
-<!--                             </PathFigure> -->
-<!--                         </PathGeometry> -->
-<!--                     </Path.Data> -->
-<!--                 </Path> -->
-<!--             </Canvas> -->
-<!--         </DataTemplate> -->
-<!--     </TabItem.HeaderTemplate> -->
-<!-- </TabItem> -->
-<!-- <TabItem Classes="ally" -->
-<!--          Width="105" -->
-<!--          Height="120" -->
-<!--          Padding="0 -50 0 0" -->
-<!--          Margin="0 -25 0 0"> -->
-<!--     <TabItem.HeaderTemplate> -->
-<!--         <DataTemplate DataType="vm:MainWindowViewModel"> -->
-<!--             <Canvas> -->
-<!--                 <Path Fill="{Binding PlayerHero}" -->
-<!--                       Stretch="UniformToFill" -->
-<!--                       Width="90" -->
-<!--                       Margin="0 -10 0 0 "> -->
-<!--                     <Path.Data> -->
-<!--                         <PathGeometry> -->
-<!--                             <PathFigure StartPoint="10,50" -->
-<!--                                         IsClosed="True"> -->
-<!--                                 <LineSegment Point="90, 50" /> -->
-<!--                                 <LineSegment Point="80, -10" /> -->
-<!--                                 <LineSegment Point="0, -10" /> -->
-<!--                             </PathFigure> -->
-<!--                         </PathGeometry> -->
-<!--                     </Path.Data> -->
-<!--                 </Path> -->
-<!--             </Canvas> -->
-<!--         </DataTemplate> -->
-<!--     </TabItem.HeaderTemplate> -->
-<!--     <views:HeroesView /> -->
-<!-- </TabItem> -->
-<!-- <TabItem Classes="ally" -->
-<!--          Width="105" -->
-<!--          Height="120" -->
-<!--          Padding="0 -50 0 0" -->
-<!--          Margin="0 -25 0 0"> -->
-<!--     <TabItem.HeaderTemplate> -->
-<!--         <DataTemplate DataType="vm:MainWindowViewModel"> -->
-<!--             <Canvas> -->
-<!--                 <Path Fill="{Binding PlayerHero}" -->
-<!--                       Stretch="UniformToFill" -->
-<!--                       Width="90" -->
-<!--                       Margin="0 -10 0 0 "> -->
-<!--                     <Path.Data> -->
-<!--                         <PathGeometry> -->
-<!--                             <PathFigure StartPoint="10,50" -->
-<!--                                         IsClosed="True"> -->
-<!--                                 <LineSegment Point="90, 50" /> -->
-<!--                                 <LineSegment Point="80, -10" /> -->
-<!--                                 <LineSegment Point="0, -10" /> -->
-<!--                             </PathFigure> -->
-<!--                         </PathGeometry> -->
-<!--                     </Path.Data> -->
-<!--                 </Path> -->
-<!--             </Canvas> -->
-<!--         </DataTemplate> -->
-<!--     </TabItem.HeaderTemplate> -->
-<!--     <views:HeroesView /> -->
-<!-- </TabItem> -->
-<!-- <TabItem Classes="ally" -->
-<!--          Width="105" -->
-<!--          Height="120" -->
-<!--          Padding="0 -50 0 0" -->
-<!--          Margin="0 -25 0 0"> -->
-<!--     <TabItem.HeaderTemplate> -->
-<!--         <DataTemplate DataType="vm:MainWindowViewModel"> -->
-<!--             <Canvas> -->
-<!--                 <Path Fill="{Binding PlayerHero}" -->
-<!--                       Stretch="UniformToFill" -->
-<!--                       Width="90" -->
-<!--                       Margin="0 -10 0 0 "> -->
-<!--                     <Path.Data> -->
-<!--                         <PathGeometry> -->
-<!--                             <PathFigure StartPoint="10,50" -->
-<!--                                         IsClosed="True"> -->
-<!--                                 <LineSegment Point="90, 50" /> -->
-<!--                                 <LineSegment Point="80, -10" /> -->
-<!--                                 <LineSegment Point="0, -10" /> -->
-<!--                             </PathFigure> -->
-<!--                         </PathGeometry> -->
-<!--                     </Path.Data> -->
-<!--                 </Path> -->
-<!--             </Canvas> -->
-<!--         </DataTemplate> -->
-<!--     </TabItem.HeaderTemplate> -->
-<!--     <views:HeroesView /> -->
-<!-- </TabItem> -->
-<!-- <TabItem Classes="ally" -->
-<!--          Width="105" -->
-<!--          Height="120" -->
-<!--          Padding="0 -50 0 0" -->
-<!--          Margin="0 -25 0 0"> -->
-<!--     <TabItem.HeaderTemplate> -->
-<!--         <DataTemplate DataType="vm:MainWindowViewModel"> -->
-<!--             <Canvas> -->
-<!--                 <Path Fill="{Binding PlayerHero}" -->
-<!--                       Stretch="UniformToFill" -->
-<!--                       Width="90" -->
-<!--                       Margin="0 -10 0 0 "> -->
-<!--                     <Path.Data> -->
-<!--                         <PathGeometry> -->
-<!--                             <PathFigure StartPoint="10,50" -->
-<!--                                         IsClosed="True"> -->
-<!--                                 <LineSegment Point="90, 50" /> -->
-<!--                                 <LineSegment Point="80, -10" /> -->
-<!--                                 <LineSegment Point="0, -10" /> -->
-<!--                             </PathFigure> -->
-<!--                         </PathGeometry> -->
-<!--                     </Path.Data> -->
-<!--                 </Path> -->
-<!--             </Canvas> -->
-<!--         </DataTemplate> -->
-<!--     </TabItem.HeaderTemplate> -->
-<!--     <views:HeroesView /> -->
-<!-- </TabItem> -->
-<!-- <TabItem Classes="enemy" -->
-<!--          Width="105" -->
-<!--          Height="120" -->
-<!--          Padding="0 -50 0 0" -->
-<!--          Margin="100 -25 0 0"> -->
-<!--     <TabItem.HeaderTemplate> -->
-<!--         <DataTemplate DataType="vm:MainWindowViewModel"> -->
-<!--             <Canvas> -->
-<!--                 <Path Fill="{Binding PlayerHero}" -->
-<!--                       Stretch="UniformToFill" -->
-<!--                       Width="90" -->
-<!--                       Margin="0 -10 0 0 "> -->
-<!--                     <Path.Data> -->
-<!--                         <PathGeometry> -->
-<!--                             <PathFigure StartPoint="0,50" -->
-<!--                                         IsClosed="True"> -->
-<!--                                 <LineSegment Point="80, 50" /> -->
-<!--                                 <LineSegment Point="90, -10" /> -->
-<!--                                 <LineSegment Point="10, -10" /> -->
-<!--                             </PathFigure> -->
-<!--                         </PathGeometry> -->
-<!--                     </Path.Data> -->
-<!--                 </Path> -->
-<!--             </Canvas> -->
-<!--         </DataTemplate> -->
-<!--     </TabItem.HeaderTemplate> -->
-<!--     <views:HeroesView /> -->
-<!-- </TabItem> -->
-<!-- <TabItem Classes="enemy" -->
-<!--          Width="105" -->
-<!--          Height="120" -->
-<!--          Padding="0 -50 0 0" -->
-<!--          Margin="0 -25 0 0"> -->
-<!--     <TabItem.HeaderTemplate> -->
-<!--         <DataTemplate DataType="vm:MainWindowViewModel"> -->
-<!--             <Canvas> -->
-<!--                 <Path Fill="{Binding PlayerHero}" -->
-<!--                       Stretch="UniformToFill" -->
-<!--                       Width="90" -->
-<!--                       Margin="0 -10 0 0 "> -->
-<!--                     <Path.Data> -->
-<!--                         <PathGeometry> -->
-<!--                             <PathFigure StartPoint="0,50" -->
-<!--                                         IsClosed="True"> -->
-<!--                                 <LineSegment Point="80, 50" /> -->
-<!--                                 <LineSegment Point="90, -10" /> -->
-<!--                                 <LineSegment Point="10, -10" /> -->
-<!--                             </PathFigure> -->
-<!--                         </PathGeometry> -->
-<!--                     </Path.Data> -->
-<!--                 </Path> -->
-<!--             </Canvas> -->
-<!--         </DataTemplate> -->
-<!--     </TabItem.HeaderTemplate> -->
-<!--     <views:HeroesView /> -->
-<!-- </TabItem> -->
-<!-- <TabItem Classes="enemy" -->
-<!--          Width="105" -->
-<!--          Height="120" -->
-<!--          Padding="0 -50 0 0" -->
-<!--          Margin="0 -25 0 0"> -->
-<!--     <TabItem.HeaderTemplate> -->
-<!--         <DataTemplate DataType="vm:MainWindowViewModel"> -->
-<!--             <Canvas> -->
-<!--                 <Path Fill="{Binding PlayerHero}" -->
-<!--                       Stretch="UniformToFill" -->
-<!--                       Width="90" -->
-<!--                       Margin="0 -10 0 0 "> -->
-<!--                     <Path.Data> -->
-<!--                         <PathGeometry> -->
-<!--                             <PathFigure StartPoint="0,50" -->
-<!--                                         IsClosed="True"> -->
-<!--                                 <LineSegment Point="80, 50" /> -->
-<!--                                 <LineSegment Point="90, -10" /> -->
-<!--                                 <LineSegment Point="10, -10" /> -->
-<!--                             </PathFigure> -->
-<!--                         </PathGeometry> -->
-<!--                     </Path.Data> -->
-<!--                 </Path> -->
-<!--             </Canvas> -->
-<!--         </DataTemplate> -->
-<!--     </TabItem.HeaderTemplate> -->
-<!--     <views:HeroesView /> -->
-<!-- </TabItem> -->
-<!-- <TabItem Classes="enemy" -->
-<!--          Width="105" -->
-<!--          Height="120" -->
-<!--          Padding="0 -50 0 0" -->
-<!--          Margin="0 -25 0 0"> -->
-<!--     <TabItem.HeaderTemplate> -->
-<!--         <DataTemplate DataType="vm:MainWindowViewModel"> -->
-<!--             <Canvas> -->
-<!--                 <Path Fill="{Binding PlayerHero}" -->
-<!--                       Stretch="UniformToFill" -->
-<!--                       Width="90" -->
-<!--                       Margin="0 -10 0 0 "> -->
-<!--                     <Path.Data> -->
-<!--                         <PathGeometry> -->
-<!--                             <PathFigure StartPoint="0,50" -->
-<!--                                         IsClosed="True"> -->
-<!--                                 <LineSegment Point="80, 50" /> -->
-<!--                                 <LineSegment Point="90, -10" /> -->
-<!--                                 <LineSegment Point="10, -10" /> -->
-<!--                             </PathFigure> -->
-<!--                         </PathGeometry> -->
-<!--                     </Path.Data> -->
-<!--                 </Path> -->
-<!--             </Canvas> -->
-<!--         </DataTemplate> -->
-<!--     </TabItem.HeaderTemplate> -->
-<!--     <views:HeroesView /> -->
-<!-- </TabItem> -->
-<!-- <TabItem Classes="enemy" -->
-<!--          Width="105" -->
-<!--          Height="120" -->
-<!--          Padding="0 -50 0 0" -->
-<!--          Margin="0 -25 0 0"> -->
-<!--     <TabItem.HeaderTemplate> -->
-<!--         <DataTemplate DataType="vm:MainWindowViewModel"> -->
-<!--             <Canvas> -->
-<!--                 <Path Fill="{Binding PlayerHero}" -->
-<!--                       Stretch="UniformToFill" -->
-<!--                       Width="90" -->
-<!--                       Margin="0 -10 0 0 "> -->
-<!--                     <Path.Data> -->
-<!--                         <PathGeometry> -->
-<!--                             <PathFigure StartPoint="0,50" -->
-<!--                                         IsClosed="True"> -->
-<!--                                 <LineSegment Point="80, 50" /> -->
-<!--                                 <LineSegment Point="90, -10" /> -->
-<!--                                 <LineSegment Point="10, -10" /> -->
-<!--                             </PathFigure> -->
-<!--                         </PathGeometry> -->
-<!--                     </Path.Data> -->
-<!--                 </Path> -->
-<!--             </Canvas> -->
-<!--         </DataTemplate> -->
-<!--     </TabItem.HeaderTemplate> -->
-<!--     <views:HeroesView /> -->
-<!-- </TabItem> -->

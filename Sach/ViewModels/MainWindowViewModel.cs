@@ -34,28 +34,27 @@ public class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         OnHeroButtonClickCommand = ReactiveCommand.Create<Hero>(SetSelectedHeroId);
-        this.WhenAnyValue(x => x.SelectedHero)
-            .DistinctUntilChanged()
-            .Subscribe(hero =>
-            {
-                if (hero is null)
-                {
-                    PlayerHero = EmptyHero;
-                    return;
-                }
-
-                if (!_heroBrushRegistry.ContainsKey(hero.HeroId))
-                {
-                    var stream = AssetLoader.Open(new Uri(hero.HeroIconPath));
-                    _heroBrushRegistry[hero.HeroId] = new ImageBrush(new Bitmap(stream))
-                    {
-                        Stretch = Stretch.UniformToFill
-                    };
-                }
-
-                PlayerHero = _heroBrushRegistry[hero.HeroId];
-            });
-        // PlayerHero = Brush;
+        // this.WhenAnyValue(x => x.SelectedHero)
+        //     .DistinctUntilChanged()
+        //     .Subscribe(hero =>
+        //     {
+        //         if (hero is null)
+        //         {
+        //             PlayerHero = EmptyHero;
+        //             return;
+        //         }
+        //
+        //         if (!_heroBrushRegistry.ContainsKey(hero.HeroId))
+        //         {
+        //             var stream = AssetLoader.Open(new Uri(hero.HeroIconPath));
+        //             _heroBrushRegistry[hero.HeroId] = new ImageBrush(new Bitmap(stream))
+        //             {
+        //                 Stretch = Stretch.UniformToFill
+        //             };
+        //         }
+        //
+        //         PlayerHero = _heroBrushRegistry[hero.HeroId];
+        //     });
     }
 
     private IStratzAPI _stratzApi = App.Services.GetRequiredService<IStratzAPI>();
@@ -133,7 +132,13 @@ public class MainWindowViewModel : ViewModelBase
 
     public async void SetSelectedHeroId(Hero hero)
     {
-        SelectedHero = hero;
+        if (SelectedHero is null)
+        {
+            return;
+        }
+        SelectedHero.HeroId = hero.HeroId;
+        SelectedHero.HeroName = hero.HeroName;
+        SelectedHero.HeroIconPath = hero.HeroIconPath;
         await GetHeroStats();
     }
 
@@ -160,9 +165,7 @@ public class MainWindowViewModel : ViewModelBase
         {
             list.Add(new Hero()
             {
-                CurrentTeam = Hero.Team.Ally,
-                HeroName = "Abadaun",
-                HeroIconPath = "avares://Sach/Assets/HeroIcons/abaddon_icon.png"
+                CurrentTeam = Hero.Team.Ally
             });
         }
 
@@ -170,9 +173,7 @@ public class MainWindowViewModel : ViewModelBase
         {
             list.Add(new Hero()
             {
-                CurrentTeam = Hero.Team.Enemy,
-                HeroName = "Abadaun",
-                HeroIconPath = "avares://Sach/Assets/HeroIcons/abaddon_icon.png"
+                CurrentTeam = Hero.Team.Enemy
             });
         }
         return list;
