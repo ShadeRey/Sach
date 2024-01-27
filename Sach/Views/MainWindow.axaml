@@ -5,6 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:Sach.Views"
         xmlns:models="clr-namespace:Sach.Models"
+        xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+        xmlns:sach="clr-namespace:Sach"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Sach.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -16,8 +19,16 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
     <Window.Styles>
+        <!-- <Style Selector="dialogHostAvalonia|DialogOverlayPopupHost /template/ Border#PART_ContentBackground"> -->
+        <!--     <Setter Property="BorderBrush" Value="White" /> -->
+        <!--     <Setter Property="CornerRadius" Value="0" /> -->
+        <!--     <Setter Property="BorderThickness" Value="1" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="dialogHostAvalonia|DialogOverlayPopupHost"> -->
+        <!--     <Setter Property="Padding" Value="0" /> -->
+        <!-- </Style> -->
         <Style Selector="ContentPresenter:nth-child(5)">
-            <Setter Property="Margin" Value="0 0 100 0"/>
+            <Setter Property="Margin" Value="0 0 200 0" />
         </Style>
         <Style Selector="Panel.ally">
             <Style Selector="^ Canvas">
@@ -120,27 +131,97 @@
             </Panel>
         </DataTemplate>
     </Window.Resources>
-    <DockPanel LastChildFill="True">
-        <DockPanel.Background>
-            <RadialGradientBrush Center="50%, 62%">
-                <GradientStop Color="#465867" Offset="0" />
-                <GradientStop Color="#1d2229" Offset="1" />
-            </RadialGradientBrush>
-        </DockPanel.Background>
-        <SelectingItemsControl Height="100" DockPanel.Dock="Top"
-                               SelectedItem="{Binding SelectedHero}"
-                               SelectedIndex="1"
-                               ItemsSource="{Binding Heroes}"
-                               ItemTemplate="{StaticResource HeroSelectorTemplate}">
-            <SelectingItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" 
-                                Spacing="5" 
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Top"/>
-                </ItemsPanelTemplate>
-            </SelectingItemsControl.ItemsPanel>
-        </SelectingItemsControl>
-        <views:HeroesView DataContext="{Binding $parent.DataContext}" />
-    </DockPanel>
+    <dialogHostAvalonia:DialogHost IsOpen="True"
+                                   Background="#242c2c"
+                                   DialogMargin="0"
+                                   dialogHostAvalonia:DialogHostStyle.BorderBrush="#4b4f4e"
+                                   dialogHostAvalonia:DialogHostStyle.CornerRadius="0">
+        <sach:DialogHostStyleExt.BorderThickness>
+            <Thickness>2</Thickness>
+        </sach:DialogHostStyleExt.BorderThickness>
+        <dialogHostAvalonia:DialogHost.DialogContent>
+            <StackPanel Width="450"
+                        Height="250"
+                        Spacing="12">
+                <TextBlock Text="Введите API токен"
+                           HorizontalAlignment="Center"
+                           Padding="0 30 0 0"
+                           Foreground="#a8aeb0"
+                           FontSize="20"
+                           FontFamily="{StaticResource RadianceRegularFont}" />
+                <TextBox x:Name="ApiTextBox"
+                         Watermark="API токен"
+                         CornerRadius="0"
+                         Width="250"
+                         Height="50"
+                         BorderThickness="2"
+                         BorderBrush="#464948"
+                         Background="#000000"
+                         Foreground="#a8aeb0"
+                         FontFamily="{StaticResource RadianceRegularFont}"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         FontSize="16" />
+                <CheckBox Content="Запомнить меня"
+                          HorizontalAlignment="Center"
+                          Foreground="#a9adac"
+                          FontFamily="{StaticResource RadianceRegularFont}"
+                          FontSize="16" />
+                <StackPanel HorizontalAlignment="Center"
+                            Orientation="Horizontal"
+                            Spacing="15">
+                    <Button Content="ПРИНЯТЬ"
+                            Command="{Binding OnConfirmApiKey}"
+                            Width="130"
+                            Height="40"
+                            Background="#3f464d"
+                            BorderBrush="#626667"
+                            CornerRadius="0"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            FontFamily="{StaticResource RadianceSemiBoldFont}"
+                            Foreground="#fafbfd"
+                            FontSize="18">
+                        <Button.CommandParameter>
+                            
+                        </Button.CommandParameter>
+                    </Button>
+                    <Button Content="ОТМЕНА"
+                            Width="130"
+                            Height="40"
+                            Background="#3f464d"
+                            BorderBrush="#626667"
+                            CornerRadius="0"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            FontFamily="{StaticResource RadianceSemiBoldFont}"
+                            Foreground="#fafbfd"
+                            FontSize="18" />
+                </StackPanel>
+            </StackPanel>
+        </dialogHostAvalonia:DialogHost.DialogContent>
+        <DockPanel LastChildFill="True">
+            <DockPanel.Background>
+                <RadialGradientBrush Center="50%, 56%">
+                    <GradientStop Color="#465867" Offset="0" />
+                    <GradientStop Color="#1d2229" Offset="1" />
+                </RadialGradientBrush>
+            </DockPanel.Background>
+            <SelectingItemsControl Height="100" DockPanel.Dock="Top"
+                                   SelectedItem="{Binding SelectedHero}"
+                                   SelectedIndex="1"
+                                   ItemsSource="{Binding Heroes}"
+                                   ItemTemplate="{StaticResource HeroSelectorTemplate}">
+                <SelectingItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"
+                                    Spacing="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top" />
+                    </ItemsPanelTemplate>
+                </SelectingItemsControl.ItemsPanel>
+            </SelectingItemsControl>
+            <views:HeroesView DataContext="{Binding $parent.DataContext}" />
+        </DockPanel>
+    </dialogHostAvalonia:DialogHost>
 </Window>

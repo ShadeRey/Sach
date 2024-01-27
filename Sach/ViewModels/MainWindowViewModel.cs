@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Text;
@@ -23,8 +25,6 @@ namespace Sach.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    private Dictionary<short, IBrush> _heroBrushRegistry = new Dictionary<short, IBrush>();
-
     public AvaloniaList<Hero> Heroes
     {
         get => _heroes;
@@ -34,27 +34,10 @@ public class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         OnHeroButtonClickCommand = ReactiveCommand.Create<Hero>(SetSelectedHeroId);
-        // this.WhenAnyValue(x => x.SelectedHero)
-        //     .DistinctUntilChanged()
-        //     .Subscribe(hero =>
-        //     {
-        //         if (hero is null)
-        //         {
-        //             PlayerHero = EmptyHero;
-        //             return;
-        //         }
-        //
-        //         if (!_heroBrushRegistry.ContainsKey(hero.HeroId))
-        //         {
-        //             var stream = AssetLoader.Open(new Uri(hero.HeroIconPath));
-        //             _heroBrushRegistry[hero.HeroId] = new ImageBrush(new Bitmap(stream))
-        //             {
-        //                 Stretch = Stretch.UniformToFill
-        //             };
-        //         }
-        //
-        //         PlayerHero = _heroBrushRegistry[hero.HeroId];
-        //     });
+        OnConfirmApiKey = ReactiveCommand.Create<Tuple<string, string>>(tuple =>
+        {
+            ApiValidation(tuple.Item1, tuple.Item2);
+        });
     }
 
     private IStratzAPI _stratzApi = App.Services.GetRequiredService<IStratzAPI>();
@@ -143,16 +126,7 @@ public class MainWindowViewModel : ViewModelBase
     }
 
     private IBrush _playerHero;
-
-    public IBrush PlayerHero
-    {
-        get => _playerHero;
-        set => this.RaiseAndSetIfChanged(ref _playerHero, value);
-    }
-
-    IBrush EmptyHero = App.Current.Resources["GradientBorder"] as IBrush;
-
-
+    
     private string _fish =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
@@ -183,4 +157,24 @@ public class MainWindowViewModel : ViewModelBase
     {
         get => _fish;
     }
+
+    private readonly HttpClient _httpClient;
+
+    public ReactiveCommand<Tuple<string, string>, Unit> OnConfirmApiKey { get; set; }
+    public async Task<bool> ApiValidation(string apiUrl, string bearerToken)
+    {
+        try
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
+            HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);
+            return response.IsSuccessStatusCode;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка: {ex}");
+            return false;
+        }
+    }
+    
+    
 }
