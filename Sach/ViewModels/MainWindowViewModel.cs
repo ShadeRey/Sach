@@ -34,10 +34,6 @@ public class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         OnHeroButtonClickCommand = ReactiveCommand.Create<Hero>(SetSelectedHeroId);
-        OnConfirmApiKey = ReactiveCommand.Create<Tuple<string, string>>(tuple =>
-        {
-            ApiValidation(tuple.Item1, tuple.Item2);
-        });
     }
 
     private IStratzAPI _stratzApi = App.Services.GetRequiredService<IStratzAPI>();
@@ -157,24 +153,4 @@ public class MainWindowViewModel : ViewModelBase
     {
         get => _fish;
     }
-
-    private readonly HttpClient _httpClient;
-
-    public ReactiveCommand<Tuple<string, string>, Unit> OnConfirmApiKey { get; set; }
-    public async Task<bool> ApiValidation(string apiUrl, string bearerToken)
-    {
-        try
-        {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
-            HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);
-            return response.IsSuccessStatusCode;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Ошибка: {ex}");
-            return false;
-        }
-    }
-    
-    
 }

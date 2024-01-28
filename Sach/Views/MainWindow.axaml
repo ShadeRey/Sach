@@ -19,14 +19,30 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
     <Window.Styles>
-        <!-- <Style Selector="dialogHostAvalonia|DialogOverlayPopupHost /template/ Border#PART_ContentBackground"> -->
-        <!--     <Setter Property="BorderBrush" Value="White" /> -->
-        <!--     <Setter Property="CornerRadius" Value="0" /> -->
-        <!--     <Setter Property="BorderThickness" Value="1" /> -->
-        <!-- </Style> -->
-        <!-- <Style Selector="dialogHostAvalonia|DialogOverlayPopupHost"> -->
-        <!--     <Setter Property="Padding" Value="0" /> -->
-        <!-- </Style> -->
+        <Style Selector="TextBox">
+            <Setter Property="Foreground" Value="#a8aeb0" />
+            <Setter Property="FontFamily" Value="{StaticResource RadianceRegularFont}" />
+            <Setter Property="FontSize" Value="16" />
+            <Style Selector="^:focus ^:pointerover /template/ Border">
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="BorderBrush" Value="#464948" />
+                <Setter Property="Background" Value="#000000" />
+            </Style>
+            <Style Selector="^:pointerover ^:focus /template/ Grid">
+                <Setter Property="Background" Value="#000000" />
+                <Setter Property="Height" Value="59" />
+                <Setter Property="Width" Value="250" />
+            </Style>
+        </Style>
+        <Style Selector="Button">
+            <Style Selector="^:pointerover /template/ ContentPresenter">
+                <Setter Property="Background" Value="#4e5b64" />
+                <Setter Property="Foreground" Value="#fafbfd" />
+                <Setter Property="BorderBrush" Value="#626667" />
+                <Setter Property="CornerRadius" Value="0" />
+            </Style>
+        </Style>
         <Style Selector="ContentPresenter:nth-child(5)">
             <Setter Property="Margin" Value="0 0 200 0" />
         </Style>
@@ -131,14 +147,20 @@
             </Panel>
         </DataTemplate>
     </Window.Resources>
-    <dialogHostAvalonia:DialogHost IsOpen="True"
-                                   Background="#242c2c"
+    <dialogHostAvalonia:DialogHost x:Name="ApiValidationDialog"
+                                   IsOpen="True"
                                    DialogMargin="0"
                                    dialogHostAvalonia:DialogHostStyle.BorderBrush="#4b4f4e"
                                    dialogHostAvalonia:DialogHostStyle.CornerRadius="0">
         <sach:DialogHostStyleExt.BorderThickness>
             <Thickness>2</Thickness>
         </sach:DialogHostStyleExt.BorderThickness>
+        <dialogHostAvalonia:DialogHost.Background>
+            <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
+                <GradientStop Color="#2b3032" Offset="0" />
+                <GradientStop Color="#0c1011" Offset="1.0" />
+            </LinearGradientBrush>
+        </dialogHostAvalonia:DialogHost.Background>
         <dialogHostAvalonia:DialogHost.DialogContent>
             <StackPanel Width="450"
                         Height="250"
@@ -170,33 +192,44 @@
                 <StackPanel HorizontalAlignment="Center"
                             Orientation="Horizontal"
                             Spacing="15">
-                    <Button Content="ПРИНЯТЬ"
-                            Command="{Binding OnConfirmApiKey}"
+                    <Button x:Name="ConfirmButton"
+                            Click="ConfirmButton_OnClick"
+                            Content="ПРИНЯТЬ"
                             Width="130"
                             Height="40"
-                            Background="#3f464d"
                             BorderBrush="#626667"
                             CornerRadius="0"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             FontFamily="{StaticResource RadianceSemiBoldFont}"
                             Foreground="#fafbfd"
-                            FontSize="18">
-                        <Button.CommandParameter>
-                            
-                        </Button.CommandParameter>
+                            FontSize="17">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
+                                <GradientStop Color="#242527" Offset="0" />
+                                <GradientStop Color="#40474d" Offset="1" />
+                            </LinearGradientBrush>
+                        </Button.Background>
                     </Button>
-                    <Button Content="ОТМЕНА"
+                    <Button x:Name="ExitButton"
+                            Click="ExitButton_OnClick"
+                            Content="ВЫХОД"
                             Width="130"
                             Height="40"
-                            Background="#3f464d"
                             BorderBrush="#626667"
                             CornerRadius="0"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             FontFamily="{StaticResource RadianceSemiBoldFont}"
                             Foreground="#fafbfd"
-                            FontSize="18" />
+                            FontSize="17">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
+                                <GradientStop Color="#242527" Offset="0" />
+                                <GradientStop Color="#40474d" Offset="1" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </dialogHostAvalonia:DialogHost.DialogContent>
