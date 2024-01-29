@@ -1,6 +1,8 @@
 using System;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
@@ -8,6 +10,8 @@ using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Microsoft.CodeAnalysis.Scripting.Hosting;
+using Newtonsoft.Json;
 using Sach.Models;
 using Sach.ViewModels;
 
@@ -40,15 +44,31 @@ public partial class MainWindow : Window
         selectingItemsControl.SelectedItem = hero;
     }
 
+    protected override async void OnLoaded(RoutedEventArgs e)
+    {
+        base.OnLoaded(e);
+        
+        var text = await File.ReadAllTextAsync("apiToken", Encoding.UTF8);
+        if (!string.IsNullOrEmpty(text))
+        {
+            var token = JsonConvert.DeserializeObject<string>(text);
+            ApiTextBox.Text = token;
+        }
+    }
+
     private async void ConfirmButton_OnClick(object? sender, RoutedEventArgs e)
     {
         string validApiToken = ApiTextBox.Text;
         bool isValidToken = await ApiValidation("https://api.stratz.com/graphql", "Bearer " + validApiToken);
-
         if (isValidToken)
         {
             Console.WriteLine("Токен действителен.");
             App.ConnectApi(validApiToken);
+            if (RememberMeCheckBox.IsChecked == true)
+            {
+                var serializeObject = JsonConvert.SerializeObject(validApiToken);
+                await File.WriteAllTextAsync("apiToken", serializeObject, Encoding.UTF8);
+            }
             ApiValidationDialog.IsOpen = false;
         }
         else
@@ -74,7 +94,6 @@ public partial class MainWindow : Window
                 {
                     return true;
                 }
-                
                 else
                 {
                     return false;

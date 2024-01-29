@@ -19,6 +19,17 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
     <Window.Styles>
+        <Style Selector="CheckBox">
+            <Setter Property="CornerRadius" Value="0" />
+            <Style Selector="^:pointerover /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="#a9adac" />
+            </Style>
+            <Style Selector="^:checked /template/ Border#NormalRectangle">
+                <Setter Property="Background" Value="#dce3ee" />
+                <Setter Property="BorderBrush" Value="#1e1d3a" />
+                <Setter Property="BorderThickness" Value="2" />
+            </Style>
+        </Style>
         <Style Selector="TextBox">
             <Setter Property="Foreground" Value="#a8aeb0" />
             <Setter Property="FontFamily" Value="{StaticResource RadianceRegularFont}" />
@@ -184,7 +195,8 @@
                          VerticalContentAlignment="Center"
                          HorizontalContentAlignment="Center"
                          FontSize="16" />
-                <CheckBox Content="Запомнить меня"
+                <CheckBox x:Name="RememberMeCheckBox"
+                          Content="Запомнить меня"
                           HorizontalAlignment="Center"
                           Foreground="#a9adac"
                           FontFamily="{StaticResource RadianceRegularFont}"

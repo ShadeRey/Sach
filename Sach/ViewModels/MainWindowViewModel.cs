@@ -36,7 +36,7 @@ public class MainWindowViewModel : ViewModelBase
         OnHeroButtonClickCommand = ReactiveCommand.Create<Hero>(SetSelectedHeroId);
     }
 
-    private IStratzAPI _stratzApi = App.Services.GetRequiredService<IStratzAPI>();
+    private IStratzAPI? _stratzApi => App.Services?.GetRequiredService<IStratzAPI>();
 
     Dictionary<short, List<Vs>> _dict = new Dictionary<short, List<Vs>>();
 
