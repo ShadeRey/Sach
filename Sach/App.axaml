@@ -14,6 +14,21 @@
         <FluentTheme />
         <StyleInclude Source="avares://Sach/Views/HeroButtonView.axaml" />
         <dialogHostAvalonia:DialogHostStyles />
+        <Style Selector="Button.link">
+            <Setter Property="Foreground" Value="#a8aeb0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="{DynamicResource RadianceRegularFont}" />
+            <Style Selector="^:pointerover /template/ ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Foreground" Value="#4374a4" />
+            </Style>
+            <Style Selector="^ AccessText">
+                <Setter Property="TextDecorations" Value="Underline" />
+            </Style>
+        </Style>
     </Application.Styles>
 
     <Application.Resources>

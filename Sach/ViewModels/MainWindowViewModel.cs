@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reactive;
 using System.Reactive.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Avalonia;
@@ -34,7 +36,9 @@ public class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         OnHeroButtonClickCommand = ReactiveCommand.Create<Hero>(SetSelectedHeroId);
+        OpenUrlCommand = ReactiveCommand.Create<string>(OpenUrl);
     }
+
 
     private IStratzAPI? _stratzApi => App.Services?.GetRequiredService<IStratzAPI>();
 
@@ -63,7 +67,7 @@ public class MainWindowViewModel : ViewModelBase
             ).ToList()
         );
 
-        if (_dict.Count == 5)
+        if (_dict.Count != 0)
         {
             // Типо заполнился
             await WriteObjectToFileJson(_dict, "heroDict.json");
@@ -108,6 +112,7 @@ public class MainWindowViewModel : ViewModelBase
     }
 
     public ReactiveCommand<Hero, Unit> OnHeroButtonClickCommand { get; set; }
+    public ReactiveCommand<string,Unit> OpenUrlCommand { get; set; }
 
     public async void SetSelectedHeroId(Hero hero)
     {
@@ -152,5 +157,28 @@ public class MainWindowViewModel : ViewModelBase
     public string Fish
     {
         get => _fish;
+    }
+    
+    public void OpenUrl(object urlObj)
+    {
+        var url = urlObj as string;
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            //https://stackoverflow.com/a/2796367/241446
+            using var proc = new Process { StartInfo = { UseShellExecute = true, FileName = url } };
+            proc.Start();
+
+            return;
+        }
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            Process.Start("x-www-browser", url);
+            return;
+        }
+
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) throw new ArgumentException("invalid url: " + url);
+        Process.Start("open", url);
+        return;
     }
 }
