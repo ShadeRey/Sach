@@ -254,9 +254,10 @@
                     <GradientStop Color="#1d2229" Offset="1" />
                 </RadialGradientBrush>
             </DockPanel.Background>
-            <SelectingItemsControl Height="100" DockPanel.Dock="Top"
+            <SelectingItemsControl x:Name="PlayersSelectingItemsControl"
+                                   Height="100"
+                                   DockPanel.Dock="Top"
                                    SelectedItem="{Binding SelectedHero}"
-                                   SelectedIndex="1"
                                    ItemsSource="{Binding Heroes}"
                                    ItemTemplate="{StaticResource HeroSelectorTemplate}">
                 <SelectingItemsControl.ItemsPanel>

@@ -47,13 +47,17 @@ public partial class MainWindow : Window
     protected override async void OnLoaded(RoutedEventArgs e)
     {
         base.OnLoaded(e);
-        
-        var text = await File.ReadAllTextAsync("apiToken", Encoding.UTF8);
-        if (!string.IsNullOrEmpty(text))
+        if (File.Exists("apiToken"))
         {
-            var token = JsonConvert.DeserializeObject<string>(text);
-            ApiTextBox.Text = token;
+            var text = await File.ReadAllTextAsync("apiToken", Encoding.UTF8);
+            if (!string.IsNullOrEmpty(text))
+            {
+                var token = JsonConvert.DeserializeObject<string>(text);
+                ApiTextBox.Text = token;
+            }
         }
+
+        PlayersSelectingItemsControl.SelectedIndex = 0;
     }
 
     private async void ConfirmButton_OnClick(object? sender, RoutedEventArgs e)
