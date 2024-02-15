@@ -3,24 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Reactive;
-using System.Reactive.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using Avalonia;
 using Avalonia.Collections;
-using Avalonia.Controls;
 using Avalonia.Media;
-using Avalonia.Media.Imaging;
-using Avalonia.Platform;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using ReactiveUI;
 using Sach.Models;
-using Sach.Views;
 using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Sach.ViewModels;
@@ -52,28 +44,43 @@ public class MainWindowViewModel : ViewModelBase
             return;
         }
 
+        // Определение статистики с учетом выбранной команды
         var data = new
         {
             HeroId = SelectedHero.HeroId,
-            Advantage = operationResult.Data.HeroStats?.HeroVsHeroMatchup?.Advantage?[0]
+            Stats = SelectedHero.IsAlly
+                ?
+                operationResult.Data.HeroStats?.HeroVsHeroMatchup?.Advantage?.FirstOrDefault()?.With.ToList()
+                :
+                SelectedHero.IsEnemy
+                    ? operationResult.Data.HeroStats?.HeroVsHeroMatchup?.Advantage?.FirstOrDefault()?.Vs
+                        .Select(x => x.ToWith()).ToList()
+                    :
+                    null
         };
 
-        await WriteObjectToFileJson(data, $"hero{SelectedHero}.json");
-
-        _dict.TryAdd(
-            data.HeroId,
-            data.Advantage?.Vs?.Select(
-                x => new Vs(x)
-            ).ToList()
-        );
-
-        if (_dict.Count != 0)
+        // Обработка статистики и сортировка
+        if (data.Stats != null && data.Stats.Any())
         {
-            // Типо заполнился
-            await WriteObjectToFileJson(_dict, "heroDict.json");
-            await ReadHeroStats(_dict);
+            var sortedStats = data.Stats
+                .OrderByDescending(x => x.Synergy) // Сортировка по синергии
+                .ToList();
+
+            // Выполните дополнительные действия с отсортированными данными, если это необходимо
+            
+            await WriteObjectToFileJson(sortedStats, $"sorted_stats_{SelectedHero.HeroId}.json");
+
+            UpdateTop10Heroes();
+
+            // Очистите данные после обработки
             _dict.Clear();
         }
+    }
+    
+    private async void UpdateTop10Heroes()
+    {
+        var top10Heroes = await GetTop10Heroes();
+        await WriteObjectToFileJson(top10Heroes, "top_10_heroes.json");
     }
 
     public async Task WriteObjectToFileJson(object? o, String filePath)
@@ -90,17 +97,58 @@ public class MainWindowViewModel : ViewModelBase
 
         serializer.Serialize(writer, o);
     }
-
-    public async Task ReadHeroStats(Dictionary<short, List<Vs>> data)
+    
+    public async Task<List<With>> GetTop10Heroes()
     {
-        IEnumerable<Vs> teamVsCombined = data.SelectMany(x => x.Value)
-            .Where(x => !_dict.Keys.Contains(x.HeroId2));
-        var teamChancesVsAnyHero = teamVsCombined.GroupBy(x => x.HeroId2)
-            .Select(x => new
+        var SelectedAllyHeroes = Heroes.Where(x => x.IsAlly).ToList();
+        var SelectedEnemyHeroes = Heroes.Where(x => x.IsEnemy).ToList();
+        
+        var top10Heroes = new List<With>();
+
+        // Получение статистики для героев союзной команды
+        var allyHeroesStats = await GetHeroesStats(SelectedAllyHeroes);
+
+        // Получение статистики для героев вражеской команды
+        var enemyHeroesStats = await GetHeroesStats(SelectedEnemyHeroes);
+
+        // Объединение статистики для героев обеих команд
+        var allHeroesStats = allyHeroesStats.Concat(enemyHeroesStats).ToList();
+
+        // Сортировка статистики по синергии или противодействию
+        var sortedStats = allHeroesStats
+            .OrderByDescending(x => x.Synergy) // Сортировка по синергии
+            .ToList();
+
+        // Выбор 10 наилучших героев
+        top10Heroes = sortedStats.Take(10).ToList();
+
+        return top10Heroes;
+    }
+
+    private async Task<List<With>> GetHeroesStats(List<Hero> heroes)
+    {
+        var heroesStats = new List<With>();
+
+        foreach (var hero in heroes)
+        {
+            var operationResult = await _stratzApi.HeroStatistics.ExecuteAsync(hero.HeroId);
+            if (operationResult.Data is not null)
             {
-                HeroId2 = x.Key,
-                Avg = x.Average(x => x.Synergy)
-            }).OrderByDescending(x => x.Avg).Take(5);
+                var stats = hero.IsAlly
+                    ? operationResult.Data.HeroStats?.HeroVsHeroMatchup?.Advantage?.FirstOrDefault()?.With.ToList()
+                    : hero.IsEnemy
+                        ? operationResult.Data.HeroStats?.HeroVsHeroMatchup?.Advantage?.FirstOrDefault()?.Vs
+                            .Select(x => x.ToWith()).ToList()
+                        : null;
+
+                if (stats != null && stats.Any())
+                {
+                    heroesStats.AddRange(stats.Select(x => new With(x)));
+                }
+            }
+        }
+
+        return heroesStats;
     }
 
     private Hero? _selectedHero;
@@ -112,7 +160,7 @@ public class MainWindowViewModel : ViewModelBase
     }
 
     public ReactiveCommand<Hero, Unit> OnHeroButtonClickCommand { get; set; }
-    public ReactiveCommand<string,Unit> OpenUrlCommand { get; set; }
+    public ReactiveCommand<string, Unit> OpenUrlCommand { get; set; }
 
     public async void SetSelectedHeroId(Hero hero)
     {
@@ -120,6 +168,7 @@ public class MainWindowViewModel : ViewModelBase
         {
             return;
         }
+
         SelectedHero.HeroId = hero.HeroId;
         SelectedHero.HeroName = hero.HeroName;
         SelectedHero.HeroIconPath = hero.HeroIconPath;
@@ -127,7 +176,7 @@ public class MainWindowViewModel : ViewModelBase
     }
 
     private IBrush _playerHero;
-    
+
     private string _fish =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
@@ -151,6 +200,7 @@ public class MainWindowViewModel : ViewModelBase
                 CurrentTeam = Hero.Team.Enemy
             });
         }
+
         return list;
     }
 
@@ -158,13 +208,12 @@ public class MainWindowViewModel : ViewModelBase
     {
         get => _fish;
     }
-    
+
     public void OpenUrl(object urlObj)
     {
         var url = urlObj as string;
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            //https://stackoverflow.com/a/2796367/241446
             using var proc = new Process { StartInfo = { UseShellExecute = true, FileName = url } };
             proc.Start();
 
