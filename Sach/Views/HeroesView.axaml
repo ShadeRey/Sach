@@ -541,17 +541,21 @@
                     </WrapPanel>
                 </StackPanel>
             </StackPanel>
-            <WrapPanel Orientation="Vertical">
-                <views:HeroButtonView HeroId="112"
-                                      Classes="picked"
-                                      HeroName="WINTER WYVERN"
-                                      HeroIcon="avares://Sach/Assets/HeroIcons/winter_wyvern_icon.png" />
-                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceBlackFont}"></TextBlock>
-                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceBoldFont}"></TextBlock>
-                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceLightFont}"></TextBlock>
-                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceRegularFont}"></TextBlock>
-                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceSemiBoldFont}"></TextBlock>
-                <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceUltraLightFont}"></TextBlock>
+            <WrapPanel Orientation="Horizontal"
+                       HorizontalAlignment="Center">
+                <TextBlock Text="Powered by " 
+                           FontFamily="{StaticResource RadianceLightFont}"/>
+                <Image Source="avares://Sach/Assets/stratz.png" 
+                       Height="50" 
+                       Width="50"
+                       VerticalAlignment="Bottom"/>
+                <TextBlock Text="STRATZ" FontFamily="{StaticResource RadianceBlackFont}"/>
+                <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceBlackFont}"></TextBlock> -->
+                <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceBoldFont}"></TextBlock> -->
+                <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceLightFont}"></TextBlock> -->
+                <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceRegularFont}"></TextBlock> -->
+                <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceSemiBoldFont}"></TextBlock> -->
+                <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceUltraLightFont}"></TextBlock> -->
             </WrapPanel>
         </DockPanel>
     </Border>

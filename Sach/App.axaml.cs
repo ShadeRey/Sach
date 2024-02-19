@@ -17,7 +17,6 @@ public class App : Application
     }
 
     private string _bearerToken = String.Empty;
-        //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJodHRwczovL3N0ZWFtY29tbXVuaXR5LmNvbS9vcGVuaWQvaWQvNzY1NjExOTg5ODUxODc3ODkiLCJ1bmlxdWVfbmFtZSI6IkwnZW5mZXIgYydlc3QgbGVzIGF1dHJlcyIsIlN1YmplY3QiOiJiYjhjMDVlNS01YjVlLTQxMmUtYmQxNy1iYTIwZjg5NTdmYmUiLCJTdGVhbUlkIjoiMTAyNDkyMjA2MSIsIm5iZiI6MTY4NDA1Mzg2MiwiZXhwIjoxNzE1NTg5ODYyLCJpYXQiOjE2ODQwNTM4NjIsImlzcyI6Imh0dHBzOi8vYXBpLnN0cmF0ei5jb20ifQ.FCa8qAln_-Lm0ldUVpWzdls2wmOTwwCg257XJPUaEU0";
     public override void OnFrameworkInitializationCompleted()
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
