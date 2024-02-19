@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Avalonia;
@@ -10,8 +13,11 @@ using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.LogicalTree;
+using DynamicData;
 using Microsoft.CodeAnalysis.Scripting.Hosting;
 using Newtonsoft.Json;
+using ReactiveUI;
 using Sach.Models;
 using Sach.ViewModels;
 
@@ -26,21 +32,25 @@ public partial class MainWindow : Window
     }
 
     public MainWindowViewModel ViewModel => (DataContext as MainWindowViewModel)!;
-    
+
     private void InputElement_OnTapped(object? sender, TappedEventArgs e)
     {
-        if (sender is not Canvas canvas) {
+        if (sender is not Canvas canvas)
+        {
             return;
         }
 
-        if (canvas.DataContext is not Hero hero) {
+        if (canvas.DataContext is not Hero hero)
+        {
             return;
         }
 
         var selectingItemsControl = canvas.FindParentOfType<SelectingItemsControl>();
-        if (selectingItemsControl is null) {
+        if (selectingItemsControl is null)
+        {
             return;
         }
+
         selectingItemsControl.SelectedItem = hero;
     }
 
@@ -57,7 +67,32 @@ public partial class MainWindow : Window
             }
         }
 
+        ViewModel.WhenAnyValue(x => x.Top10Heroes)
+            .DistinctUntilChanged()
+            .WhereNotNull()
+            .Subscribe(MarkHeroes);
+
         PlayersSelectingItemsControl.SelectedIndex = 0;
+    }
+
+    private void MarkHeroes(List<With> heroes)
+    {
+        foreach (var logical in this.GetLogicalDescendants())
+        {
+            if (logical is not HeroButtonView herobtn) continue;
+            if (herobtn.Classes.Contains("suggestion"))
+            {
+                herobtn.Classes.Remove("suggestion");
+            }
+            if (heroes.All(x => x.HeroId2 != herobtn.HeroId))
+            {
+                continue;
+            }
+
+            herobtn.Classes.Add("suggestion");
+
+            Console.WriteLine(herobtn.HeroId);
+        }
     }
 
     private async void ConfirmButton_OnClick(object? sender, RoutedEventArgs e)
@@ -73,6 +108,7 @@ public partial class MainWindow : Window
                 var serializeObject = JsonConvert.SerializeObject(validApiToken);
                 await File.WriteAllTextAsync("apiToken", serializeObject, Encoding.UTF8);
             }
+
             ApiValidationDialog.IsOpen = false;
         }
         else
@@ -117,8 +153,10 @@ public partial class MainWindow : Window
     }
 }
 
-public static class ControlUtils {
-    public static T? FindParentOfType<T>(this StyledElement element) {
+public static class ControlUtils
+{
+    public static T? FindParentOfType<T>(this StyledElement element)
+    {
         var control = element;
         while (control != null)
         {
@@ -126,8 +164,10 @@ public static class ControlUtils {
             {
                 return parentControl;
             }
+
             control = control.Parent;
         }
+
         return default;
     }
 }

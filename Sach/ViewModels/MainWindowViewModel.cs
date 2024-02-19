@@ -36,7 +36,7 @@ public class MainWindowViewModel : ViewModelBase
 
     Dictionary<short, List<Vs>> _dict = new Dictionary<short, List<Vs>>();
 
-    public async Task GetHeroStats()
+    private async Task GetHeroStats()
     {
         var operationResult = await _stratzApi.HeroStatistics.ExecuteAsync(SelectedHero.HeroId);
         if (operationResult.Data is null)
@@ -49,14 +49,11 @@ public class MainWindowViewModel : ViewModelBase
         {
             HeroId = SelectedHero.HeroId,
             Stats = SelectedHero.IsAlly
-                ?
-                operationResult.Data.HeroStats?.HeroVsHeroMatchup?.Advantage?.FirstOrDefault()?.With.ToList()
-                :
-                SelectedHero.IsEnemy
+                ? operationResult.Data.HeroStats?.HeroVsHeroMatchup?.Advantage?.FirstOrDefault()?.With.ToList()
+                : SelectedHero.IsEnemy
                     ? operationResult.Data.HeroStats?.HeroVsHeroMatchup?.Advantage?.FirstOrDefault()?.Vs
                         .Select(x => x.ToWith()).ToList()
-                    :
-                    null
+                    : null
         };
 
         // Обработка статистики и сортировка
@@ -67,23 +64,31 @@ public class MainWindowViewModel : ViewModelBase
                 .ToList();
 
             // Выполните дополнительные действия с отсортированными данными, если это необходимо
-            
+
             await WriteObjectToFileJson(sortedStats, $"sorted_stats_{SelectedHero.HeroId}.json");
 
-            UpdateTop10Heroes();
+
+            Top10Heroes = await UpdateTop10Heroes(); // GetTop10HeroesFromJson("top_10_heroes.json");
 
             // Очистите данные после обработки
             _dict.Clear();
         }
     }
-    
-    private async void UpdateTop10Heroes()
+
+    public List<With> Top10Heroes
+    {
+        get => _top10Heroes;
+        set => this.RaiseAndSetIfChanged(ref _top10Heroes, value);
+    }
+
+    private async Task<List<With>> UpdateTop10Heroes()
     {
         var top10Heroes = await GetTop10Heroes();
         await WriteObjectToFileJson(top10Heroes, "top_10_heroes.json");
+        return top10Heroes;
     }
 
-    public async Task WriteObjectToFileJson(object? o, String filePath)
+    private async Task WriteObjectToFileJson(object? o, String filePath)
     {
         var serializer = new JsonSerializer
         {
@@ -97,19 +102,19 @@ public class MainWindowViewModel : ViewModelBase
 
         serializer.Serialize(writer, o);
     }
-    
-    public async Task<List<With>> GetTop10Heroes()
+
+    private async Task<List<With>> GetTop10Heroes()
     {
-        var SelectedAllyHeroes = Heroes.Where(x => x.IsAlly).ToList();
-        var SelectedEnemyHeroes = Heroes.Where(x => x.IsEnemy).ToList();
-        
+        var selectedAllyHeroes = Heroes.Where(x => x.IsAlly).ToList();
+        var selectedEnemyHeroes = Heroes.Where(x => x.IsEnemy).ToList();
+
         var top10Heroes = new List<With>();
 
         // Получение статистики для героев союзной команды
-        var allyHeroesStats = await GetHeroesStats(SelectedAllyHeroes);
+        var allyHeroesStats = await GetHeroesStats(selectedAllyHeroes);
 
         // Получение статистики для героев вражеской команды
-        var enemyHeroesStats = await GetHeroesStats(SelectedEnemyHeroes);
+        var enemyHeroesStats = await GetHeroesStats(selectedEnemyHeroes);
 
         // Объединение статистики для героев обеих команд
         var allHeroesStats = allyHeroesStats.Concat(enemyHeroesStats).ToList();
@@ -120,7 +125,10 @@ public class MainWindowViewModel : ViewModelBase
             .ToList();
 
         // Выбор 10 наилучших героев
-        top10Heroes = sortedStats.Take(10).ToList();
+        var selectedAllyHeroIds = selectedAllyHeroes.Select(x => x.HeroId);
+        var selectedEnemyHeroIds = selectedEnemyHeroes.Select(x => x.HeroId);
+        var selectedHeroIds = selectedAllyHeroIds.Concat(selectedEnemyHeroIds);
+        top10Heroes = sortedStats.Where(x => !selectedHeroIds.Contains(x.HeroId2)).Take(5).ToList();
 
         return top10Heroes;
     }
@@ -162,7 +170,7 @@ public class MainWindowViewModel : ViewModelBase
     public ReactiveCommand<Hero, Unit> OnHeroButtonClickCommand { get; set; }
     public ReactiveCommand<string, Unit> OpenUrlCommand { get; set; }
 
-    public async void SetSelectedHeroId(Hero hero)
+    private async void SetSelectedHeroId(Hero hero)
     {
         if (SelectedHero is null)
         {
@@ -177,10 +185,11 @@ public class MainWindowViewModel : ViewModelBase
 
     private IBrush _playerHero;
 
-    private string _fish =
+    private const string _fish =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
     private AvaloniaList<Hero> _heroes = ListInit();
+    private List<With> _top10Heroes;
 
     private static AvaloniaList<Hero> ListInit()
     {
@@ -204,12 +213,9 @@ public class MainWindowViewModel : ViewModelBase
         return list;
     }
 
-    public string Fish
-    {
-        get => _fish;
-    }
+    public string Fish => _fish;
 
-    public void OpenUrl(object urlObj)
+    private void OpenUrl(object urlObj)
     {
         var url = urlObj as string;
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))

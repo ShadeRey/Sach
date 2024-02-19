@@ -10,4 +10,6 @@ public class With
         HeroId2 = with.HeroId2 ?? 0;
         Synergy = with.Synergy ?? 0;
     }
+
+    public With() { }
 }

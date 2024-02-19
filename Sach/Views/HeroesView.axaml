@@ -14,6 +14,56 @@
         <viewModels:MainWindowViewModel />
     </Design.DataContext>
     <UserControl.Styles>
+        <Style Selector="views|HeroButtonView.suggestion">
+            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Color="Aqua" Offset="0" />
+                            <GradientStop Color="Brown" Offset="0.5" />
+                        </LinearGradientBrush.GradientStops>
+                        <LinearGradientBrush.Transform>
+                            <RotateTransform Angle="0" />
+                        </LinearGradientBrush.Transform>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Style.Animations>
+                <Animation
+                    PlaybackDirection="Reverse"
+                    FillMode="None"
+                    IterationCount="Infinite"
+                    Duration="0:0:2">
+                    <Animation.Easing>
+                        <LinearEasing />
+                    </Animation.Easing>
+                    <KeyFrame Cue="0%">
+                        <Setter Property="BorderBrush">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0%,100%" EndPoint="100%,100%">
+                                    <GradientStop Offset="0" Color="Gold" />
+                                    <GradientStop Offset="0" Color="Chocolate" />
+                                    <GradientStop Offset="1" Color="Gold" />
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="BorderBrush">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0%,100%" EndPoint="100%,100%">
+                                    <GradientStop Offset="0" Color="Chocolate" />
+                                    <GradientStop Offset="1" Color="Gold" />
+                                    <GradientStop Offset="1" Color="Chocolate" />
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
         <Style Selector="views|HeroButtonView">
             <Setter Property="HeroButtonCommand" Value="{Binding OnHeroButtonClickCommand}" />
         </Style>
@@ -57,10 +107,10 @@
                                x:Name="StrengthHeroes">
                         <views:HeroButtonView HeroId="73"
                                               HeroName="ALCHEMIST"
-                                              HeroIcon="avares://Sach/Assets/HeroIcons/alchemist_icon.png"/>
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/alchemist_icon.png" />
                         <views:HeroButtonView HeroId="2"
                                               HeroName="AXE"
-                                              HeroIcon="avares://Sach/Assets/HeroIcons/axe_icon.png"/>
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/axe_icon.png" />
                         <views:HeroButtonView HeroId="99"
                                               HeroName="BRISTLEBACK"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/bristleback_icon.png" />
@@ -488,6 +538,10 @@
                 </StackPanel>
             </StackPanel>
             <WrapPanel Orientation="Vertical">
+                <views:HeroButtonView HeroId="112"
+                                      Classes="suggestion"
+                                      HeroName="WINTER WYVERN"
+                                      HeroIcon="avares://Sach/Assets/HeroIcons/winter_wyvern_icon.png" />
                 <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceBlackFont}"></TextBlock>
                 <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceBoldFont}"></TextBlock>
                 <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceLightFont}"></TextBlock>
