@@ -14,13 +14,17 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
+                        IsEnabled="{TemplateBinding IsEnabled}"
+                        Opacity="{TemplateBinding Opacity}"
                         Command="{TemplateBinding HeroButtonCommand}" CommandParameter="{TemplateBinding Hero}">
                     <Button.Template>
                         <ControlTemplate>
                             <Border
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{TemplateBinding CornerRadius}">
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                IsEnabled="{TemplateBinding IsEnabled}"
+                                Opacity="{TemplateBinding Opacity}">
                                 <WrapPanel>
                                     <Image Source="{Binding $parent[controls:HeroButtonView].Image}"
                                            Stretch="Fill" />

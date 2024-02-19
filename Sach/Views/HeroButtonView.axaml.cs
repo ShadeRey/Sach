@@ -3,9 +3,11 @@ using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
+using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using Avalonia.VisualTree;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Sach.Models;
 
@@ -62,4 +64,18 @@ public class HeroButtonView : TemplatedControl
         );
 
     public Hero Hero => GetValue(HeroProperty);
+
+    public event EventHandler<RoutedEventArgs>? Click
+    {
+        add
+        {
+            var control = this.FindDescendantOfType<Button>(false);
+            control?.AddHandler(Button.ClickEvent, value);
+        }
+        remove
+        {
+            var control = this.FindControl<Button>("HeroButton");
+            control?.RemoveHandler(Button.ClickEvent, value);
+        }
+    }
 }

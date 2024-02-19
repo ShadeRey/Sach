@@ -71,6 +71,8 @@ public partial class MainWindow : Window
             .DistinctUntilChanged()
             .WhereNotNull()
             .Subscribe(MarkHeroes);
+        
+        ConfigureButtonPicked();
 
         PlayersSelectingItemsControl.SelectedIndex = 0;
     }
@@ -92,6 +94,22 @@ public partial class MainWindow : Window
             herobtn.Classes.Add("suggestion");
 
             Console.WriteLine(herobtn.HeroId);
+        }
+    }
+
+    private void ConfigureButtonPicked()
+    {
+        
+        foreach (var logical in this.GetLogicalDescendants())
+        {
+            if (logical is not HeroButtonView herobtn) continue;
+            herobtn.Click += (sender, args) =>
+            {
+                if (!herobtn.Classes.Contains("picked"))
+                {
+                    herobtn.Classes.Add("picked");
+                }
+            };
         }
     }
 

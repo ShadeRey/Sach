@@ -14,6 +14,10 @@
         <viewModels:MainWindowViewModel />
     </Design.DataContext>
     <UserControl.Styles>
+        <Style Selector="views|HeroButtonView.picked">
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="Opacity" Value="0.7" />
+        </Style>
         <Style Selector="views|HeroButtonView.suggestion">
             <Setter Property="BorderThickness" Value="3" />
             <Setter Property="CornerRadius" Value="4" />
@@ -539,7 +543,7 @@
             </StackPanel>
             <WrapPanel Orientation="Vertical">
                 <views:HeroButtonView HeroId="112"
-                                      Classes="suggestion"
+                                      Classes="picked"
                                       HeroName="WINTER WYVERN"
                                       HeroIcon="avares://Sach/Assets/HeroIcons/winter_wyvern_icon.png" />
                 <TextBlock Text="{Binding Fish}" FontFamily="{StaticResource RadianceBlackFont}"></TextBlock>
