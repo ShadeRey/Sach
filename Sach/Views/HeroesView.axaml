@@ -548,7 +548,7 @@
                 <Image Source="avares://Sach/Assets/stratz.png" 
                        Height="50" 
                        Width="50"
-                       VerticalAlignment="Bottom"/>
+                       Margin="0 -20 0 0"/>
                 <TextBlock Text="STRATZ" FontFamily="{StaticResource RadianceBlackFont}"/>
                 <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceBlackFont}"></TextBlock> -->
                 <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceBoldFont}"></TextBlock> -->
