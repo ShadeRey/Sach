@@ -223,7 +223,7 @@ public class MainWindowViewModel : ViewModelBase
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
         {
-            Process.Start("x-www-browser", url);
+            Process.Start("xdg-open", url);
             return;
         }
 
