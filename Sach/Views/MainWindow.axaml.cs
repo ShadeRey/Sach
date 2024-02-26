@@ -71,7 +71,7 @@ public partial class MainWindow : Window
             .DistinctUntilChanged()
             .WhereNotNull()
             .Subscribe(MarkHeroes);
-        
+
         ConfigureButtonPicked();
 
         PlayersSelectingItemsControl.SelectedIndex = 0;
@@ -86,6 +86,7 @@ public partial class MainWindow : Window
             {
                 herobtn.Classes.Remove("suggestion");
             }
+
             if (heroes.All(x => x.HeroId2 != herobtn.HeroId))
             {
                 continue;
@@ -99,7 +100,6 @@ public partial class MainWindow : Window
 
     private void ConfigureButtonPicked()
     {
-        
         foreach (var logical in this.GetLogicalDescendants())
         {
             if (logical is not HeroButtonView herobtn) continue;
@@ -168,6 +168,22 @@ public partial class MainWindow : Window
     private void ExitButton_OnClick(object? sender, RoutedEventArgs e)
     {
         this.Close();
+    }
+
+    private void InputElement_OnKeyDown(object? sender, KeyEventArgs e)
+    {
+        if (e.Key >= Key.A && e.Key <= Key.Z || e.Key == Key.Back)
+        {
+            var search = e.Key;
+            if (search == Key.Back)
+            {
+                if (HeroSearchTextBox.Text.Length > 0)
+                    HeroSearchTextBox.Text = HeroSearchTextBox.Text.Substring(0, HeroSearchTextBox.Text.Length - 1);
+                return;
+            }
+
+            HeroSearchTextBox.Text += search.ToString();
+        }
     }
 }
 
