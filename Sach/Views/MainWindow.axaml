@@ -173,6 +173,7 @@
     </Window.Resources>
     <Grid>
         <TextBox x:Name="HeroSearchTextBox"
+                 TextChanged="HeroSearchTextBox_OnTextChanged"
                  Classes="search"
                  Text="SPIRIT BREAKER"
                  ZIndex="1" />

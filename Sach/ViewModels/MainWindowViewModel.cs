@@ -17,8 +17,13 @@ using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Sach.ViewModels;
 
-public class MainWindowViewModel : ViewModelBase
-{
+public class MainWindowViewModel : ViewModelBase {
+    private AvaloniaList<Hero> _heroesPreSearch;
+
+    public AvaloniaList<Hero> HeroesPreSearch {
+        get => _heroesPreSearch;
+        set => this.RaiseAndSetIfChanged(ref _heroesPreSearch, value);
+    }
     public AvaloniaList<Hero> Heroes
     {
         get => _heroes;

@@ -185,6 +185,36 @@ public partial class MainWindow : Window
             HeroSearchTextBox.Text += search.ToString();
         }
     }
+
+    private void HeroSearchTextBox_OnTextChanged(object? sender, TextChangedEventArgs e) {
+        if (ViewModel.HeroesPreSearch is null)
+        {
+            ViewModel.HeroesPreSearch = ViewModel.Heroes;
+        }
+
+        if (HeroSearchTextBox.Text is null)
+        {
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(HeroSearchTextBox.Text))
+        {
+            //HousingTypeGrid.ItemsSource = ViewModel.HousingTypesPreSearch;
+            return;
+        }
+        var filtered = ViewModel.HeroesPreSearch
+            .Where(it => it.HeroName.Contains(HeroSearchTextBox.Text)).ToList();
+        filtered = filtered.OrderBy(name => name.HeroName).ToList();
+        foreach (var searchedHero in filtered)
+        {
+            // if (searchedHero is not HeroButtonView herobtn) continue;
+            // if (herobtn.Classes.Contains("searched"))
+            // {
+            //     herobtn.Classes.Remove("searched");
+            // }
+            // herobtn.Classes.Add("suggestion");
+        }
+    }
 }
 
 public static class ControlUtils
