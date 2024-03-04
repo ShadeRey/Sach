@@ -202,17 +202,21 @@ public partial class MainWindow : Window
             //HousingTypeGrid.ItemsSource = ViewModel.HousingTypesPreSearch;
             return;
         }
+        
         var filtered = ViewModel.HeroesPreSearch
-            .Where(it => it.HeroName.Contains(HeroSearchTextBox.Text)).ToList();
+            .Where(it => it.HeroName.ToLower().Contains(HeroSearchTextBox.Text)).ToList();
         filtered = filtered.OrderBy(name => name.HeroName).ToList();
-        foreach (var searchedHero in filtered)
+        foreach (var searchedHero in this.GetLogicalDescendants())
         {
-            // if (searchedHero is not HeroButtonView herobtn) continue;
-            // if (herobtn.Classes.Contains("searched"))
-            // {
-            //     herobtn.Classes.Remove("searched");
-            // }
-            // herobtn.Classes.Add("suggestion");
+            if (searchedHero is not HeroButtonView herobtn) continue;
+            if (!filtered.Any(x => x.HeroId == herobtn.HeroId)) {
+                continue;
+            }
+            if (herobtn.Classes.Contains("searched"))
+            {
+                herobtn.Classes.Remove("searched");
+            }
+            herobtn.Classes.Add("suggestion");
         }
     }
 }

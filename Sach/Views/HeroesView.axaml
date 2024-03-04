@@ -15,15 +15,11 @@
     </Design.DataContext>
     <UserControl.Styles>
         <Style Selector="views|HeroButtonView.searched">
-            <Setter Property="BorderThickness" Value="5"/>
-            <Setter Property="BorderBrush">
-                <Setter.Value>
-                    <RadialGradientBrush Radius="1.1">
-                        <GradientStop Color="#53a09e" Offset="0" /> <!--  -->
-                         <GradientStop Color="#365862" Offset="1" /> <!-- -->
-                    </RadialGradientBrush>
-                </Setter.Value>
-            </Setter>
+            <Setter Property="BorderThickness" Value="4" />
+            <Style Selector="^ Border">
+                <Setter Property="BorderBrush" Value="Aqua"/>
+                <Setter Property="BoxShadow" Value="1 1 10 50 Red" />
+            </Style>
         </Style>
         <Style Selector="views|HeroButtonView.picked">
             <Setter Property="IsEnabled" Value="False" />
@@ -554,13 +550,13 @@
             </StackPanel>
             <WrapPanel Orientation="Horizontal"
                        HorizontalAlignment="Center">
-                <TextBlock Text="Powered by " 
-                           FontFamily="{StaticResource RadianceLightFont}"/>
-                <Image Source="avares://Sach/Assets/stratz.png" 
-                       Height="50" 
+                <TextBlock Text="Powered by "
+                           FontFamily="{StaticResource RadianceLightFont}" />
+                <Image Source="avares://Sach/Assets/stratz.png"
+                       Height="50"
                        Width="50"
-                       Margin="0 -20 0 0"/>
-                <TextBlock Text="STRATZ" FontFamily="{StaticResource RadianceBlackFont}"/>
+                       Margin="0 -20 0 0" />
+                <TextBlock Text="STRATZ" FontFamily="{StaticResource RadianceBlackFont}" />
                 <views:HeroButtonView HeroId="112"
                                       Classes="searched"
                                       HeroName="WINTER WYVERN"
