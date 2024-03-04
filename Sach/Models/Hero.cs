@@ -69,7 +69,7 @@ public class Hero : ReactiveObject
     public bool IsEnemy => CurrentTeam == Team.Enemy;
 
     private static Dictionary<short, IBrush> _heroBrushRegistry = new Dictionary<short, IBrush>();
-    public static IBrush EmptyHero = App.Current.Resources["GradientBorder"] as IBrush;
+    private static IBrush EmptyHero = App.Current.Resources["GradientBorder"] as IBrush;
     private readonly ObservableAsPropertyHelper<IBrush> _heroBrush;
     private string _heroIconPath = string.Empty;
     private short _heroId;

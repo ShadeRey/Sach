@@ -19,24 +19,24 @@ using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 namespace Sach.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase {
-    private AvaloniaList<Hero> _heroesPreSearch;
-
-    public AvaloniaList<Hero> HeroesPreSearch {
-        get => _heroesPreSearch;
-        set => this.RaiseAndSetIfChanged(ref _heroesPreSearch, value);
-    }
-    public AvaloniaList<Hero> Heroes
-    {
-        get => _heroes;
-        set => this.RaiseAndSetIfChanged(ref _heroes, value);
-    }
-
     public MainWindowViewModel()
     {
         OnHeroButtonClickCommand = ReactiveCommand.Create<Hero>(SetSelectedHeroId);
         OpenUrlCommand = ReactiveCommand.Create<string>(OpenUrl);
     }
 
+    private AvaloniaList<Hero> _heroesPreSearch;
+    public AvaloniaList<Hero> HeroesPreSearch {
+        get => _heroesPreSearch;
+        set => this.RaiseAndSetIfChanged(ref _heroesPreSearch, value);
+    }
+    
+    private AvaloniaList<Hero> _heroes = ListInit();
+    public AvaloniaList<Hero> Heroes
+    {
+        get => _heroes;
+        set => this.RaiseAndSetIfChanged(ref _heroes, value);
+    }
 
     private IStratzAPI? _stratzApi => App.Services?.GetRequiredService<IStratzAPI>();
 
@@ -190,8 +190,7 @@ public class MainWindowViewModel : ViewModelBase {
     }
 
     private IBrush _playerHero;
-
-    private AvaloniaList<Hero> _heroes = ListInit();
+    
     private List<With> _top10Heroes;
 
     private static AvaloniaList<Hero> ListInit()
