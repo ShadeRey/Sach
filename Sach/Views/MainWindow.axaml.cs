@@ -30,7 +30,6 @@ public partial class MainWindow : Window {
         DataContext = new MainWindowViewModel();
     }
 
-    
 
     public MainWindowViewModel ViewModel => (DataContext as MainWindowViewModel)!;
 
@@ -158,52 +157,45 @@ public partial class MainWindow : Window {
         }
     }
 
-    private void HeroSearchTextBox_OnTextChanged(object? sender, TextChangedEventArgs e) 
-    {
-        if (ViewModel.HeroesPreSearch is null)
-        {
-            ViewModel.HeroesPreSearch = ViewModel.Heroes;
-            var sss = ViewModel.HeroesPreSearch;
-            Console.WriteLine(sss);
+    private void HeroSearchTextBox_OnTextChanged(object? sender, TextChangedEventArgs e) {
+        if (ViewModel.HeroesPreSearch == null) {
+            ViewModel.HeroesPreSearch = ViewModel.AllHeroes;
         }
 
-        if (string.IsNullOrWhiteSpace(HeroSearchTextBox.Text))
-        {
-            foreach (var searchedHero in this.GetLogicalDescendants())
-            {
-                if (searchedHero is HeroButtonView herobtn && herobtn.Classes.Contains("suggestion"))
-                {
-                    herobtn.Classes.Remove("suggestion");
+        var searchText = HeroSearchTextBox.Text?.Trim();
+
+        if (string.IsNullOrEmpty(searchText)) {
+            foreach (var logical in this.GetLogicalDescendants()) {
+                if (logical is HeroButtonView btn && btn.Classes.Contains("searched")) {
+                    btn.Classes.Remove("searched");
                 }
             }
+
             return;
         }
-    
-        var searchText = HeroSearchTextBox.Text.ToLower(); // Приводим текст поиска к нижнему регистру
 
         var searched = ViewModel.HeroesPreSearch
-            .Where(it => it.HeroName.ToLower().Contains(searchText)).ToList();
-        searched = searched.OrderBy(name => name.HeroName).ToList();
-        var heroesAvaloniaList = new AvaloniaList<Hero>();
-        foreach (var item in searched) {
-            heroesAvaloniaList.Add(item);
-        }
-        ViewModel.HeroesPreSearch = heroesAvaloniaList;
-        foreach (var searchedHero in this.GetLogicalDescendants())
+            .Where(it => it.HeroName.Contains(searchText))
+            .ToList();
+
+        foreach (var logical in this.GetLogicalDescendants())
         {
-            if (searchedHero is not HeroButtonView herobtn) continue;
-            if (searched.All(x => x.HeroId != herobtn.HeroId)) {
-                if (herobtn.Classes.Contains("suggestion"))
-                {
-                    herobtn.Classes.Remove("suggestion");
-                }
-                continue;
-            }
-            if (!herobtn.Classes.Contains("searched"))
+            if (logical is HeroButtonView herobtn)
             {
-                herobtn.Classes.Add("searched");
+                if (searched.Any(s => s.HeroName.Contains(herobtn.HeroName)))
+                {
+                    if (!herobtn.Classes.Contains("searched"))
+                    {
+                        herobtn.Classes.Add("searched");
+                    }
+                }
+                else
+                {
+                    herobtn.Classes.Remove("searched");
+                }
             }
         }
+
     }
 }
 

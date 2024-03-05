@@ -32,6 +32,19 @@
             </Style>
         </Style>
         <Style Selector="TextBox.search">
+            <Style.Animations>
+                <Animation PlaybackDirection="Normal"
+                           IterationCount="1"
+                           Duration="0:0:2"
+                           Delay="0:0:2">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
             <Setter Property="Foreground" Value="#DEE4EB" />
             <Setter Property="FontFamily" Value="{StaticResource RadianceBoldFont}" />
             <Setter Property="FontSize" Value="80" />
@@ -175,7 +188,6 @@
         <TextBox x:Name="HeroSearchTextBox"
                  TextChanged="HeroSearchTextBox_OnTextChanged"
                  Classes="search"
-                 Text="SPIRIT BREAKER"
                  ZIndex="1" />
         <dialogHostAvalonia:DialogHost x:Name="ApiValidationDialog"
                                        IsOpen="True"
@@ -278,7 +290,7 @@
                                        Height="100"
                                        DockPanel.Dock="Top"
                                        SelectedItem="{Binding SelectedHero}"
-                                       ItemsSource="{Binding Heroes}"
+                                       ItemsSource="{Binding PlayerHeroes}"
                                        ItemTemplate="{StaticResource HeroSelectorTemplate}">
                     <SelectingItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
