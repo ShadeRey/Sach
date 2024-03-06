@@ -540,7 +540,7 @@
                                               HeroName="VOID SPIRIT"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/void_spirit_icon.png" />
                         <views:HeroButtonView HeroId="21"
-                                              HeroName="WIND RANGER"
+                                              HeroName="WINDRANGER"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/wind_ranger_icon.png" />
                         <views:HeroButtonView HeroId="112"
                                               HeroName="WINTER WYVERN"

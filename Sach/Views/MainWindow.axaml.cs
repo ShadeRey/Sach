@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Avalonia;
-using Avalonia.Collections;
+using Avalonia.Animation;
 using Avalonia.Controls;
-using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.LogicalTree;
-using DynamicData;
-using Microsoft.CodeAnalysis.Scripting.Hosting;
+using Avalonia.Media;
 using Newtonsoft.Json;
 using ReactiveUI;
 using Sach.Models;
@@ -29,8 +26,6 @@ public partial class MainWindow : Window {
         InitializeComponent();
         DataContext = new MainWindowViewModel();
     }
-
-
     public MainWindowViewModel ViewModel => (DataContext as MainWindowViewModel)!;
 
     private void InputElement_OnTapped(object? sender, TappedEventArgs e) {
@@ -110,6 +105,7 @@ public partial class MainWindow : Window {
             }
 
             ApiValidationDialog.IsOpen = false;
+            _isLogin = true;
         }
         else {
             Console.WriteLine("Токен недействителен.");
@@ -144,12 +140,22 @@ public partial class MainWindow : Window {
         this.Close();
     }
 
-    private void InputElement_OnKeyDown(object? sender, KeyEventArgs e) {
-        if (e.Key >= Key.A && e.Key <= Key.Z || e.Key == Key.Back) {
+    private bool _isLogin = false;
+
+    private async void InputElement_OnKeyDown(object? sender, KeyEventArgs e) {
+        if (!_isLogin)
+            return;
+        if (e.Key >= Key.A && e.Key <= Key.Z || e.Key == Key.Back || e.Key == Key.Space) {
             var search = e.Key;
             if (search == Key.Back) {
                 if (HeroSearchTextBox.Text.Length > 0)
                     HeroSearchTextBox.Text = HeroSearchTextBox.Text.Substring(0, HeroSearchTextBox.Text.Length - 1);
+                return;
+            }
+
+            if (search == Key.Space) {
+                if (HeroSearchTextBox.Text.Length > 0)
+                    HeroSearchTextBox.Text += " ";
                 return;
             }
 
@@ -178,24 +184,18 @@ public partial class MainWindow : Window {
             .Where(it => it.HeroName.Contains(searchText))
             .ToList();
 
-        foreach (var logical in this.GetLogicalDescendants())
-        {
-            if (logical is HeroButtonView herobtn)
-            {
-                if (searched.Any(s => s.HeroName.Contains(herobtn.HeroName)))
-                {
-                    if (!herobtn.Classes.Contains("searched"))
-                    {
+        foreach (var logical in this.GetLogicalDescendants()) {
+            if (logical is HeroButtonView herobtn) {
+                if (searched.Any(s => s.HeroName.Contains(herobtn.HeroName))) {
+                    if (!herobtn.Classes.Contains("searched")) {
                         herobtn.Classes.Add("searched");
                     }
                 }
-                else
-                {
+                else {
                     herobtn.Classes.Remove("searched");
                 }
             }
         }
-
     }
 }
 
