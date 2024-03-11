@@ -8,7 +8,6 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.VisualTree;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Sach.Models;
 
 namespace Sach.Views;

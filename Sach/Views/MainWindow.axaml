@@ -7,7 +7,6 @@
         xmlns:models="clr-namespace:Sach.Models"
         xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
         xmlns:sach="clr-namespace:Sach"
-        xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Sach.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -32,20 +31,11 @@
             </Style>
         </Style>
         <Style Selector="TextBox.search">
-            <Style.Animations>
-                <Animation 
-                    PlaybackDirection="Normal"
-                           IterationCount="1"
-                           Duration="0:0:2"
-                           Delay="0:0:2">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="1" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0" />
-                    </KeyFrame>
-                </Animation>
-            </Style.Animations>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Foreground" Duration="0:0:0:2"></BrushTransition>
+                </Transitions>
+            </Setter>
             <Setter Property="Foreground" Value="#DEE4EB" />
             <Setter Property="FontFamily" Value="{StaticResource RadianceBoldFont}" />
             <Setter Property="FontSize" Value="80" />
@@ -189,7 +179,9 @@
         <TextBox x:Name="HeroSearchTextBox"
                  TextChanged="HeroSearchTextBox_OnTextChanged"
                  Classes="search"
-                 ZIndex="1" />
+                 ZIndex="1">
+
+        </TextBox>
         <dialogHostAvalonia:DialogHost x:Name="ApiValidationDialog"
                                        IsOpen="True"
                                        DialogMargin="0"

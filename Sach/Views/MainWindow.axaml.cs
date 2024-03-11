@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Reactive.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Animation;
@@ -14,6 +15,7 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.LogicalTree;
 using Avalonia.Media;
+using Avalonia.Threading;
 using Newtonsoft.Json;
 using ReactiveUI;
 using Sach.Models;
@@ -25,7 +27,10 @@ public partial class MainWindow : Window {
     public MainWindow() {
         InitializeComponent();
         DataContext = new MainWindowViewModel();
+
+        mainColor = HeroSearchTextBox.Foreground;
     }
+
     public MainWindowViewModel ViewModel => (DataContext as MainWindowViewModel)!;
 
     private void InputElement_OnTapped(object? sender, TappedEventArgs e) {
@@ -112,7 +117,7 @@ public partial class MainWindow : Window {
         }
     }
 
-    public async Task<bool> ApiValidation(string apiUrl, string bearerToken) {
+    private async Task<bool> ApiValidation(string apiUrl, string bearerToken) {
         try {
             using (HttpClient httpClient = new HttpClient()) {
                 var request = new HttpRequestMessage(HttpMethod.Get, apiUrl);
@@ -142,6 +147,8 @@ public partial class MainWindow : Window {
 
     private bool _isLogin = false;
 
+    private float textTimer = 0;
+
     private async void InputElement_OnKeyDown(object? sender, KeyEventArgs e) {
         if (!_isLogin)
             return;
@@ -160,6 +167,51 @@ public partial class MainWindow : Window {
             }
 
             HeroSearchTextBox.Text += search.ToString();
+
+            Transitions transitions = new Transitions {
+                new BrushTransition() {
+                    Property = TextBox.ForegroundProperty,
+                    Duration = TimeSpan.FromSeconds(0),
+                }
+            };
+            HeroSearchTextBox.Transitions = transitions;
+
+            if (TimerStarted) {
+                ct.Cancel();
+                ct = new CancellationTokenSource();
+            }
+
+            HeroSearchTextBox.Foreground = mainColor;
+
+            Transitions transitions2 = new Transitions {
+                new BrushTransition() {
+                    Property = TextBox.ForegroundProperty,
+                    Duration = TimeSpan.FromSeconds(1),
+                }
+            };
+            HeroSearchTextBox.Transitions = transitions2;
+
+            await StartTextTimer(ct.Token);
+        }
+    }
+
+    private IBrush? mainColor;
+
+    private CancellationTokenSource ct = new CancellationTokenSource();
+
+    private bool TimerStarted = false;
+
+    private async Task StartTextTimer(CancellationToken token) {
+        try {
+            await Task.Run(async () => {
+                TimerStarted = true;
+                await Task.Delay(TimeSpan.FromSeconds(2), token);
+                Dispatcher.UIThread.Post(() => {
+                    HeroSearchTextBox.Foreground = new SolidColorBrush(Colors.Transparent);
+                });
+            }, token).ConfigureAwait(false);
+        }
+        catch {
         }
     }
 

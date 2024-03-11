@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Avalonia.Collections;
 using Avalonia.Media;
-using DynamicData;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using ReactiveUI;
@@ -24,6 +23,8 @@ public class MainWindowViewModel : ViewModelBase {
         OnHeroButtonClickCommand = ReactiveCommand.Create<Hero>(SetSelectedHeroId);
         OpenUrlCommand = ReactiveCommand.Create<string>(OpenUrl);
     }
+
+    public static TimeSpan opacityTime { get; set; } = new TimeSpan(0, 0, 0, 2);
 
     private AvaloniaList<HeroButtonView> _heroesPreSearch;
 
