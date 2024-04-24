@@ -7,13 +7,14 @@
         xmlns:models="clr-namespace:Sach.Models"
         xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
         xmlns:sach="clr-namespace:Sach"
-        xmlns:system="clr-namespace:System;assembly=System.Runtime"
+        xmlns:controls="clr-namespace:SukiUI.Controls"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Sach.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/sach-logo.ico"
         Title="Sach"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        KeyDown="InputElement_OnKeyDown">
 
     <Design.DataContext>
         <vm:MainWindowViewModel />
@@ -30,7 +31,24 @@
                 <Setter Property="BorderThickness" Value="2" />
             </Style>
         </Style>
-        <Style Selector="TextBox">
+        <Style Selector="TextBox.search">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Foreground" Duration="0:0:0:2"></BrushTransition>
+                </Transitions>
+            </Setter>
+            <Setter Property="Foreground" Value="#DEE4EB" />
+            <Setter Property="FontFamily" Value="{StaticResource RadianceBoldFont}" />
+            <Setter Property="FontSize" Value="80" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="IsEnabled" Value="False" />
+            <Style Selector="^:focus ^:pointerover /template/ Border">
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+        </Style>
+        <Style Selector="TextBox.token">
             <Setter Property="Foreground" Value="#a8aeb0" />
             <Setter Property="FontFamily" Value="{StaticResource RadianceRegularFont}" />
             <Setter Property="FontSize" Value="16" />
@@ -158,118 +176,130 @@
             </Panel>
         </DataTemplate>
     </Window.Resources>
-    <dialogHostAvalonia:DialogHost x:Name="ApiValidationDialog"
-                                   IsOpen="True"
-                                   DialogMargin="0"
-                                   dialogHostAvalonia:DialogHostStyle.BorderBrush="#4b4f4e"
-                                   dialogHostAvalonia:DialogHostStyle.CornerRadius="0">
-        <sach:DialogHostStyleExt.BorderThickness>
-            <Thickness>2</Thickness>
-        </sach:DialogHostStyleExt.BorderThickness>
-        <dialogHostAvalonia:DialogHost.Background>
-            <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
-                <GradientStop Color="#2b3032" Offset="0" />
-                <GradientStop Color="#0c1011" Offset="1.0" />
-            </LinearGradientBrush>
-        </dialogHostAvalonia:DialogHost.Background>
-        <dialogHostAvalonia:DialogHost.DialogContent>
-            <StackPanel Width="450"
-                        Height="250"
-                        Spacing="12">
-                <Button Classes="link"
-                        Content="Введите API Tокен"
-                        Command="{Binding OpenUrlCommand}"
-                        CommandParameter="https://stratz.com/api"
-                        HorizontalAlignment="Center"
-                        Padding="0 30 0 0" />
-                <TextBox x:Name="ApiTextBox"
-                         Watermark="API токен"
-                         CornerRadius="0"
-                         Width="250"
-                         Height="50"
-                         BorderThickness="2"
-                         BorderBrush="#464948"
-                         Background="#000000"
-                         Foreground="#a8aeb0"
-                         FontFamily="{StaticResource RadianceRegularFont}"
-                         VerticalContentAlignment="Center"
-                         HorizontalContentAlignment="Center"
-                         FontSize="16" />
-                <CheckBox x:Name="RememberMeCheckBox"
-                          Content="Запомнить меня"
-                          HorizontalAlignment="Center"
-                          Foreground="#a9adac"
-                          FontFamily="{StaticResource RadianceRegularFont}"
-                          FontSize="16" />
-                <StackPanel HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="15">
-                    <Button x:Name="ConfirmButton"
-                            Click="ConfirmButton_OnClick"
-                            Classes="dotabutton"
-                            Content="ПРИНЯТЬ"
-                            Width="130"
-                            Height="40"
-                            BorderBrush="#626667"
-                            CornerRadius="0"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            FontFamily="{StaticResource RadianceSemiBoldFont}"
-                            Foreground="#fafbfd"
-                            FontSize="17">
-                        <Button.Background>
-                            <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
-                                <GradientStop Color="#242527" Offset="0" />
-                                <GradientStop Color="#40474d" Offset="1" />
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
-                    <Button x:Name="ExitButton"
-                            Click="ExitButton_OnClick"
-                            Classes="dotabutton"
-                            Content="ВЫХОД"
-                            Width="130"
-                            Height="40"
-                            BorderBrush="#626667"
-                            CornerRadius="0"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            FontFamily="{StaticResource RadianceSemiBoldFont}"
-                            Foreground="#fafbfd"
-                            FontSize="17">
-                        <Button.Background>
-                            <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
-                                <GradientStop Color="#242527" Offset="0" />
-                                <GradientStop Color="#40474d" Offset="1" />
-                            </LinearGradientBrush>
-                        </Button.Background>
-                    </Button>
+    <Grid>
+        <controls:Loading IsVisible="{Binding IsVisibleLoading}"
+                          x:Name="Loading"
+                          ZIndex="1" />
+        <TextBox x:Name="HeroSearchTextBox"
+                 TextChanged="HeroSearchTextBox_OnTextChanged"
+                 Classes="search"
+                 ZIndex="1">
+        </TextBox>
+        <dialogHostAvalonia:DialogHost x:Name="ApiValidationDialog"
+                                       IsOpen="True"
+                                       DialogMargin="0"
+                                       dialogHostAvalonia:DialogHostStyle.BorderBrush="#4b4f4e"
+                                       dialogHostAvalonia:DialogHostStyle.CornerRadius="0">
+            <sach:DialogHostStyleExt.BorderThickness>
+                <Thickness>2</Thickness>
+            </sach:DialogHostStyleExt.BorderThickness>
+            <dialogHostAvalonia:DialogHost.Background>
+                <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
+                    <GradientStop Color="#2b3032" Offset="0" />
+                    <GradientStop Color="#0c1011" Offset="1.0" />
+                </LinearGradientBrush>
+            </dialogHostAvalonia:DialogHost.Background>
+            <dialogHostAvalonia:DialogHost.DialogContent>
+                <StackPanel Width="450"
+                            Height="250"
+                            Spacing="12">
+                    <Button Classes="link"
+                            Content="Введите API Tокен"
+                            Command="{Binding OpenUrlCommand}"
+                            CommandParameter="https://stratz.com/api"
+                            HorizontalAlignment="Center"
+                            Padding="0 30 0 0" />
+                    <TextBox x:Name="ApiTextBox"
+                             Classes="token"
+                             Watermark="API токен"
+                             CornerRadius="0"
+                             Width="250"
+                             Height="50"
+                             BorderThickness="2"
+                             BorderBrush="#464948"
+                             Background="#000000"
+                             Foreground="#a8aeb0"
+                             FontFamily="{StaticResource RadianceRegularFont}"
+                             VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Center"
+                             FontSize="16" />
+                    <CheckBox x:Name="RememberMeCheckBox"
+                              Content="Запомнить меня"
+                              HorizontalAlignment="Center"
+                              Foreground="#a9adac"
+                              FontFamily="{StaticResource RadianceRegularFont}"
+                              FontSize="16" />
+                    <StackPanel HorizontalAlignment="Center"
+                                Orientation="Horizontal"
+                                Spacing="15">
+                        <Button x:Name="ConfirmButton"
+                                Click="ConfirmButton_OnClick"
+                                Classes="dotabutton"
+                                Content="ПРИНЯТЬ"
+                                Width="130"
+                                Height="40"
+                                BorderBrush="#626667"
+                                CornerRadius="0"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                FontFamily="{StaticResource RadianceSemiBoldFont}"
+                                Foreground="#fafbfd"
+                                FontSize="17">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
+                                    <GradientStop Color="#242527" Offset="0" />
+                                    <GradientStop Color="#40474d" Offset="1" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button x:Name="ExitButton"
+                                Click="ExitButton_OnClick"
+                                Classes="dotabutton"
+                                Content="ВЫХОД"
+                                Width="130"
+                                Height="40"
+                                BorderBrush="#626667"
+                                CornerRadius="0"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                FontFamily="{StaticResource RadianceSemiBoldFont}"
+                                Foreground="#fafbfd"
+                                FontSize="17">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
+                                    <GradientStop Color="#242527" Offset="0" />
+                                    <GradientStop Color="#40474d" Offset="1" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
-        </dialogHostAvalonia:DialogHost.DialogContent>
-        <DockPanel LastChildFill="True">
-            <DockPanel.Background>
-                <RadialGradientBrush Center="50%, 56%">
-                    <GradientStop Color="#465867" Offset="0" />
-                    <GradientStop Color="#1d2229" Offset="1" />
-                </RadialGradientBrush>
-            </DockPanel.Background>
-            <SelectingItemsControl x:Name="PlayersSelectingItemsControl"
-                                   Height="100"
-                                   DockPanel.Dock="Top"
-                                   SelectedItem="{Binding SelectedHero}"
-                                   ItemsSource="{Binding Heroes}"
-                                   ItemTemplate="{StaticResource HeroSelectorTemplate}">
-                <SelectingItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"
-                                    Spacing="2"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Top" />
-                    </ItemsPanelTemplate>
-                </SelectingItemsControl.ItemsPanel>
-            </SelectingItemsControl>
-            <views:HeroesView DataContext="{Binding $parent.DataContext}" />
-        </DockPanel>
-    </dialogHostAvalonia:DialogHost>
+            </dialogHostAvalonia:DialogHost.DialogContent>
+            <DockPanel LastChildFill="True"
+                       IsEnabled="{Binding IsEnabledHeroView}">
+                <DockPanel.Background>
+                    <RadialGradientBrush Center="50%, 56%">
+                        <GradientStop Color="#465867" Offset="0" />
+                        <GradientStop Color="#1d2229" Offset="1" />
+                    </RadialGradientBrush>
+                </DockPanel.Background>
+                <SelectingItemsControl x:Name="PlayersSelectingItemsControl"
+                                       Height="100"
+                                       DockPanel.Dock="Top"
+                                       SelectedItem="{Binding SelectedHero}"
+                                       ItemsSource="{Binding PlayerHeroes}"
+                                       ItemTemplate="{StaticResource HeroSelectorTemplate}">
+                    <SelectingItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"
+                                        Spacing="2"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top" />
+                        </ItemsPanelTemplate>
+                    </SelectingItemsControl.ItemsPanel>
+                </SelectingItemsControl>
+                <views:HeroesView DataContext="{Binding $parent.DataContext}"/>
+            </DockPanel>
+        </dialogHostAvalonia:DialogHost>
+    </Grid>
 </Window>

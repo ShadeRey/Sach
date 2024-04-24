@@ -1,15 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Primitives;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.VisualTree;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Sach.Models;
+using Sach.ViewModels;
 
 namespace Sach.Views;
 
@@ -64,6 +67,35 @@ public class HeroButtonView : TemplatedControl
         );
 
     public Hero Hero => GetValue(HeroProperty);
+
+    public static readonly StyledProperty<double> RectangleOpacityProperty =
+        AvaloniaProperty.Register<HeroButtonView, double>(nameof(RectangleOpacity));
+
+    public double RectangleOpacity
+    {
+        get => GetValue(RectangleOpacityProperty);
+        set => SetValue(RectangleOpacityProperty, value);
+    }
+
+    protected override async void OnPointerPressed(PointerPressedEventArgs e)
+    {
+        if (e.GetCurrentPoint(null).Properties.IsRightButtonPressed)
+        {
+            if (RectangleOpacity == 0)
+            {
+                RectangleOpacity = 1;
+                MainWindowViewModel.bannedHeroes.Add(HeroId);
+            }
+            else
+            {
+                RectangleOpacity = 0;
+                MainWindowViewModel.bannedHeroes.Remove(HeroId);
+            }
+        }
+
+        await ((App.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime).MainWindow.DataContext as
+            MainWindowViewModel).GetHeroStats();
+    }
 
     public event EventHandler<RoutedEventArgs>? Click
     {

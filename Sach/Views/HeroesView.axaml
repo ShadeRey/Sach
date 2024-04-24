@@ -14,6 +14,13 @@
         <viewModels:MainWindowViewModel />
     </Design.DataContext>
     <UserControl.Styles>
+        <Style Selector="views|HeroButtonView.searched">
+            <Setter Property="BorderThickness" Value="4" />
+            <Style Selector="^ Border">
+                <Setter Property="BorderBrush" Value="Aqua" />
+                <Setter Property="BoxShadow" Value="1 1 10 50 Red" />
+            </Style>
+        </Style>
         <Style Selector="views|HeroButtonView.picked">
             <Setter Property="IsEnabled" Value="False" />
             <Setter Property="Opacity" Value="0.7" />
@@ -80,7 +87,7 @@
             </Style>
         </Style>
     </UserControl.Styles>
-
+    
     <Border>
         <Border.Background>
             <RadialGradientBrush>
@@ -533,7 +540,7 @@
                                               HeroName="VOID SPIRIT"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/void_spirit_icon.png" />
                         <views:HeroButtonView HeroId="21"
-                                              HeroName="WIND RANGER"
+                                              HeroName="WINDRANGER"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/wind_ranger_icon.png" />
                         <views:HeroButtonView HeroId="112"
                                               HeroName="WINTER WYVERN"
@@ -543,13 +550,13 @@
             </StackPanel>
             <WrapPanel Orientation="Horizontal"
                        HorizontalAlignment="Center">
-                <TextBlock Text="Powered by " 
-                           FontFamily="{StaticResource RadianceLightFont}"/>
-                <Image Source="avares://Sach/Assets/stratz.png" 
-                       Height="50" 
+                <TextBlock Text="Powered by "
+                           FontFamily="{StaticResource RadianceLightFont}" />
+                <Image Source="avares://Sach/Assets/stratz.png"
+                       Height="50"
                        Width="50"
-                       Margin="0 -20 0 0"/>
-                <TextBlock Text="STRATZ" FontFamily="{StaticResource RadianceBlackFont}"/>
+                       Margin="0 -20 0 0" />
+                <TextBlock Text="STRATZ" FontFamily="{StaticResource RadianceBlackFont}" />
                 <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceBlackFont}"></TextBlock> -->
                 <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceBoldFont}"></TextBlock> -->
                 <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceLightFont}"></TextBlock> -->
