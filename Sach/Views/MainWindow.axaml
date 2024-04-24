@@ -7,6 +7,7 @@
         xmlns:models="clr-namespace:Sach.Models"
         xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
         xmlns:sach="clr-namespace:Sach"
+        xmlns:controls="clr-namespace:SukiUI.Controls"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Sach.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -176,11 +177,13 @@
         </DataTemplate>
     </Window.Resources>
     <Grid>
+        <controls:Loading IsVisible="{Binding IsVisibleLoading}"
+                          x:Name="Loading"
+                          ZIndex="1" />
         <TextBox x:Name="HeroSearchTextBox"
                  TextChanged="HeroSearchTextBox_OnTextChanged"
                  Classes="search"
                  ZIndex="1">
-
         </TextBox>
         <dialogHostAvalonia:DialogHost x:Name="ApiValidationDialog"
                                        IsOpen="True"
@@ -272,7 +275,8 @@
                     </StackPanel>
                 </StackPanel>
             </dialogHostAvalonia:DialogHost.DialogContent>
-            <DockPanel LastChildFill="True">
+            <DockPanel LastChildFill="True"
+                       IsEnabled="{Binding IsEnabledHeroView}">
                 <DockPanel.Background>
                     <RadialGradientBrush Center="50%, 56%">
                         <GradientStop Color="#465867" Offset="0" />
@@ -294,7 +298,7 @@
                         </ItemsPanelTemplate>
                     </SelectingItemsControl.ItemsPanel>
                 </SelectingItemsControl>
-                <views:HeroesView DataContext="{Binding $parent.DataContext}" />
+                <views:HeroesView DataContext="{Binding $parent.DataContext}"/>
             </DockPanel>
         </dialogHostAvalonia:DialogHost>
     </Grid>

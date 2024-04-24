@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using ReactiveUI;
 using Sach.Models;
 using Sach.Views;
+using SukiUI.Controls;
 using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Sach.ViewModels;
@@ -824,7 +825,26 @@ public class MainWindowViewModel : ViewModelBase {
 
     Dictionary<short, List<Vs>> _dict = new Dictionary<short, List<Vs>>();
 
-    private async Task GetHeroStats() {
+    private bool _isVisibleLoading;
+
+    public bool IsVisibleLoading
+    {
+        get => _isVisibleLoading;
+        set => this.RaiseAndSetIfChanged(ref _isVisibleLoading, value);
+    }
+    
+    private bool _isEnabledHeroView = true;
+
+    public bool IsEnabledHeroView
+    {
+        get => _isEnabledHeroView;
+        set => this.RaiseAndSetIfChanged(ref _isEnabledHeroView, value);
+    }
+
+    public async Task GetHeroStats()
+    {
+        IsVisibleLoading = true;
+        IsEnabledHeroView = false;
         var operationResult = await _stratzApi.HeroStatistics.ExecuteAsync(SelectedHero.HeroId);
         if (operationResult.Data is null) {
             return;
@@ -857,6 +877,9 @@ public class MainWindowViewModel : ViewModelBase {
             // Очистите данные после обработки
             _dict.Clear();
         }
+
+        IsVisibleLoading = false;
+        IsEnabledHeroView = true;
     }
 
     public List<With> Top10Heroes {
@@ -865,7 +888,7 @@ public class MainWindowViewModel : ViewModelBase {
     }
 
     private async Task<List<With>> UpdateTop10Heroes() {
-        var top10Heroes = await GetTop10Heroes();
+        var top10Heroes = await GetTopHeroes();
         await WriteObjectToFileJson(top10Heroes, "top_10_heroes.json");
         return top10Heroes;
     }
@@ -882,12 +905,14 @@ public class MainWindowViewModel : ViewModelBase {
 
         serializer.Serialize(writer, o);
     }
+    
+    public static List<short> bannedHeroes = new List<short>();
 
-    private async Task<List<With>> GetTop10Heroes() {
+    public async Task<List<With>> GetTopHeroes() {
         var selectedAllyHeroes = PlayerHeroes.Where(x => x.IsAlly).ToList();
         var selectedEnemyHeroes = PlayerHeroes.Where(x => x.IsEnemy).ToList();
 
-        var top10Heroes = new List<With>();
+        var topHeroes = new List<With>();
 
         // Получение статистики для героев союзной команды
         var allyHeroesStats = await GetHeroesStats(selectedAllyHeroes);
@@ -907,9 +932,11 @@ public class MainWindowViewModel : ViewModelBase {
         var selectedAllyHeroIds = selectedAllyHeroes.Select(x => x.HeroId);
         var selectedEnemyHeroIds = selectedEnemyHeroes.Select(x => x.HeroId);
         var selectedHeroIds = selectedAllyHeroIds.Concat(selectedEnemyHeroIds);
-        top10Heroes = sortedStats.Where(x => !selectedHeroIds.Contains(x.HeroId2)).Take(5).ToList();
+        var bannedHeroIds = bannedHeroes;
+        var bannedAndSelectedHeroIds = selectedHeroIds.Concat(bannedHeroIds);
+        topHeroes = sortedStats.Where(x => !bannedAndSelectedHeroIds.Contains(x.HeroId2)).Take(5).ToList();
 
-        return top10Heroes;
+        return topHeroes;
     }
 
     private async Task<List<With>> GetHeroesStats(List<Hero> heroes) {

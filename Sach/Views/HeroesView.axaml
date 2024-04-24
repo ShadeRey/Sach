@@ -87,7 +87,7 @@
             </Style>
         </Style>
     </UserControl.Styles>
-
+    
     <Border>
         <Border.Background>
             <RadialGradientBrush>
@@ -557,10 +557,6 @@
                        Width="50"
                        Margin="0 -20 0 0" />
                 <TextBlock Text="STRATZ" FontFamily="{StaticResource RadianceBlackFont}" />
-                <views:HeroButtonView HeroId="112"
-                                      Classes="banned"
-                                      HeroName="WINTER WYVERN"
-                                      HeroIcon="avares://Sach/Assets/HeroIcons/winter_wyvern_icon.png" />
                 <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceBlackFont}"></TextBlock> -->
                 <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceBoldFont}"></TextBlock> -->
                 <!-- <TextBlock Text="Powered by STRATZ" FontFamily="{StaticResource RadianceLightFont}"></TextBlock> -->
