@@ -25,6 +25,9 @@
             <Setter Property="IsEnabled" Value="False" />
             <Setter Property="Opacity" Value="0.7" />
         </Style>
+        <Style Selector="views|HeroButtonView.not_suitable">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
         <Style Selector="views|HeroButtonView.suggestion">
             <Setter Property="BorderThickness" Value="3" />
             <Setter Property="CornerRadius" Value="4" />
@@ -32,8 +35,8 @@
                 <Setter.Value>
                     <LinearGradientBrush>
                         <LinearGradientBrush.GradientStops>
-                            <GradientStop Color="Aqua" Offset="0" />
-                            <GradientStop Color="Brown" Offset="0.5" />
+                            <GradientStop Color="Aqua" Offset="1" />
+                            <GradientStop Color="Brown" Offset="1" />
                         </LinearGradientBrush.GradientStops>
                         <LinearGradientBrush.Transform>
                             <RotateTransform Angle="0" />
@@ -44,19 +47,56 @@
             <Style.Animations>
                 <Animation
                     PlaybackDirection="Reverse"
-                    FillMode="None"
+                    FillMode="Backward"
                     IterationCount="Infinite"
-                    Duration="0:0:2">
+                    Duration="0:0:4">
                     <Animation.Easing>
                         <LinearEasing />
                     </Animation.Easing>
                     <KeyFrame Cue="0%">
                         <Setter Property="BorderBrush">
                             <Setter.Value>
+                                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                                    <GradientStop Offset="1" Color="#18b300" />
+                                    <GradientStop Offset="0.5" Color="#18b300" />
+                                    <GradientStop Offset="0.5" Color="#1bc900" />
+                                    <GradientStop Offset="0" Color="#1bc900" />
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </KeyFrame>
+                    <KeyFrame Cue="25%">
+                        <Setter Property="BorderBrush">
+                            <Setter.Value>
                                 <LinearGradientBrush StartPoint="0%,100%" EndPoint="100%,100%">
-                                    <GradientStop Offset="0" Color="Gold" />
-                                    <GradientStop Offset="0" Color="Chocolate" />
-                                    <GradientStop Offset="1" Color="Gold" />
+                                    <GradientStop Offset="1" Color="#18b300" />
+                                    <GradientStop Offset="0.5" Color="#18b300" />
+                                    <GradientStop Offset="0.5" Color="#1bc900" />
+                                    <GradientStop Offset="0" Color="#1bc900" />
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </KeyFrame>
+                    <KeyFrame Cue="50%">
+                        <Setter Property="BorderBrush">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="100%,100%" EndPoint="100%,0%">
+                                    <GradientStop Offset="1" Color="#18b300" />
+                                    <GradientStop Offset="0.5" Color="#18b300" />
+                                    <GradientStop Offset="0.5" Color="#1bc900" />
+                                    <GradientStop Offset="0" Color="#1bc900" />
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </KeyFrame>
+                    <KeyFrame Cue="75%">
+                        <Setter Property="BorderBrush">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="100%,0%" EndPoint="0%,0%">
+                                    <GradientStop Offset="1" Color="#18b300" />
+                                    <GradientStop Offset="0.5" Color="#18b300" />
+                                    <GradientStop Offset="0.5" Color="#1bc900" />
+                                    <GradientStop Offset="0" Color="#1bc900" />
                                 </LinearGradientBrush>
                             </Setter.Value>
                         </Setter>
@@ -64,10 +104,11 @@
                     <KeyFrame Cue="100%">
                         <Setter Property="BorderBrush">
                             <Setter.Value>
-                                <LinearGradientBrush StartPoint="0%,100%" EndPoint="100%,100%">
-                                    <GradientStop Offset="0" Color="Chocolate" />
-                                    <GradientStop Offset="1" Color="Gold" />
-                                    <GradientStop Offset="1" Color="Chocolate" />
+                                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                                    <GradientStop Offset="1" Color="#18b300" />
+                                    <GradientStop Offset="0.5" Color="#18b300" />
+                                    <GradientStop Offset="0.5" Color="#1bc900" />
+                                    <GradientStop Offset="0" Color="#1bc900" />
                                 </LinearGradientBrush>
                             </Setter.Value>
                         </Setter>
@@ -87,7 +128,7 @@
             </Style>
         </Style>
     </UserControl.Styles>
-    
+
     <Border>
         <Border.Background>
             <RadialGradientBrush>
@@ -100,6 +141,7 @@
             <StackPanel HorizontalAlignment="Center"
                         Orientation="Horizontal"
                         Spacing="30"
+                        Margin="0 10 0 0"
                         DockPanel.Dock="Top">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -191,6 +233,9 @@
                         <views:HeroButtonView HeroId="29"
                                               HeroName="TIDEHUNTER"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/tidehunter_icon.png" />
+                        <views:HeroButtonView HeroId="98"
+                                              HeroName="TIMBERSAW"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/timbersaw_icon.png" />
                         <views:HeroButtonView HeroId="19"
                                               HeroName="TINY"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/tiny_icon.png" />
@@ -524,9 +569,6 @@
                         <views:HeroButtonView HeroId="105"
                                               HeroName="TECHIES"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/techies_icon.png" />
-                        <views:HeroButtonView HeroId="98"
-                                              HeroName="TIMBERSAW"
-                                              HeroIcon="avares://Sach/Assets/HeroIcons/timbersaw_icon.png" />
                         <views:HeroButtonView HeroId="20"
                                               HeroName="VENGEFUL SPIRIT"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/vengeful_spirit_icon.png" />

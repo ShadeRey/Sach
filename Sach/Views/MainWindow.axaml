@@ -278,7 +278,7 @@
             <DockPanel LastChildFill="True"
                        IsEnabled="{Binding IsEnabledHeroView}">
                 <DockPanel.Background>
-                    <RadialGradientBrush Center="50%, 56%">
+                    <RadialGradientBrush Center="50%, 62%">
                         <GradientStop Color="#465867" Offset="0" />
                         <GradientStop Color="#1d2229" Offset="1" />
                     </RadialGradientBrush>

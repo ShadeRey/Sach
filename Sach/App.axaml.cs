@@ -16,7 +16,6 @@ public class App : Application
         AvaloniaXamlLoader.Load(this);
     }
 
-    private string _bearerToken = String.Empty;
     public override void OnFrameworkInitializationCompleted()
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)

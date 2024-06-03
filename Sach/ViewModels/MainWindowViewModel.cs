@@ -867,14 +867,11 @@ public class MainWindowViewModel : ViewModelBase {
                 .OrderByDescending(x => x.Synergy) // Сортировка по синергии
                 .ToList();
 
-            // Выполните дополнительные действия с отсортированными данными, если это необходимо
-
             await WriteObjectToFileJson(sortedStats, $"sorted_stats_{SelectedHero.HeroId}.json");
 
+            TopHeroes = await UpdateTopHeroes();
 
-            Top10Heroes = await UpdateTop10Heroes(); // GetTop10HeroesFromJson("top_10_heroes.json");
-
-            // Очистите данные после обработки
+            // Очисика данных после обработки
             _dict.Clear();
         }
 
@@ -882,15 +879,15 @@ public class MainWindowViewModel : ViewModelBase {
         IsEnabledHeroView = true;
     }
 
-    public List<With> Top10Heroes {
-        get => _top10Heroes;
-        set => this.RaiseAndSetIfChanged(ref _top10Heroes, value);
+    public List<With> TopHeroes {
+        get => _topHeroes;
+        set => this.RaiseAndSetIfChanged(ref _topHeroes, value);
     }
 
-    private async Task<List<With>> UpdateTop10Heroes() {
-        var top10Heroes = await GetTopHeroes();
-        await WriteObjectToFileJson(top10Heroes, "top_10_heroes.json");
-        return top10Heroes;
+    private async Task<List<With>> UpdateTopHeroes() {
+        var topHeroes = await GetTopHeroes();
+        await WriteObjectToFileJson(topHeroes, "top_10_heroes.json");
+        return topHeroes;
     }
 
     private async Task WriteObjectToFileJson(object? o, String filePath) {
@@ -928,7 +925,7 @@ public class MainWindowViewModel : ViewModelBase {
             .OrderByDescending(x => x.Synergy) // Сортировка по синергии
             .ToList();
 
-        // Выбор 10 наилучших героев
+        // Выбор наилучших героев
         var selectedAllyHeroIds = selectedAllyHeroes.Select(x => x.HeroId);
         var selectedEnemyHeroIds = selectedEnemyHeroes.Select(x => x.HeroId);
         var selectedHeroIds = selectedAllyHeroIds.Concat(selectedEnemyHeroIds);
@@ -984,7 +981,7 @@ public class MainWindowViewModel : ViewModelBase {
 
     private IBrush _playerHero;
 
-    private List<With> _top10Heroes;
+    private List<With> _topHeroes;
 
     private static AvaloniaList<Hero> ListInit() {
         var list = new AvaloniaList<Hero>();
