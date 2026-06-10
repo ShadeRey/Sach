@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Reactive.Linq;
 using System.Text;
 using System.Threading;
@@ -16,7 +15,6 @@ using Avalonia.Interactivity;
 using Avalonia.LogicalTree;
 using Avalonia.Media;
 using Avalonia.Threading;
-using Newtonsoft.Json;
 using ReactiveUI;
 using Sach.Models;
 using Sach.ViewModels;
@@ -64,7 +62,7 @@ public partial class MainWindow : Window
             var text = await File.ReadAllTextAsync("apiToken", Encoding.UTF8);
             if (!string.IsNullOrEmpty(text))
             {
-                var token = JsonConvert.DeserializeObject<string>(text);
+                var token = System.Text.Json.JsonSerializer.Deserialize<string>(text);
                 ApiTextBox.Text = token;
             }
         }
@@ -117,18 +115,33 @@ public partial class MainWindow : Window
 
     private async void ConfirmButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        string validApiToken = ApiTextBox.Text;
-        bool isValidToken = await ApiValidation("https://api.stratz.com/graphql", "Bearer " + validApiToken);
+        // ApiTextBox.Text может быть null если пользователь ничего не ввёл
+        var validApiToken = ApiTextBox.Text;
+    
+        if (string.IsNullOrWhiteSpace(validApiToken))
+        {
+            // TODO: показать сообщение об ошибке в UI
+            Console.WriteLine("Токен пустой.");
+            return;
+        }
+
+        ConfirmButton.IsEnabled = false; // блокируем повторный клик
+        ConfirmButton.Content = "Проверка...";
+
+        bool isValidToken = await ApiValidation(validApiToken);
+    
+        ConfirmButton.IsEnabled = true;
+        ConfirmButton.Content = "ПРИНЯТЬ";
+
         if (isValidToken)
         {
             Console.WriteLine("Токен действителен.");
             App.ConnectApi(validApiToken);
             if (RememberMeCheckBox.IsChecked == true)
             {
-                var serializeObject = JsonConvert.SerializeObject(validApiToken);
+                var serializeObject = System.Text.Json.JsonSerializer.Serialize(validApiToken);
                 await File.WriteAllTextAsync("apiToken", serializeObject, Encoding.UTF8);
             }
-
             ApiValidationDialog.IsOpen = false;
             _isLogin = true;
         }
@@ -138,33 +151,49 @@ public partial class MainWindow : Window
         }
     }
 
-    private async Task<bool> ApiValidation(string apiUrl, string bearerToken)
+    private Task<bool> ApiValidation(string apiToken)
     {
+        if (string.IsNullOrWhiteSpace(apiToken))
+            return Task.FromResult(false);
+
+        var parts = apiToken.Trim().Split('.');
+        if (parts.Length != 3)
+            return Task.FromResult(false);
+
         try
         {
-            using (HttpClient httpClient = new HttpClient())
+            foreach (var part in parts)
             {
-                var request = new HttpRequestMessage(HttpMethod.Get, apiUrl);
-                request.Headers.Add("Authorization", bearerToken);
-                var response = await httpClient.SendAsync(request);
-                Console.WriteLine(response.StatusCode.ToString());
-                Console.WriteLine(await response.Content.ReadAsStringAsync());
-                string responseBool = await response.Content.ReadAsStringAsync();
-                if (responseBool ==
-                    "{\"errors\":[{\"message\":\"GraphQL query is missing.\",\"extensions\":{\"code\":\"QUERY_MISSING\",\"codes\":[\"QUERY_MISSING\"]}}]}")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                var padded = part.PadRight(part.Length + (4 - part.Length % 4) % 4, '=')
+                    .Replace('-', '+')
+                    .Replace('_', '/');
+                Convert.FromBase64String(padded);
             }
+
+            var payload = parts[1];
+            var padded2 = payload.PadRight(payload.Length + (4 - payload.Length % 4) % 4, '=')
+                .Replace('-', '+')
+                .Replace('_', '/');
+            var json = Encoding.UTF8.GetString(Convert.FromBase64String(padded2));
+            Console.WriteLine($"Payload токена: {json}");
+
+            var doc = System.Text.Json.JsonDocument.Parse(json);
+            if (doc.RootElement.TryGetProperty("exp", out var exp))
+            {
+                var expTime = DateTimeOffset.FromUnixTimeSeconds(exp.GetInt64());
+                if (expTime < DateTimeOffset.UtcNow)
+                {
+                    Console.WriteLine($"Токен истёк: {expTime}");
+                    return Task.FromResult(false);
+                }
+                Console.WriteLine($"Токен действителен до: {expTime}");
+            }
+
+            return Task.FromResult(true);
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine($"Ошибка: {ex}");
-            return false;
+            return Task.FromResult(false);
         }
     }
 

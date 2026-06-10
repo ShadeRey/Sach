@@ -304,6 +304,9 @@
                         <views:HeroButtonView HeroId="8"
                                               HeroName="JUGGERNAUT"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/juggernaut_icon.png" />
+                        <views:HeroButtonView HeroId="145"
+                                              HeroName="KEZ"
+                                              HeroIcon="avares://Sach/Assets/HeroIcons/winter_wyvern_icon.png" />
                         <views:HeroButtonView HeroId="48"
                                               HeroName="LUNA"
                                               HeroIcon="avares://Sach/Assets/HeroIcons/luna_icon.png" />
