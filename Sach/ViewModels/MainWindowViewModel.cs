@@ -94,6 +94,13 @@ public class MainWindowViewModel : ViewModelBase
             HeroName = "CHAOS KNIGHT",
             HeroIcon = "avares://Sach/Assets/HeroIcons/chaos_knight_icon.png"
         });
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 51,
+            HeroName = "CLOCKWERK",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/clockwerk_icon.png"
+        });
 
         allHeroes.Add(new HeroButtonView
         {
@@ -147,8 +154,15 @@ public class MainWindowViewModel : ViewModelBase
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 23,
-            HeroName = "KUNNKA",
+            HeroName = "KUNKKA",
             HeroIcon = "avares://Sach/Assets/HeroIcons/kunkka_icon.png"
+        });
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 155,
+            HeroName = "LARGO",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/largo_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -163,6 +177,13 @@ public class MainWindowViewModel : ViewModelBase
             HeroId = 54,
             HeroName = "LIFESTEALER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/life_stealer_icon.png"
+        });
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 77,
+            HeroName = "LYCAN",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/lycan_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -191,6 +212,13 @@ public class MainWindowViewModel : ViewModelBase
             HeroId = 57,
             HeroName = "OMNIKNIGHT",
             HeroIcon = "avares://Sach/Assets/HeroIcons/omniknight_icon.png"
+        });
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 110,
+            HeroName = "PHOENIX",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/phoenix_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -233,6 +261,13 @@ public class MainWindowViewModel : ViewModelBase
             HeroId = 29,
             HeroName = "TIDEHUNTER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/tidehunter_icon.png"
+        });
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 98,
+            HeroName = "TIMBERSAW",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/timbersaw_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -283,217 +318,238 @@ public class MainWindowViewModel : ViewModelBase
             HeroName = "ANTI-MAGE",
             HeroIcon = "avares://Sach/Assets/HeroIcons/antimage_icon.png"
         });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 113,
-            HeroName = "ARC WARDEN",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/arc_warden_icon.png"
-        });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 4,
             HeroName = "BLOODSEEKER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/bloodseeker_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 62,
             HeroName = "BOUNTY HUNTER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/bounty_hunter_icon.png"
         });
-
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 61,
+            HeroName = "BROODMOTHER",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/broodmother_icon.png"
+        });
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 56,
             HeroName = "CLINKZ",
             HeroIcon = "avares://Sach/Assets/HeroIcons/clinkz_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 6,
             HeroName = "DROW RANGER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/drow_ranger_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 106,
             HeroName = "EMBER SPIRIT",
             HeroIcon = "avares://Sach/Assets/HeroIcons/ember_spirit_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 41,
             HeroName = "FACELESS VOID",
             HeroIcon = "avares://Sach/Assets/HeroIcons/faceless_void_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 72,
             HeroName = "GYROCOPTER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/gyrocopter_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 123,
             HeroName = "HOODWINK",
             HeroIcon = "avares://Sach/Assets/HeroIcons/hoodwink_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 8,
             HeroName = "JUGGERNAUT",
             HeroIcon = "avares://Sach/Assets/HeroIcons/juggernaut_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 145,
             HeroName = "KEZ",
             HeroIcon = "avares://Sach/Assets/HeroIcons/winter_wyvern_icon.png"
         });
-
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 80,
+            HeroName = "LONE DRUID",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/lone_druid_icon.png"
+        });
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 48,
             HeroName = "LUNA",
             HeroIcon = "avares://Sach/Assets/HeroIcons/luna_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 94,
             HeroName = "MEDUSA",
             HeroIcon = "avares://Sach/Assets/HeroIcons/medusa_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 82,
             HeroName = "MEEPO",
             HeroIcon = "avares://Sach/Assets/HeroIcons/meepo_icon.png"
         });
-
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 9,
+            HeroName = "MIRANA",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/mirana_icon.png"
+        });
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 114,
             HeroName = "MONKEY KING",
             HeroIcon = "avares://Sach/Assets/HeroIcons/monkey_king_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 10,
             HeroName = "MORPHLING",
             HeroIcon = "avares://Sach/Assets/HeroIcons/morphling_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 89,
             HeroName = "NAGA SIREN",
             HeroIcon = "avares://Sach/Assets/HeroIcons/naga_siren_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 44,
             HeroName = "PHANTOM ASSASSIN",
             HeroIcon = "avares://Sach/Assets/HeroIcons/phantom_assassin_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 12,
             HeroName = "PHANTOM LANCER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/phantom_lancer_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 15,
             HeroName = "RAZOR",
             HeroIcon = "avares://Sach/Assets/HeroIcons/razor_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 32,
             HeroName = "RIKI",
             HeroIcon = "avares://Sach/Assets/HeroIcons/riki_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 11,
             HeroName = "SHADOW FIEND",
             HeroIcon = "avares://Sach/Assets/HeroIcons/nevermore_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 93,
             HeroName = "SLARK",
             HeroIcon = "avares://Sach/Assets/HeroIcons/slark_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 35,
             HeroName = "SNIPER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/sniper_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 67,
             HeroName = "SPECTRE",
             HeroIcon = "avares://Sach/Assets/HeroIcons/spectre_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 46,
             HeroName = "TEMPLAR ASSASSIN",
             HeroIcon = "avares://Sach/Assets/HeroIcons/templar_assassin_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 109,
             HeroName = "TERRORBLADE",
             HeroIcon = "avares://Sach/Assets/HeroIcons/terrorblade_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 95,
             HeroName = "TROLL WARLORD",
             HeroIcon = "avares://Sach/Assets/HeroIcons/troll_warlord_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 70,
             HeroName = "URSA",
             HeroIcon = "avares://Sach/Assets/HeroIcons/ursa_icon.png"
         });
-
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 20,
+            HeroName = "VENGEFUL SPIRIT",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/vengeful_spirit_icon.png"
+        });
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 47,
             HeroName = "VIPER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/viper_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 63,
@@ -507,6 +563,13 @@ public class MainWindowViewModel : ViewModelBase
             HeroName = "ANCIENT APPARITION",
             HeroIcon = "avares://Sach/Assets/HeroIcons/ancient_apparition_icon.png"
         });
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 66,
+            HeroName = "CHEN",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/chen_icon.png"
+        });
 
         allHeroes.Add(new HeroButtonView
         {
@@ -514,12 +577,19 @@ public class MainWindowViewModel : ViewModelBase
             HeroName = "CRYSTAL MAIDEN",
             HeroIcon = "avares://Sach/Assets/HeroIcons/crystal_maiden_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
-            HeroId = 43,
-            HeroName = "DEATH PROPHET",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/death_prophet_icon.png"
+            HeroId = 55,
+            HeroName = "DARK SEER",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/dark_seer_icon.png"
+        });
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 119,
+            HeroName = "DARK WILLOW",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/dark_willow_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -541,6 +611,13 @@ public class MainWindowViewModel : ViewModelBase
             HeroId = 121,
             HeroName = "GRIMSTROKE",
             HeroIcon = "avares://Sach/Assets/HeroIcons/grimstroke_icon.png"
+        });
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 74,
+            HeroName = "INVOKER",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/invoker_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -591,119 +668,126 @@ public class MainWindowViewModel : ViewModelBase
             HeroName = "MUERTA",
             HeroIcon = "avares://Sach/Assets/HeroIcons/muerta_icon.png"
         });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 53,
-            HeroName = "NATURE'S PROPHET",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/furion_icon.png"
-        });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 36,
             HeroName = "NECROPHOS",
             HeroIcon = "avares://Sach/Assets/HeroIcons/necrophos_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 111,
             HeroName = "ORACLE",
             HeroIcon = "avares://Sach/Assets/HeroIcons/oracle_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 76,
             HeroName = "OUTWORLD DESTROYER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/obsidian_destroyer_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 13,
             HeroName = "PUCK",
             HeroIcon = "avares://Sach/Assets/HeroIcons/puck_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 45,
             HeroName = "PUGNA",
             HeroIcon = "avares://Sach/Assets/HeroIcons/pugna_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 39,
             HeroName = "QUEEN OF PAIN",
             HeroIcon = "avares://Sach/Assets/HeroIcons/queenofpain_icon.png"
         });
-
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 131,
+            HeroName = "RINGMASTER",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/ringmaster_icon.png"
+        });
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 86,
             HeroName = "RUBICK",
             HeroIcon = "avares://Sach/Assets/HeroIcons/rubick_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 79,
             HeroName = "SHADOW DEMON",
             HeroIcon = "avares://Sach/Assets/HeroIcons/shadow_demon_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 27,
             HeroName = "SHADOW SHAMAN",
             HeroIcon = "avares://Sach/Assets/HeroIcons/shadow_shaman_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 75,
             HeroName = "SILENCER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/silencer_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 101,
             HeroName = "SKYWRATH MAGE",
             HeroIcon = "avares://Sach/Assets/HeroIcons/skywrath_mage_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 17,
             HeroName = "STORM SPIRIT",
             HeroIcon = "avares://Sach/Assets/HeroIcons/storm_spirit_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 34,
             HeroName = "TINKER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/tinker_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 37,
             HeroName = "WARLOCK",
             HeroIcon = "avares://Sach/Assets/HeroIcons/warlock_icon.png"
         });
-
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 112,
+            HeroName = "WINTER WYVERN",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/winter_wyvern_icon.png"
+        });
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 30,
             HeroName = "WITCH DOCTOR",
             HeroIcon = "avares://Sach/Assets/HeroIcons/witch_doctor_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
             HeroId = 22,
@@ -716,6 +800,13 @@ public class MainWindowViewModel : ViewModelBase
             HeroId = 102,
             HeroName = "ABBADON",
             HeroIcon = "avares://Sach/Assets/HeroIcons/abaddon_icon.png"
+        });
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 113,
+            HeroName = "ARC WARDEN",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/arc_warden_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -748,44 +839,16 @@ public class MainWindowViewModel : ViewModelBase
 
         allHeroes.Add(new HeroButtonView
         {
-            HeroId = 61,
-            HeroName = "BROODMOTHER",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/broodmother_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 66,
-            HeroName = "CHEN",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/chen_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 51,
-            HeroName = "CLOCKWERK",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/clockwerk_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 55,
-            HeroName = "DARK SEER",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/dark_seer_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 119,
-            HeroName = "DARK WILLOW",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/dark_willow_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
             HeroId = 50,
             HeroName = "DAZZLE",
             HeroIcon = "avares://Sach/Assets/HeroIcons/dazzle_icon.png"
+        });
+        
+        allHeroes.Add(new HeroButtonView
+        {
+            HeroId = 43,
+            HeroName = "DEATH PROPHET",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/death_prophet_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -797,30 +860,9 @@ public class MainWindowViewModel : ViewModelBase
 
         allHeroes.Add(new HeroButtonView
         {
-            HeroId = 74,
-            HeroName = "INVOKER",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/invoker_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
             HeroId = 91,
             HeroName = "IO",
             HeroIcon = "avares://Sach/Assets/HeroIcons/wisp_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 80,
-            HeroName = "LONE DRUID",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/lone_druid_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 77,
-            HeroName = "LYCAN",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/lycan_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -836,12 +878,12 @@ public class MainWindowViewModel : ViewModelBase
             HeroName = "MARCI",
             HeroIcon = "avares://Sach/Assets/HeroIcons/marci_icon.png"
         });
-
+        
         allHeroes.Add(new HeroButtonView
         {
-            HeroId = 9,
-            HeroName = "MIRANA",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/mirana_icon.png"
+            HeroId = 53,
+            HeroName = "NATURE'S PROPHET",
+            HeroIcon = "avares://Sach/Assets/HeroIcons/furion_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -856,13 +898,6 @@ public class MainWindowViewModel : ViewModelBase
             HeroId = 120,
             HeroName = "PANGOLIER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/pangolier_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 110,
-            HeroName = "PHOENIX",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/phoenix_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -884,20 +919,6 @@ public class MainWindowViewModel : ViewModelBase
             HeroId = 105,
             HeroName = "TECHIES",
             HeroIcon = "avares://Sach/Assets/HeroIcons/techies_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 98,
-            HeroName = "TIMBERSAW",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/timbersaw_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 20,
-            HeroName = "VENGEFUL SPIRIT",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/vengeful_spirit_icon.png"
         });
 
         allHeroes.Add(new HeroButtonView
@@ -926,13 +947,6 @@ public class MainWindowViewModel : ViewModelBase
             HeroId = 21,
             HeroName = "WIND RANGER",
             HeroIcon = "avares://Sach/Assets/HeroIcons/wind_ranger_icon.png"
-        });
-
-        allHeroes.Add(new HeroButtonView
-        {
-            HeroId = 112,
-            HeroName = "WINTER WYVERN",
-            HeroIcon = "avares://Sach/Assets/HeroIcons/winter_wyvern_icon.png"
         });
 
         return allHeroes;

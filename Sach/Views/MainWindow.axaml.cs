@@ -120,7 +120,6 @@ public partial class MainWindow : Window
     
         if (string.IsNullOrWhiteSpace(validApiToken))
         {
-            // TODO: показать сообщение об ошибке в UI
             Console.WriteLine("Токен пустой.");
             return;
         }
