@@ -1,0 +1,23 @@
+# Build outputs
+bin/
+obj/
+
+# Rider
+.idea/
+
+# User-specific
+*.user
+*.suo
+
+# Playwright browsers
+**/playwright/.local-browsers/
+
+# API токен
+apiToken
+
+# Логи
+*.log
+
+# JSON файлы со статистикой
+sorted_stats_*.json
+top_10_heroes.json
